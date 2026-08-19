@@ -12,17 +12,23 @@ import config_manager
 
 TEMPO_LIMITE = 180
 INTERVALO_CONSULTA = 10
-INTERVALO_REEXECUCAO = 1 * 60 * 60 * 1000  # 2 horas em milissegundos
+INTERVALO_REEXECUCAO = 30 * 60 * 1000  # 30 minutos em milissegundos
 CDFORO_FIXO_INSERT = 23
 
 
 class BotReprocessamento:
 
-    def __init__(self, root):
+    def __init__(self, root, parent=None):
 
         self.root = root
-        self.root.title("FIXATOOLS")
-        self.root.geometry("1200x700")
+        self.parent = parent or root
+
+        # Quando executado sozinho, o módulo continua abrindo sua própria
+        # janela. No aplicativo unificado, a interface é montada na aba
+        # recebida pelo chamador.
+        if parent is None:
+            self.root.title("FIXATOOLS - Erro Foro")
+            self.root.geometry("1200x700")
 
         self.total = 0
         self.sucessos = 0
@@ -30,7 +36,7 @@ class BotReprocessamento:
         self.agendamento_automatico_ativo = False
         self.timer_execucao_id = None
 
-        self.frame_topo = tk.Frame(root)
+        self.frame_topo = tk.Frame(self.parent)
         self.frame_topo.pack(fill="x", padx=10, pady=5)
 
         self.btn_config = tk.Button(
@@ -55,14 +61,14 @@ class BotReprocessamento:
         self.btn_agendamento.pack(side="left", padx=10)
 
         self.lbl_total = tk.Label(
-            root,
+            self.parent,
             text="Encontrados: 0",
             font=("Arial", 10, "bold")
         )
         self.lbl_total.pack(pady=5)
 
         self.lbl_sucesso = tk.Label(
-            root,
+            self.parent,
             text="Sucesso: 0",
             fg="green",
             font=("Arial", 10, "bold")
@@ -70,7 +76,7 @@ class BotReprocessamento:
         self.lbl_sucesso.pack()
 
         self.lbl_pendente = tk.Label(
-            root,
+            self.parent,
             text="Pendentes: 0",
             fg="orange",
             font=("Arial", 10, "bold")
@@ -78,14 +84,14 @@ class BotReprocessamento:
         self.lbl_pendente.pack()
 
         self.btn_executar = tk.Button(
-            root,
+            self.parent,
             text="Executar Processo",
             command=self.executar
         )
         self.btn_executar.pack(pady=10)
 
         self.log_text = tk.Text(
-            root,
+            self.parent,
             width=150,
             height=25
         )
@@ -97,12 +103,12 @@ class BotReprocessamento:
         self.log_text.tag_config("normal", foreground="black")
 
         tk.Label(
-            root,
+            self.parent,
             text="SQL Pendentes"
         ).pack()
 
         self.sql_text = tk.Text(
-            root,
+            self.parent,
             width=150,
             height=8
         )
@@ -261,7 +267,7 @@ class BotReprocessamento:
             self._executar_agendada
         )
 
-        self.log("Próxima execução automática agendada para daqui 1h.")
+        self.log("Próxima execução automática agendada para daqui 30 minutos.")
 
     def _executar_agendada(self):
         self.timer_execucao_id = None
@@ -902,7 +908,7 @@ where nuseqintimacao in (
                 self.agendar_proxima_execucao()
 
 
-root = tk.Tk()
-app = BotReprocessamento(root)
-
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = BotReprocessamento(root)
+    root.mainloop()

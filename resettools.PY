@@ -14,12 +14,17 @@ MARCA_UNJ = "-- ==== UNJ01SP (sajptf) ===="
 
 class ResetTool:
 
-    def __init__(self, root):
+    def __init__(self, root, parent=None):
         self.root = root
-        self.root.title("RESETOOLS - Reset em Lote")
-        self.root.geometry("1200x800")
+        self.parent = parent or root
 
-        self.frame_topo = tk.Frame(root)
+        # Mantém a execução independente do módulo e permite reutilizá-lo
+        # como uma aba no aplicativo unificado.
+        if parent is None:
+            self.root.title("FIXATOOLS - Reset em Lote")
+            self.root.geometry("1200x800")
+
+        self.frame_topo = tk.Frame(self.parent)
         self.frame_topo.pack(fill="x", padx=10, pady=5)
 
         self.btn_config = tk.Button(
@@ -30,14 +35,14 @@ class ResetTool:
         self.btn_config.pack(side="left")
 
         tk.Label(
-            root,
+            self.parent,
             text="Idcards (formato: '2R000000FAGIW','2R000000G498H')"
         ).pack(anchor="w", padx=10, pady=(10, 0))
 
-        self.entry_idcards = tk.Text(root, width=140, height=3)
+        self.entry_idcards = tk.Text(self.parent, width=140, height=3)
         self.entry_idcards.pack(fill="x", padx=10, pady=5)
 
-        frame_botoes = tk.Frame(root)
+        frame_botoes = tk.Frame(self.parent)
         frame_botoes.pack(fill="x", padx=10, pady=5)
 
         self.btn_gerar = tk.Button(
@@ -56,15 +61,15 @@ class ResetTool:
         self.btn_executar.pack(side="left", padx=10)
 
         tk.Label(
-            root,
+            self.parent,
             text="SQL gerado (revise/edite antes de executar, se necessário):"
         ).pack(anchor="w", padx=10, pady=(10, 0))
 
-        self.sql_text = tk.Text(root, width=140, height=20)
+        self.sql_text = tk.Text(self.parent, width=140, height=20)
         self.sql_text.pack(fill="both", expand=True, padx=10, pady=5)
 
-        tk.Label(root, text="Log").pack(anchor="w", padx=10)
-        self.log_text = tk.Text(root, width=150, height=12)
+        tk.Label(self.parent, text="Log").pack(anchor="w", padx=10)
+        self.log_text = tk.Text(self.parent, width=150, height=12)
         self.log_text.pack(fill="both", expand=True, padx=10, pady=(0, 10))
 
         self.log_text.tag_config("sucesso", foreground="green")

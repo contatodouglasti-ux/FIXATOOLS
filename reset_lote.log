@@ -1,0 +1,268 @@
+[13/07/2026 15:43:50] Gerando SQL de análise para 1 idcard(s)...
+[13/07/2026 15:46:15] 5 comando(s) gerado(s). Revise antes de executar.
+[13/07/2026 15:49:43] Gerando SQL de análise para 1 idcard(s)...
+[13/07/2026 15:49:46] Bloco efmppeticionamento: 0.24s, 1 linha(s) encontrada(s).
+[13/07/2026 15:49:46] Bloco efmpintimacao: 0.12s, 1 linha(s) encontrada(s).
+[13/07/2026 15:49:46] Bloco efmpexpediente: 0.11s, 1 linha(s) encontrada(s).
+[13/07/2026 15:49:47] Bloco efmppeticaocard: 0.14s, 1 linha(s) encontrada(s).
+[13/07/2026 15:49:47] Bloco efmppeticaoblobdoc: 0.19s, 0 linha(s) encontrada(s).
+[13/07/2026 15:49:47] Bloco efmppetloteitem: 0.11s, 1 linha(s) encontrada(s).
+[13/07/2026 15:49:47] 5 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 15:59:02] Gerando SQL de análise para 1 idcard(s)...
+[13/07/2026 15:59:05] Bloco efmppeticionamento: 0.31s, 1 linha(s) encontrada(s).
+[13/07/2026 15:59:05] Bloco efmpintimacao: 0.12s, 1 linha(s) encontrada(s).
+[13/07/2026 15:59:05] Bloco efmpexpediente: 0.11s, 1 linha(s) encontrada(s).
+[13/07/2026 15:59:05] Bloco efmppeticaocard: 0.12s, 1 linha(s) encontrada(s).
+[13/07/2026 15:59:05] Bloco efmppeticaoblobdoc: 0.17s, 0 linha(s) encontrada(s).
+[13/07/2026 15:59:05] Bloco efmppetloteitem: 0.11s, 1 linha(s) encontrada(s).
+[13/07/2026 15:59:05] 5 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 15:59:58] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:00:03] Bloco efmppeticionamento: 0.24s, 2 linha(s) encontrada(s).
+[13/07/2026 16:00:03] Bloco efmpintimacao: 0.15s, 2 linha(s) encontrada(s).
+[13/07/2026 16:00:04] Bloco efmpexpediente: 0.38s, 2 linha(s) encontrada(s).
+[13/07/2026 16:00:04] Bloco efmppeticaocard: 0.48s, 2 linha(s) encontrada(s).
+[13/07/2026 16:00:04] Bloco efmppeticaoblobdoc: 0.28s, 0 linha(s) encontrada(s).
+[13/07/2026 16:00:05] Bloco efmppetloteitem: 0.36s, 2 linha(s) encontrada(s).
+[13/07/2026 16:00:05] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:08:41] Gerando SQL de análise para 1 idcard(s)...
+[13/07/2026 16:08:43] Bloco efmppeticionamento: 0.23s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:43] Bloco efmpintimacao: 0.11s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:43] Bloco efmpexpediente: 0.12s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:43] Bloco efmppeticaocard: 0.12s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:44] Bloco efmppeticaoblobdoc: 0.18s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:44] Bloco efmppetloteitem: 0.13s, 0 linha(s) encontrada(s).
+[13/07/2026 16:08:44] Nenhum comando gerado para os idcards informados.
+[13/07/2026 16:08:59] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:09:01] Bloco efmppeticionamento: 0.23s, 2 linha(s) encontrada(s).
+[13/07/2026 16:09:01] Bloco efmpintimacao: 0.11s, 2 linha(s) encontrada(s).
+[13/07/2026 16:09:02] Bloco efmpexpediente: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:09:02] Bloco efmppeticaocard: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:09:02] Bloco efmppeticaoblobdoc: 0.20s, 0 linha(s) encontrada(s).
+[13/07/2026 16:09:02] Bloco efmppetloteitem: 0.11s, 2 linha(s) encontrada(s).
+[13/07/2026 16:09:02] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:24:24] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:24:31] Bloco efmppeticionamento: 2.03s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:31] Bloco efmpintimacao: 0.87s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:33] Bloco efmpexpediente: 1.15s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:34] Bloco efmppeticaocard: 0.96s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:35] Bloco efmppeticaoblobdoc: 1.10s, 0 linha(s) encontrada(s).
+[13/07/2026 16:24:35] Bloco efmppetloteitem: 0.68s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:35] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:24:42] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:24:52] Bloco efmppeticionamento: 1.15s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:52] Bloco efmpintimacao: 0.74s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:53] Bloco efmpexpediente: 0.77s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:54] Bloco efmppeticaocard: 0.60s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:54] Bloco efmppeticaoblobdoc: 0.60s, 0 linha(s) encontrada(s).
+[13/07/2026 16:24:55] Bloco efmppetloteitem: 0.65s, 2 linha(s) encontrada(s).
+[13/07/2026 16:24:55] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:25:15] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:25:18] Bloco efmppeticionamento: 0.23s, 2 linha(s) encontrada(s).
+[13/07/2026 16:25:18] Bloco efmpintimacao: 0.11s, 2 linha(s) encontrada(s).
+[13/07/2026 16:25:18] Bloco efmpexpediente: 0.11s, 2 linha(s) encontrada(s).
+[13/07/2026 16:25:19] Bloco efmppeticaocard: 0.11s, 2 linha(s) encontrada(s).
+[13/07/2026 16:25:19] Bloco efmppeticaoblobdoc: 0.41s, 0 linha(s) encontrada(s).
+[13/07/2026 16:25:19] Bloco efmppetloteitem: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:25:19] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:28:26] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:28:31] Bloco efmppeticionamento: 0.28s, 2 linha(s) encontrada(s).
+[13/07/2026 16:28:32] Bloco efmpintimacao: 0.14s, 2 linha(s) encontrada(s).
+[13/07/2026 16:28:32] Bloco efmpexpediente: 0.16s, 2 linha(s) encontrada(s).
+[13/07/2026 16:28:32] Bloco efmppeticaocard: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:28:32] Bloco efmppeticaoblobdoc: 0.22s, 0 linha(s) encontrada(s).
+[13/07/2026 16:28:32] Bloco efmppetloteitem: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:28:32] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:53:54] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:53:56] Bloco efmppeticionamento: 0.24s, 2 linha(s) encontrada(s).
+[13/07/2026 16:53:57] Bloco efmpintimacao: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:53:57] Bloco efmpexpediente: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:53:57] Bloco efmppeticaocard: 0.12s, 2 linha(s) encontrada(s).
+[13/07/2026 16:53:57] Bloco efmppeticaoblobdoc: 0.20s, 0 linha(s) encontrada(s).
+[13/07/2026 16:53:57] Bloco efmppetloteitem: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:53:57] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 16:54:51] Gerando SQL de análise para 2 idcard(s)...
+[13/07/2026 16:54:54] Bloco efmppeticionamento: 0.25s, 2 linha(s) encontrada(s).
+[13/07/2026 16:54:54] Bloco efmpintimacao: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:54:54] Bloco efmpexpediente: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:54:54] Bloco efmppeticaocard: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 16:54:54] Bloco efmppeticaoblobdoc: 0.19s, 0 linha(s) encontrada(s).
+[13/07/2026 16:54:55] Bloco efmppetloteitem: 0.15s, 2 linha(s) encontrada(s).
+[13/07/2026 16:54:55] 10 comando(s) gerado(s) no total. Revise antes de executar.
+[13/07/2026 17:04:45] Gerando SQL para 4 idcard(s)...
+[13/07/2026 17:04:50] Bloco efmppeticionamento: 0.49s, 2 linha(s) encontrada(s).
+[13/07/2026 17:04:50] Bloco efmpintimacao: 0.24s, 2 linha(s) encontrada(s).
+[13/07/2026 17:04:50] Bloco efmpexpediente: 0.23s, 2 linha(s) encontrada(s).
+[13/07/2026 17:04:51] Bloco efmppeticaocard: 0.21s, 2 linha(s) encontrada(s).
+[13/07/2026 17:04:51] Bloco efmppeticaoblobdoc: 0.28s, 0 linha(s) encontrada(s).
+[13/07/2026 17:04:51] Bloco efmppetloteitem: 0.21s, 2 linha(s) encontrada(s).
+[13/07/2026 17:04:51] 10 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[13/07/2026 17:05:54] Gerando SQL para 2 idcard(s)...
+[13/07/2026 17:05:57] Bloco efmppeticionamento: 0.30s, 2 linha(s) encontrada(s).
+[13/07/2026 17:05:57] Bloco efmpintimacao: 0.13s, 2 linha(s) encontrada(s).
+[13/07/2026 17:05:57] Bloco efmpexpediente: 0.15s, 2 linha(s) encontrada(s).
+[13/07/2026 17:05:57] Bloco efmppeticaocard: 0.16s, 2 linha(s) encontrada(s).
+[13/07/2026 17:05:57] Bloco efmppeticaoblobdoc: 0.22s, 0 linha(s) encontrada(s).
+[13/07/2026 17:05:57] Bloco efmppetloteitem: 0.16s, 2 linha(s) encontrada(s).
+[13/07/2026 17:05:57] 10 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[15/07/2026 13:47:40] Gerando SQL para 18 idcard(s)...
+[15/07/2026 13:47:43] Bloco efmppeticionamento: 0.28s, 18 linha(s) encontrada(s).
+[15/07/2026 13:47:43] Bloco efmpintimacao: 0.15s, 18 linha(s) encontrada(s).
+[15/07/2026 13:47:43] Bloco efmpexpediente: 0.14s, 18 linha(s) encontrada(s).
+[15/07/2026 13:47:43] Bloco efmppeticaocard: 0.16s, 18 linha(s) encontrada(s).
+[15/07/2026 13:47:43] Bloco efmppeticaoblobdoc: 0.28s, 0 linha(s) encontrada(s).
+[15/07/2026 13:47:43] Bloco efmppetloteitem: 0.16s, 18 linha(s) encontrada(s).
+[15/07/2026 13:47:43] 90 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[15/07/2026 18:43:26] Gerando SQL para 4 idcard(s)...
+[15/07/2026 18:43:28] Bloco efmppeticionamento: 0.24s, 0 linha(s) encontrada(s).
+[15/07/2026 18:43:28] Bloco efmpintimacao: 0.13s, 4 linha(s) encontrada(s).
+[15/07/2026 18:43:28] Bloco efmpexpediente: 0.11s, 1 linha(s) encontrada(s).
+[15/07/2026 18:43:28] Bloco efmppeticaocard: 0.13s, 1 linha(s) encontrada(s).
+[15/07/2026 18:43:29] Bloco efmppeticaoblobdoc: 0.19s, 0 linha(s) encontrada(s).
+[15/07/2026 18:43:29] Bloco efmppetloteitem: 0.13s, 1 linha(s) encontrada(s).
+[15/07/2026 18:43:29] 7 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[15/07/2026 18:48:38] Gerando SQL para 4 idcard(s)...
+[15/07/2026 18:48:40] Falha ao conectar ao banco (sigsp).
+[16/07/2026 13:21:03] Gerando SQL para 1 idcard(s)...
+[16/07/2026 13:21:06] Bloco efmppeticionamento: 0.28s, 0 linha(s) encontrada(s).
+[16/07/2026 13:21:06] Bloco efmpintimacao: 0.24s, 0 linha(s) encontrada(s).
+[16/07/2026 13:21:06] Bloco efmpexpediente: 0.14s, 1 linha(s) encontrada(s).
+[16/07/2026 13:21:06] Bloco efmppeticaocard: 0.14s, 1 linha(s) encontrada(s).
+[16/07/2026 13:21:07] Bloco efmppeticaoblobdoc: 0.22s, 1 linha(s) encontrada(s).
+[16/07/2026 13:21:07] Bloco efmppetloteitem: 0.14s, 1 linha(s) encontrada(s).
+[16/07/2026 13:21:07] 4 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[30/07/2026 12:10:55] Gerando SQL para 1 idcard(s)...
+[30/07/2026 12:10:58] Bloco efmppeticionamento: 0.28s, 0 linha(s) encontrada(s).
+[30/07/2026 12:10:58] Bloco efmpintimacao: 0.14s, 1 linha(s) encontrada(s).
+[30/07/2026 12:10:58] Bloco efmpexpediente: 0.14s, 1 linha(s) encontrada(s).
+[30/07/2026 12:10:58] Bloco efmppeticaocard: 0.14s, 0 linha(s) encontrada(s).
+[30/07/2026 12:10:58] Bloco efmppeticaoblobdoc: 0.21s, 0 linha(s) encontrada(s).
+[30/07/2026 12:10:58] Bloco efmppetloteitem: 0.14s, 0 linha(s) encontrada(s).
+[30/07/2026 12:10:58] 2 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[31/07/2026 13:42:22] Gerando SQL para 6 idcard(s)...
+[31/07/2026 13:42:25] Bloco efmppeticionamento: 0.27s, 6 linha(s) encontrada(s).
+[31/07/2026 13:42:25] Bloco efmpintimacao: 0.16s, 6 linha(s) encontrada(s).
+[31/07/2026 13:42:25] Bloco efmpexpediente: 0.13s, 6 linha(s) encontrada(s).
+[31/07/2026 13:42:25] Bloco efmppeticaocard: 0.14s, 6 linha(s) encontrada(s).
+[31/07/2026 13:42:26] Bloco efmppeticaoblobdoc: 0.22s, 0 linha(s) encontrada(s).
+[31/07/2026 13:42:26] Bloco efmppetloteitem: 0.15s, 6 linha(s) encontrada(s).
+[31/07/2026 13:42:26] 30 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[31/07/2026 13:48:18] Executando 30 comando(s) no sigsp...
+[31/07/2026 13:48:18] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15194955';
+[31/07/2026 13:48:18] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15194971';
+[31/07/2026 13:48:18] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15195000';
+[31/07/2026 13:48:19] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15195087';
+[31/07/2026 13:48:19] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15195111';
+[31/07/2026 13:48:19] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15195220';
+[31/07/2026 13:48:19] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27625281;
+[31/07/2026 13:48:19] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27628692;
+[31/07/2026 13:48:19] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27629030;
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27630067;
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27630078;
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27673634;
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042881';
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042910';
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042919';
+[31/07/2026 13:48:20] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042950';
+[31/07/2026 13:48:21] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042960';
+[31/07/2026 13:48:21] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042992';
+[31/07/2026 13:48:21] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15194955 AND idcard='2R000000GJFN0';
+[31/07/2026 13:48:21] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15194971 AND idcard='2R000000GJI9M';
+[31/07/2026 13:48:21] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15195000 AND idcard='2R000000GJIJ2';
+[31/07/2026 13:48:21] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15195087 AND idcard='2R000000GJJBV';
+[31/07/2026 13:48:22] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15195111 AND idcard='2R000000GJJC7';
+[31/07/2026 13:48:22] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15195220 AND idcard='2R000000GKH1N';
+[31/07/2026 13:48:22] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099646';
+[31/07/2026 13:48:22] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099666';
+[31/07/2026 13:48:22] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099695';
+[31/07/2026 13:48:22] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099771';
+[31/07/2026 13:48:22] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099794';
+[31/07/2026 13:48:23] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11099898';
+[31/07/2026 13:48:23] sigsp finalizado. 30 OK / 0 erro(s).
+[31/07/2026 13:48:25] Executando ajuste em sajptf.eptftarefa...
+[31/07/2026 13:48:26] sajptf.eptftarefa atualizado. Linhas afetadas: 6.
+[31/07/2026 13:55:20] Gerando SQL para 2 idcard(s)...
+[31/07/2026 13:55:23] Bloco efmppeticionamento: 0.28s, 2 linha(s) encontrada(s).
+[31/07/2026 13:55:23] Bloco efmpintimacao: 0.13s, 2 linha(s) encontrada(s).
+[31/07/2026 13:55:23] Bloco efmpexpediente: 0.14s, 2 linha(s) encontrada(s).
+[31/07/2026 13:55:23] Bloco efmppeticaocard: 0.13s, 2 linha(s) encontrada(s).
+[31/07/2026 13:55:23] Bloco efmppeticaoblobdoc: 0.20s, 0 linha(s) encontrada(s).
+[31/07/2026 13:55:23] Bloco efmppetloteitem: 0.13s, 2 linha(s) encontrada(s).
+[31/07/2026 13:55:23] 10 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[31/07/2026 13:55:30] Executando 10 comando(s) no sigsp...
+[31/07/2026 13:55:30] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15207983';
+[31/07/2026 13:55:30] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15207996';
+[31/07/2026 13:55:30] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27629030;
+[31/07/2026 13:55:30] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27630067;
+[31/07/2026 13:55:31] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042919';
+[31/07/2026 13:55:31] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16042950';
+[31/07/2026 13:55:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15207983 AND idcard='2R000000GJIJ2';
+[31/07/2026 13:55:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15207996 AND idcard='2R000000GJJBV';
+[31/07/2026 13:55:31] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11112219';
+[31/07/2026 13:55:31] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11112233';
+[31/07/2026 13:55:31] sigsp finalizado. 10 OK / 0 erro(s).
+[31/07/2026 13:55:33] Executando ajuste em sajptf.eptftarefa...
+[31/07/2026 13:55:34] sajptf.eptftarefa atualizado. Linhas afetadas: 2.
+[31/07/2026 18:06:42] Gerando SQL para 8 idcard(s)...
+[31/07/2026 18:06:45] Bloco efmppeticionamento: 0.26s, 8 linha(s) encontrada(s).
+[31/07/2026 18:06:45] Bloco efmpintimacao: 0.12s, 8 linha(s) encontrada(s).
+[31/07/2026 18:06:45] Bloco efmpexpediente: 0.12s, 8 linha(s) encontrada(s).
+[31/07/2026 18:06:45] Bloco efmppeticaocard: 0.12s, 8 linha(s) encontrada(s).
+[31/07/2026 18:06:46] Bloco efmppeticaoblobdoc: 0.23s, 0 linha(s) encontrada(s).
+[31/07/2026 18:06:46] Bloco efmppetloteitem: 0.13s, 8 linha(s) encontrada(s).
+[31/07/2026 18:06:46] 40 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[31/07/2026 18:08:27] Executando 40 comando(s) no sigsp...
+[31/07/2026 18:08:27] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15212237';
+[31/07/2026 18:08:27] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15212263';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15212430';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15212897';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15212915';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15215357';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15215381';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15215431';
+[31/07/2026 18:08:28] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27678385;
+[31/07/2026 18:08:28] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27678714;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27691326;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27704822;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27706134;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27709985;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27712878;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=27719158;
+[31/07/2026 18:08:29] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16070670';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16070373';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16072432';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16070883';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16072392';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16072504';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16072490';
+[31/07/2026 18:08:30] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16072418';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15212237 AND idcard='2R000000GKKQ7';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15212263 AND idcard='2R000000GKKZD';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15212430 AND idcard='2R000000GKUSG';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15212897 AND idcard='2R000000GL580';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15212915 AND idcard='2R000000GL68F';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15215357 AND idcard='2R000000GL97W';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15215381 AND idcard='2R000000GLBGD';
+[31/07/2026 18:08:31] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15215431 AND idcard='2R000000GLGBE';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11116302';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11116327';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11116493';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11116957';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11116975';
+[31/07/2026 18:08:32] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11119295';
+[31/07/2026 18:08:33] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11119319';
+[31/07/2026 18:08:33] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11119366';
+[31/07/2026 18:08:33] sigsp finalizado. 40 OK / 0 erro(s).
+[31/07/2026 18:08:35] Executando ajuste em sajptf.eptftarefa...
+[31/07/2026 18:08:38] sajptf.eptftarefa atualizado. Linhas afetadas: 8.
+[06/08/2026 14:16:51] Gerando SQL para 8 idcard(s)...
+[06/08/2026 14:16:54] Bloco efmppeticionamento: 0.33s, 8 linha(s) encontrada(s).
+[06/08/2026 14:16:54] Bloco efmpintimacao: 0.16s, 8 linha(s) encontrada(s).
+[06/08/2026 14:16:54] Bloco efmpexpediente: 0.15s, 8 linha(s) encontrada(s).
+[06/08/2026 14:16:55] Bloco efmppeticaocard: 0.16s, 8 linha(s) encontrada(s).
+[06/08/2026 14:16:55] Bloco efmppeticaoblobdoc: 0.26s, 0 linha(s) encontrada(s).
+[06/08/2026 14:16:55] Bloco efmppetloteitem: 0.19s, 8 linha(s) encontrada(s).
+[06/08/2026 14:16:55] 40 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[17/08/2026 16:47:30] Gerando SQL para 1 idcard(s)...
+[17/08/2026 16:47:30] Falha ao conectar ao banco (sigsp).
+[17/08/2026 16:47:44] Gerando SQL para 1 idcard(s)...
+[17/08/2026 16:47:44] Falha ao conectar ao banco (sigsp).

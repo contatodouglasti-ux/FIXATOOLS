@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import ttk, messagebox
 from threading import Thread
 from datetime import datetime
 import time
@@ -7,6 +7,7 @@ import time
 from connectionSP import conectar as conectar_sp
 from connectionSPunj import conectar as conectar_unj
 import config_manager
+from ui_helpers import aplicar_tema, COLORS
 
 MARCA_SIGSP = "-- ==== SIGSP (saj) ===="
 MARCA_UNJ = "-- ==== UNJ01SP (sajptf) ===="
@@ -23,58 +24,150 @@ class ResetTool:
         if parent is None:
             self.root.title("FIXATOOLS - Reset em Lote")
             self.root.geometry("1200x800")
+            aplicar_tema(self.root)
 
-        self.frame_topo = tk.Frame(self.parent)
-        self.frame_topo.pack(fill="x", padx=10, pady=5)
+        self.main_frame = ttk.Frame(
+            self.parent,
+            style="App.TFrame",
+            padding=(16, 14, 16, 12),
+        )
+        self.main_frame.pack(fill="both", expand=True)
 
-        self.btn_config = tk.Button(
+        cabecalho = ttk.Frame(self.main_frame, style="App.TFrame")
+        cabecalho.pack(fill="x", pady=(0, 10))
+        ttk.Label(
+            cabecalho,
+            text="Reset em Lote",
+            style="Title.TLabel",
+        ).pack(anchor="w")
+        ttk.Label(
+            cabecalho,
+            text="Gere, revise e execute os comandos para os idcards informados.",
+            style="Subtitle.TLabel",
+        ).pack(anchor="w", pady=(2, 0))
+
+        self.frame_topo = ttk.Frame(
+            self.main_frame,
+            style="Toolbar.TFrame",
+            padding=8,
+        )
+        self.frame_topo.pack(fill="x", pady=(0, 10))
+
+        self.btn_config = ttk.Button(
             self.frame_topo,
             text="⚙ Configurações",
-            command=self.abrir_configuracoes
+            command=self.abrir_configuracoes,
+            style="Secondary.TButton",
         )
         self.btn_config.pack(side="left")
 
-        tk.Label(
-            self.parent,
-            text="Idcards (formato: '2R000000FAGIW','2R000000G498H')"
-        ).pack(anchor="w", padx=10, pady=(10, 0))
+        entrada_frame = ttk.LabelFrame(
+            self.main_frame,
+            text="Idcards para reset",
+            style="Card.TLabelframe",
+            padding=10,
+        )
+        entrada_frame.pack(fill="x", pady=(0, 10))
+        ttk.Label(
+            entrada_frame,
+            text="Informe os idcards separados por vírgula. Exemplo: '2R000000FAGIW','2R000000G498H'",
+            style="Hint.TLabel",
+        ).pack(anchor="w", pady=(0, 6))
 
-        self.entry_idcards = tk.Text(self.parent, width=140, height=3)
-        self.entry_idcards.pack(fill="x", padx=10, pady=5)
+        self.entry_idcards = tk.Text(
+            entrada_frame,
+            width=140,
+            height=3,
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            insertbackground=COLORS["text"],
+            font=("Consolas", 9),
+        )
+        self.entry_idcards.pack(fill="x")
 
-        frame_botoes = tk.Frame(self.parent)
-        frame_botoes.pack(fill="x", padx=10, pady=5)
+        frame_botoes = ttk.Frame(self.main_frame, style="App.TFrame")
+        frame_botoes.pack(fill="x", pady=(0, 10))
 
-        self.btn_gerar = tk.Button(
+        self.btn_gerar = ttk.Button(
             frame_botoes,
             text="1) Gerar SQL (reset SAJ + ajuste sajptf)",
-            command=self.gerar_sql
+            command=self.gerar_sql,
+            style="Secondary.TButton",
         )
         self.btn_gerar.pack(side="left")
 
-        self.btn_executar = tk.Button(
+        self.btn_executar = ttk.Button(
             frame_botoes,
             text="2) Executar SQL Gerado",
             command=self.executar_sql,
-            state="disabled"
+            state="disabled",
+            style="Primary.TButton",
         )
         self.btn_executar.pack(side="left", padx=10)
 
-        tk.Label(
-            self.parent,
-            text="SQL gerado (revise/edite antes de executar, se necessário):"
-        ).pack(anchor="w", padx=10, pady=(10, 0))
+        sql_frame = ttk.LabelFrame(
+            self.main_frame,
+            text="SQL gerado (revise ou edite antes de executar)",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        sql_frame.pack(fill="both", expand=True, pady=(0, 10))
+        sql_frame.columnconfigure(0, weight=1)
+        sql_frame.rowconfigure(0, weight=1)
 
-        self.sql_text = tk.Text(self.parent, width=140, height=20)
-        self.sql_text.pack(fill="both", expand=True, padx=10, pady=5)
+        self.sql_text = tk.Text(
+            sql_frame,
+            width=140,
+            height=16,
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            insertbackground=COLORS["text"],
+            font=("Consolas", 9),
+        )
+        self.sql_text.grid(row=0, column=0, sticky="nsew")
+        sql_scroll = ttk.Scrollbar(sql_frame, orient="vertical", command=self.sql_text.yview)
+        sql_scroll.grid(row=0, column=1, sticky="ns")
+        self.sql_text.configure(yscrollcommand=sql_scroll.set)
 
-        tk.Label(self.parent, text="Log").pack(anchor="w", padx=10)
-        self.log_text = tk.Text(self.parent, width=150, height=12)
-        self.log_text.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        log_frame = ttk.LabelFrame(
+            self.main_frame,
+            text="Log",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        log_frame.pack(fill="both", expand=True)
+        log_frame.columnconfigure(0, weight=1)
+        log_frame.rowconfigure(0, weight=1)
 
-        self.log_text.tag_config("sucesso", foreground="green")
-        self.log_text.tag_config("erro", foreground="red")
-        self.log_text.tag_config("normal", foreground="black")
+        self.log_text = tk.Text(
+            log_frame,
+            width=150,
+            height=9,
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            insertbackground=COLORS["text"],
+            font=("Consolas", 9),
+        )
+        self.log_text.grid(row=0, column=0, sticky="nsew")
+        log_scroll = ttk.Scrollbar(log_frame, orient="vertical", command=self.log_text.yview)
+        log_scroll.grid(row=0, column=1, sticky="ns")
+        self.log_text.configure(yscrollcommand=log_scroll.set)
+
+        self.log_text.tag_config("sucesso", foreground=COLORS["success_text"])
+        self.log_text.tag_config("erro", foreground="#b91c1c")
+        self.log_text.tag_config("normal", foreground="#334155")
 
     # ------------------------------------------------------------------
     # LOG

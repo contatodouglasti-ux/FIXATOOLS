@@ -5,6 +5,7 @@ from tkinter import ttk
 
 from erroForo import BotReprocessamento
 from resettools import ResetTool
+from ui_helpers import aplicar_tema
 
 
 def main():
@@ -13,27 +14,28 @@ def main():
     root.geometry("1280x820")
     root.minsize(1000, 650)
 
-    style = ttk.Style(root)
-    try:
-        style.theme_use("clam")
-    except tk.TclError:
-        pass
+    aplicar_tema(root)
 
-    cabecalho = ttk.Frame(root, padding=(12, 10, 12, 4))
+    cabecalho = ttk.Frame(
+        root,
+        style="App.TFrame",
+        padding=(16, 14, 16, 4),
+    )
     cabecalho.pack(fill="x")
     ttk.Label(
         cabecalho,
         text="FIXATOOLS",
-        font=("Segoe UI", 16, "bold"),
+        style="Title.TLabel",
     ).pack(side="left")
     ttk.Label(
         cabecalho,
         text="Ferramentas de reprocessamento e reset",
+        style="Subtitle.TLabel",
         padding=(12, 4, 0, 0),
     ).pack(side="left")
 
     notebook = ttk.Notebook(root)
-    notebook.pack(fill="both", expand=True, padx=8, pady=(4, 8))
+    notebook.pack(fill="both", expand=True, padx=12, pady=(4, 8))
 
     aba_erro_foro = ttk.Frame(notebook)
     aba_reset = ttk.Frame(notebook)
@@ -48,6 +50,7 @@ def main():
     ttk.Label(
         root,
         text="As credenciais são compartilhadas entre as duas ferramentas.",
+        style="Status.TLabel",
         padding=(12, 0, 12, 6),
     ).pack(anchor="w")
 

@@ -83,6 +83,19 @@ def aplicar_tema(root):
         font=("Segoe UI", 10, "bold"),
         padding=(12, 10),
     )
+    for nome, fundo, texto in (
+        ("Wait", "#f1f5f9", "#475569"),
+        ("Running", "#eff6ff", "#1d4ed8"),
+        ("Ok", "#ecfdf5", "#047857"),
+        ("Error", "#fef2f2", "#b91c1c"),
+    ):
+        style.configure(
+            f"BI{nome}.TLabel",
+            background=fundo,
+            foreground=texto,
+            font=("Segoe UI", 10, "bold"),
+            padding=(12, 10),
+        )
     style.configure(
         "Primary.TButton",
         padding=(14, 8),
@@ -121,6 +134,26 @@ def aplicar_tema(root):
         background=COLORS["background"],
         foreground=COLORS["muted"],
         font=("Segoe UI", 8),
+    )
+    style.configure(
+        "Treeview",
+        background=COLORS["surface"],
+        fieldbackground=COLORS["surface"],
+        foreground=COLORS["text"],
+        rowheight=26,
+        font=("Segoe UI", 9),
+    )
+    style.configure(
+        "Treeview.Heading",
+        background="#eaf0f7",
+        foreground=COLORS["text"],
+        font=("Segoe UI", 9, "bold"),
+        padding=(6, 6),
+    )
+    style.map(
+        "Treeview",
+        background=[("selected", "#dbeafe")],
+        foreground=[("selected", COLORS["text"])],
     )
 
     root.configure(background=COLORS["background"])

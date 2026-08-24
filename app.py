@@ -8,7 +8,15 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import messagebox, scrolledtext, ttk
 
-from coleta_bi import processar
+try:
+    from coleta_bi import processar
+    PROCESSAR_IMPORT_ERROR = None
+except ModuleNotFoundError as exc:
+    # A interface continua disponível no FIXATOOLS mesmo quando as
+    # dependências exclusivas do BI ainda não foram instaladas.
+    processar = None
+    PROCESSAR_IMPORT_ERROR = exc
+from ui_helpers import aplicar_tema, COLORS
 
 
 BASE_DIR = Path(__file__).parent
@@ -77,13 +85,11 @@ def proxima_hora_cheia(dt):
     return base + timedelta(hours=1)
 
 
-class AppBI(tk.Tk):
-    def __init__(self):
-        super().__init__()
+class AppBI(ttk.Frame):
+    """Interface do Coletor BI, reutilizável como aba ou janela independente."""
 
-        self.title("Coletor BI")
-        self.geometry("1200x780")
-        self.minsize(1100, 700)
+    def __init__(self, parent):
+        super().__init__(parent, style="App.TFrame")
 
         self.queue = queue.Queue()
         self.auto_stop = threading.Event()
@@ -96,17 +102,33 @@ class AppBI(tk.Tk):
         self.refresh_logs()
         self.after(200, self._processar_fila)
 
-        self.protocol("WM_DELETE_WINDOW", self._fechar)
-
     def _criar_widgets(self):
-        container = ttk.Frame(self, padding=12)
+        container = ttk.Frame(
+            self,
+            style="App.TFrame",
+            padding=(16, 14, 16, 12),
+        )
         container.pack(fill="both", expand=True)
 
-        titulo = ttk.Label(container, text="Coletor BI", font=("Segoe UI", 18, "bold"))
-        titulo.pack(anchor="w", pady=(0, 12))
+        titulo = ttk.Label(
+            container,
+            text="Coletor BI",
+            style="Title.TLabel",
+        )
+        titulo.pack(anchor="w")
+        ttk.Label(
+            container,
+            text="MPCE por lotação e MPSP por total geral, publicados no Supabase.",
+            style="Subtitle.TLabel",
+        ).pack(anchor="w", pady=(2, 10))
 
         # ===== Consulta manual =====
-        frame_manual = ttk.LabelFrame(container, text="Consulta manual", padding=10)
+        frame_manual = ttk.LabelFrame(
+            container,
+            text="Consulta manual",
+            style="Card.TLabelframe",
+            padding=10,
+        )
         frame_manual.pack(fill="x", pady=(0, 10))
 
         ttk.Label(frame_manual, text="Início (YYYY-MM-DD HH:MM:SS)").grid(row=0, column=0, sticky="w")
@@ -134,7 +156,12 @@ class AppBI(tk.Tk):
         )
 
         # ===== Automático =====
-        frame_auto = ttk.LabelFrame(container, text="Modo automático", padding=10)
+        frame_auto = ttk.LabelFrame(
+            container,
+            text="Modo automático",
+            style="Card.TLabelframe",
+            padding=10,
+        )
         frame_auto.pack(fill="x", pady=(0, 10))
 
         self.auto_var = tk.BooleanVar(value=False)
@@ -152,15 +179,67 @@ class AppBI(tk.Tk):
         ttk.Label(frame_auto, textvariable=self.status_auto_var).grid(row=1, column=0, sticky="w", pady=(8, 0))
         ttk.Label(frame_auto, textvariable=self.proxima_auto_var).grid(row=2, column=0, sticky="w")
 
+        # ===== Status por cliente =====
+        frame_status = ttk.LabelFrame(
+            container,
+            text="Status por cliente",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        frame_status.pack(fill="x", pady=(0, 10))
+        frame_status.columnconfigure(0, weight=1)
+        frame_status.columnconfigure(1, weight=1)
+
+        self.status_mpce_var = tk.StringVar(value="MPCE — aguardando execução")
+        self.status_mpsp_var = tk.StringVar(value="MPSP — aguardando execução")
+
+        self.status_mpce_label = ttk.Label(
+            frame_status,
+            textvariable=self.status_mpce_var,
+            style="BIWait.TLabel",
+            anchor="w",
+        )
+        self.status_mpce_label.grid(row=0, column=0, sticky="ew", padx=(0, 5))
+
+        self.status_mpsp_label = ttk.Label(
+            frame_status,
+            textvariable=self.status_mpsp_var,
+            style="BIWait.TLabel",
+            anchor="w",
+        )
+        self.status_mpsp_label.grid(row=0, column=1, sticky="ew", padx=(5, 0))
+
         # ===== Saída =====
-        frame_saida = ttk.LabelFrame(container, text="Saída", padding=10)
+        frame_saida = ttk.LabelFrame(
+            container,
+            text="Saída",
+            style="Card.TLabelframe",
+            padding=10,
+        )
         frame_saida.pack(fill="both", expand=False, pady=(0, 10))
 
-        self.txt_saida = scrolledtext.ScrolledText(frame_saida, height=10, wrap="word")
+        self.txt_saida = scrolledtext.ScrolledText(
+            frame_saida,
+            height=8,
+            wrap="word",
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            insertbackground=COLORS["text"],
+            font=("Consolas", 9),
+        )
         self.txt_saida.pack(fill="both", expand=True)
 
         # ===== Logs =====
-        frame_logs = ttk.LabelFrame(container, text="Logs salvos em SQLite", padding=10)
+        frame_logs = ttk.LabelFrame(
+            container,
+            text="Logs salvos no SQLite local do BI",
+            style="Card.TLabelframe",
+            padding=10,
+        )
         frame_logs.pack(fill="both", expand=True)
 
         colunas = ("id", "tipo", "inicio", "fim", "status", "detalhes", "criado_em")
@@ -183,7 +262,12 @@ class AppBI(tk.Tk):
         self.tree.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-        ttk.Button(container, text="Atualizar logs", command=self.refresh_logs).pack(anchor="e", pady=(8, 0))
+        ttk.Button(
+            container,
+            text="Atualizar logs",
+            command=self.refresh_logs,
+            style="Secondary.TButton",
+        ).pack(anchor="e", pady=(8, 0))
 
     def escrever_saida(self, texto):
         self.txt_saida.insert("end", texto + "\n")
@@ -282,8 +366,69 @@ class AppBI(tk.Tk):
             if inicio and inicio < fim:
                 self._executar_job("automatico", inicio, fim, True)
 
+    @staticmethod
+    def _resumir_clientes(resultados):
+        """Cria um resumo legível e separado para MPCE e MPSP."""
+        resumo = {}
+
+        for cliente, prefixo in (("mpce", "mpce"), ("mpsp", "mpsp")):
+            etapas = [item for item in resultados if item[0].startswith(prefixo)]
+            erros = [item for item in etapas if item[1] == "erro"]
+            registros = sum(item[2] for item in etapas)
+
+            if not etapas:
+                resumo[cliente] = {
+                    "estado": "error",
+                    "texto": f"{cliente.upper()} — sem resultado",
+                    "detalhes": "Nenhuma etapa retornou resultado.",
+                }
+            elif erros:
+                nomes = ", ".join(item[0] for item in erros)
+                resumo[cliente] = {
+                    "estado": "error",
+                    "texto": f"{cliente.upper()} — ERRO ({len(erros)}/{len(etapas)} etapas)",
+                    "detalhes": f"Etapas com erro: {nomes}",
+                }
+            else:
+                resumo[cliente] = {
+                    "estado": "ok",
+                    "texto": f"{cliente.upper()} — OK ({registros} registros)",
+                    "detalhes": f"{len(etapas)} etapas concluídas.",
+                }
+
+        return resumo
+
+    def _definir_status_cliente(self, cliente, estado, texto):
+        if cliente == "mpce":
+            variavel = self.status_mpce_var
+            label = self.status_mpce_label
+        else:
+            variavel = self.status_mpsp_var
+            label = self.status_mpsp_label
+
+        estilos = {
+            "wait": "BIWait.TLabel",
+            "running": "BIRunning.TLabel",
+            "ok": "BIOk.TLabel",
+            "error": "BIError.TLabel",
+        }
+        variavel.set(texto)
+        label.configure(style=estilos.get(estado, "BIWait.TLabel"))
+
     def _executar_job(self, tipo, inicio, fim, atualizar_auto):
+        resultados = []
+        self.queue.put(("bi_status", {
+            "mpce": ("running", "MPCE — executando por lotação..."),
+            "mpsp": ("running", "MPSP — executando total geral..."),
+        }))
+
         try:
+            if processar is None:
+                raise RuntimeError(
+                    "Dependência do Coletor BI não instalada: "
+                    f"{PROCESSAR_IMPORT_ERROR}. Instale as dependências do app.py."
+                )
+
             self.queue.put(("saida", f"Iniciando {tipo}: {formatar_dt(inicio)} -> {formatar_dt(fim)}"))
             resultados = processar(inicio, fim)
 
@@ -295,9 +440,24 @@ class AppBI(tk.Tk):
                 status = "ok"
                 detalhes = ", ".join(f"{nome}={qtd}" for nome, _, qtd, _ in resultados)
 
+            resumo_clientes = self._resumir_clientes(resultados)
+            self.queue.put(("bi_status", {
+                cliente: (dados["estado"], dados["texto"])
+                for cliente, dados in resumo_clientes.items()
+            }))
+            detalhes_status = " | ".join(
+                f"{cliente.upper()}: {dados['texto']}"
+                for cliente, dados in resumo_clientes.items()
+            )
+
         except Exception as e:
             status = "erro"
             detalhes = str(e)
+            detalhes_status = f"MPCE: ERRO — {e} | MPSP: ERRO — {e}"
+            self.queue.put(("bi_status", {
+                "mpce": ("error", "MPCE — ERRO na execução"),
+                "mpsp": ("error", "MPSP — ERRO na execução"),
+            }))
             logging.exception("Falha ao executar consulta")
         finally:
             try:
@@ -306,7 +466,9 @@ class AppBI(tk.Tk):
                 logging.exception("Falha ao registrar log no SQLite")
                 self.queue.put(("saida", f"Erro ao salvar log local: {e}"))
 
-            self.queue.put(("saida", f"[{status.upper()}] {tipo}: {detalhes}"))
+            self.queue.put(("saida", f"[{status.upper()}] {tipo}: {detalhes_status}"))
+            if status == "erro":
+                self.queue.put(("saida", f"Detalhes: {detalhes}"))
             self.queue.put(("refresh_logs", None))
 
             if atualizar_auto:
@@ -329,6 +491,10 @@ class AppBI(tk.Tk):
                         prox = proxima_hora_cheia(self.ultimo_fim_auto)
                         self.status_auto_var.set("Automático: ativo")
                         self.proxima_auto_var.set(f"Próxima execução: {formatar_dt(prox)}")
+
+                elif acao == "bi_status":
+                    for cliente, (estado, texto) in valor.items():
+                        self._definir_status_cliente(cliente, estado, texto)
 
         except queue.Empty:
             pass
@@ -363,9 +529,17 @@ class AppBI(tk.Tk):
 
     def _fechar(self):
         self.auto_stop.set()
-        self.destroy()
+        self.winfo_toplevel().destroy()
 
 
 if __name__ == "__main__":
-    app = AppBI()
-    app.mainloop()
+    root = tk.Tk()
+    root.title("Coletor BI")
+    root.geometry("1200x780")
+    root.minsize(1100, 700)
+    aplicar_tema(root)
+
+    app = AppBI(root)
+    app.pack(fill="both", expand=True)
+    root.protocol("WM_DELETE_WINDOW", app._fechar)
+    root.mainloop()

@@ -5,7 +5,8 @@ from datetime import datetime, date, timedelta
 from decimal import Decimal
 
 from supabase import create_client
-from connectionCE import conectar
+from connectionCE import conectar as conectar_mpce
+from connectionSP import conectar as conectar_mpsp
 
 
 # ====
@@ -114,6 +115,66 @@ ORDER BY
     e.flstatus;
 """
 
+# =========================
+# CONSULTAS MPSP
+# =========================
+# O MPSP usa a mesma base sigsp do Erro Foro/Reset em Lote. As consultas
+# abaixo não fazem JOIN com esajlocal: cada janela retorna um total geral.
+SQL_MPSP_PETICIONAMENTO_HORA = """
+SELECT
+    date_trunc('hour', p.dtusuinclusao) AS hora_inicio,
+    date_trunc('hour', p.dtusuinclusao) + interval '1 hour' AS hora_fim,
+    SUM(CASE
+        WHEN p.flstatus = '2' AND p.flsaj6 = 'S'
+        THEN 1 ELSE 0
+    END) AS protocolado_saj6,
+    SUM(CASE
+        WHEN p.flstatus = '2' AND COALESCE(p.flsaj6, 'N') <> 'S'
+        THEN 1 ELSE 0
+    END) AS protocolado_saj5,
+    SUM(CASE
+        WHEN p.flstatus = '3' AND p.flsaj6 = 'S'
+        THEN 1 ELSE 0
+    END) AS falha_saj6,
+    SUM(CASE
+        WHEN p.flstatus = '3' AND COALESCE(p.flsaj6, 'N') <> 'S'
+        THEN 1 ELSE 0
+    END) AS falha_saj5
+FROM saj.efmppeticionamento p
+WHERE p.dtusuinclusao >= %(data_inicio)s
+  AND p.dtusuinclusao < %(data_fim)s
+GROUP BY date_trunc('hour', p.dtusuinclusao)
+ORDER BY hora_inicio;
+"""
+
+SQL_MPSP_INTIMACAO_HORA = """
+SELECT
+    fontes.hora_inicio,
+    fontes.hora_inicio + interval '1 hour' AS hora_fim,
+    SUM(fontes.intimacao) AS intimacao
+FROM (
+    SELECT
+        date_trunc('hour', a.dtusuinclusao) AS hora_inicio,
+        COUNT(*) AS intimacao
+    FROM saj.efmpavisosmni a
+    WHERE a.dtusuinclusao >= %(data_inicio)s
+      AND a.dtusuinclusao < %(data_fim)s
+    GROUP BY date_trunc('hour', a.dtusuinclusao)
+
+    UNION ALL
+
+    SELECT
+        date_trunc('hour', i.dtusuinclusao) AS hora_inicio,
+        COUNT(*) AS intimacao
+    FROM saj.efmptjlotecargait i
+    WHERE i.dtusuinclusao >= %(data_inicio)s
+      AND i.dtusuinclusao < %(data_fim)s
+    GROUP BY date_trunc('hour', i.dtusuinclusao)
+) fontes
+GROUP BY fontes.hora_inicio
+ORDER BY fontes.hora_inicio;
+"""
+
 
 # ====
 # UTILITÁRIOS
@@ -176,70 +237,140 @@ def dormir_ate_proxima_hora():
 # PROCESSAMENTO
 # ====
 
-def processar(data_inicio, data_fim):
-    conn_local = conectar()
+def _consultar_e_salvar(
+    conn,
+    data_inicio,
+    data_fim,
+    nome,
+    sql,
+    tabela,
+    on_conflict,
+):
+    """Executa uma consulta, publica os dados e devolve o resumo da etapa."""
+    try:
+        print(f"Consultando {nome}...")
+        registros = fetch_dicts(conn, sql, {
+            "data_inicio": data_inicio,
+            "data_fim": data_fim,
+        })
+        salvar_no_supabase(tabela, registros, on_conflict=on_conflict)
+        return (nome, "ok", len(registros), None)
+    except Exception as e:
+        logging.exception("Erro em %s", nome)
+        return (nome, "erro", 0, str(e))
 
-    if conn_local is None:
-        raise RuntimeError("Não foi possível conectar ao banco local.")
 
+def _processar_fonte(
+    conn,
+    data_inicio,
+    data_fim,
+    prefixo,
+    sql_peticionamento,
+    sql_intimacao,
+    tabela_peticionamento,
+    tabela_intimacao,
+    tabela_loteitem,
+    conflito_peticionamento,
+    conflito_intimacao,
+):
+    """Processa uma fonte sem compartilhar conexão ou resultados com a outra."""
     resultados = []
 
-    try:
-        print(f"Janela de consulta: {data_inicio} -> {data_fim}")
+    resultados.append(_consultar_e_salvar(
+        conn,
+        data_inicio,
+        data_fim,
+        f"{prefixo}_peticionamento_hora",
+        sql_peticionamento,
+        tabela_peticionamento,
+        conflito_peticionamento,
+    ))
+    resultados.append(_consultar_e_salvar(
+        conn,
+        data_inicio,
+        data_fim,
+        f"{prefixo}_intimacao_hora",
+        sql_intimacao,
+        tabela_intimacao,
+        conflito_intimacao,
+    ))
+    resultados.append(_consultar_e_salvar(
+        conn,
+        data_inicio,
+        data_fim,
+        f"{prefixo}_loteitem_dia",
+        SQL_LOTEITEM_DIA,
+        tabela_loteitem,
+        "dia_referencia,flstatus,demotivofalha",
+    ))
 
-        # 1) Peticionamento por hora
+    return resultados
+
+
+def _resultado_falha_conexao(nome, erro):
+    return (nome, "erro", 0, str(erro))
+
+
+def processar(data_inicio, data_fim):
+    """Coleta MPCE por lotação e MPSP no total geral."""
+    resultados = []
+    print(f"Janela de consulta: {data_inicio} -> {data_fim}")
+
+    # MPCE: conexão e tabelas atuais, mantendo a agregação por lotação.
+    conn_mpce = conectar_mpce()
+    if conn_mpce is None:
+        resultados.append(_resultado_falha_conexao(
+            "mpce_conexao",
+            "Não foi possível conectar ao banco do MPCE.",
+        ))
+    else:
         try:
-            print("Consultando peticionamento por hora...")
-            pet_hora = fetch_dicts(conn_local, SQL_PETICIONAMENTO_HORA, {
-                "data_inicio": data_inicio,
-                "data_fim": data_fim
-            })
-            salvar_no_supabase(
+            resultados.extend(_processar_fonte(
+                conn_mpce,
+                data_inicio,
+                data_fim,
+                "mpce",
+                SQL_PETICIONAMENTO_HORA,
+                SQL_INTIMACAO_HORA,
                 "bi_peticionamento_hora",
-                pet_hora,
-                on_conflict="cdlocal,hora_inicio"
-            )
-            resultados.append(("peticionamento_hora", "ok", len(pet_hora), None))
-        except Exception as e:
-            logging.exception("Erro no peticionamento por hora")
-            resultados.append(("peticionamento_hora", "erro", 0, str(e)))
-
-        # 2) Intimação por hora
-        try:
-            print("Consultando intimação por hora...")
-            intimacoes = fetch_dicts(conn_local, SQL_INTIMACAO_HORA, {
-                "data_inicio": data_inicio,
-                "data_fim": data_fim
-            })
-            salvar_no_supabase(
                 "bi_intimacao_hora",
-                intimacoes,
-                on_conflict="cdlocal,hora_inicio"
-            )
-            resultados.append(("intimacao_hora", "ok", len(intimacoes), None))
-        except Exception as e:
-            logging.exception("Erro na intimação por hora")
-            resultados.append(("intimacao_hora", "erro", 0, str(e)))
-
-        # 3) Loteitem por dia
-        try:
-            print("Consultando efmppetloteitem por dia...")
-            loteitem_dia = fetch_dicts(conn_local, SQL_LOTEITEM_DIA, {
-                "data_inicio": data_inicio,
-                "data_fim": data_fim
-            })
-            salvar_no_supabase(
                 "bi_peticionamento_mensal_motivo",
-                loteitem_dia,
-                on_conflict="dia_referencia,flstatus,demotivofalha"
-            )
-            resultados.append(("loteitem_dia", "ok", len(loteitem_dia), None))
-        except Exception as e:
-            logging.exception("Erro no loteitem por dia")
-            resultados.append(("loteitem_dia", "erro", 0, str(e)))
+                "cdlocal,hora_inicio",
+                "cdlocal,hora_inicio",
+            ))
+        finally:
+            conn_mpce.close()
 
+    # MPSP: conexão sigsp usada pelo Erro Foro/Reset, sem agrupamento por
+    # lotação. As tabelas possuem sufixo próprio para não misturar os dados.
+    conn_mpsp = None
+    tunnel_mpsp = None
+    try:
+        conn_mpsp, tunnel_mpsp = conectar_mpsp()
+        if conn_mpsp is None:
+            resultados.append(_resultado_falha_conexao(
+                "mpsp_conexao",
+                "Não foi possível conectar ao banco sigsp do MPSP.",
+            ))
+        else:
+            resultados.extend(_processar_fonte(
+                conn_mpsp,
+                data_inicio,
+                data_fim,
+                "mpsp_total",
+                SQL_MPSP_PETICIONAMENTO_HORA,
+                SQL_MPSP_INTIMACAO_HORA,
+                "bi_peticionamento_hora_mpsp",
+                "bi_intimacao_hora_mpsp",
+                "bi_peticionamento_mensal_motivo_mpsp",
+                "hora_inicio",
+                "hora_inicio",
+            ))
     finally:
-        conn_local.close()
+        if conn_mpsp is not None:
+            conn_mpsp.close()
+        if tunnel_mpsp is not None:
+            tunnel_mpsp.stop()
 
     print("\nResumo da execução:")
     for nome, status, qtd, erro in resultados:

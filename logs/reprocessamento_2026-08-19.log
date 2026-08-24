@@ -2,3 +2,34 @@
 [19/08/2026 14:58:14] Falha ao conectar ao banco para atualizar o total.
 [19/08/2026 15:01:10] Agendamento automático ativado.
 [19/08/2026 15:01:10] Próxima execução automática agendada para daqui 30 minutos.
+[19/08/2026 16:03:07] Total atualizado: 0 registros encontrados.
+[19/08/2026 16:03:11] Agendamento automático ativado.
+[19/08/2026 16:03:11] Próxima execução automática agendada para daqui 30 minutos.
+[19/08/2026 16:03:15] Agendamento automático desativado.
+[19/08/2026 17:40:38] Iniciando processo
+[19/08/2026 17:40:38] 2 registros encontrados
+[19/08/2026 17:40:38] Registros que serão alterados:
+[19/08/2026 17:40:38] NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050
+[19/08/2026 17:40:38] NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425
+[19/08/2026 17:40:38] Executando inserts iniciais...
+[19/08/2026 17:40:39] INSERT OK - NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050
+[19/08/2026 17:40:39] INSERT OK - NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425
+[19/08/2026 17:40:39] Todos os inserts iniciais executados.
+[19/08/2026 17:40:39] Reprocessando NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050
+[19/08/2026 17:40:39] Reprocessando NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425
+[19/08/2026 17:40:40] Reprocessamento inicial iniciado.
+[19/08/2026 17:40:40] NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050 STATUS 177
+[19/08/2026 17:40:40] NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425 STATUS 177
+[19/08/2026 17:40:50] NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050 STATUS 161
+[19/08/2026 17:40:50] SUCESSO: NUSEQ 28416102 | NUPROCESSOEXTERNO 1575574-28.2025.8.26.0050 -> ID 2R000000H13LM atualizado para grupo 39
+[19/08/2026 17:40:50] NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425 STATUS 161
+[19/08/2026 17:40:51] SUCESSO: NUSEQ 28416354 | NUPROCESSOEXTERNO 1508942-25.2026.8.26.0425 -> ID 2R000000H13SM atualizado para grupo 39
+[19/08/2026 17:40:51] ============================================================
+[19/08/2026 17:40:51] PROCESSAMENTO FINALIZADO
+[19/08/2026 17:40:51] Total: 2
+[19/08/2026 17:40:51] Sucesso: 2
+[19/08/2026 17:40:51] Pendentes: 0
+[19/08/2026 17:40:51] Nenhum pendente encontrado.
+[19/08/2026 17:40:58] Agendamento automático ativado.
+[19/08/2026 17:40:58] Próxima execução automática agendada para daqui 30 minutos.
+[19/08/2026 17:41:03] Agendamento automático desativado.

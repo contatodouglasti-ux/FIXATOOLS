@@ -9,6 +9,7 @@ import re
 from connectionSP import conectar as conectar_sp
 from connectionSPunj import conectar as conectar_unj
 import config_manager
+from ui_helpers import aplicar_tema, COLORS
 
 TEMPO_LIMITE = 180
 INTERVALO_CONSULTA = 10
@@ -29,6 +30,7 @@ class BotReprocessamento:
         if parent is None:
             self.root.title("FIXATOOLS - Erro Foro")
             self.root.geometry("1200x700")
+            aplicar_tema(self.root)
 
         self.total = 0
         self.sucessos = 0
@@ -36,83 +38,155 @@ class BotReprocessamento:
         self.agendamento_automatico_ativo = False
         self.timer_execucao_id = None
 
-        self.frame_topo = tk.Frame(self.parent)
-        self.frame_topo.pack(fill="x", padx=10, pady=5)
+        self.main_frame = ttk.Frame(
+            self.parent,
+            style="App.TFrame",
+            padding=(16, 14, 16, 12),
+        )
+        self.main_frame.pack(fill="both", expand=True)
 
-        self.btn_config = tk.Button(
+        cabecalho = ttk.Frame(self.main_frame, style="App.TFrame")
+        cabecalho.pack(fill="x", pady=(0, 10))
+        ttk.Label(
+            cabecalho,
+            text="Reprocessamento de Erro de Foro",
+            style="Title.TLabel",
+        ).pack(anchor="w")
+        ttk.Label(
+            cabecalho,
+            text="Acompanhe os registros, reprocessamentos e pendências em uma única tela.",
+            style="Subtitle.TLabel",
+        ).pack(anchor="w", pady=(2, 0))
+
+        self.frame_topo = ttk.Frame(
+            self.main_frame,
+            style="Toolbar.TFrame",
+            padding=8,
+        )
+        self.frame_topo.pack(fill="x", pady=(0, 10))
+
+        self.btn_config = ttk.Button(
             self.frame_topo,
             text="⚙ Configurações",
-            command=self.abrir_configuracoes
+            command=self.abrir_configuracoes,
+            style="Secondary.TButton",
         )
         self.btn_config.pack(side="left")
 
-        self.btn_atualizar_total = tk.Button(
+        self.btn_atualizar_total = ttk.Button(
             self.frame_topo,
             text="🔄 Atualizar Total",
-            command=self.atualizar_total
+            command=self.atualizar_total,
+            style="Secondary.TButton",
         )
         self.btn_atualizar_total.pack(side="left", padx=10)
 
-        self.btn_agendamento = tk.Button(
+        self.btn_agendamento = ttk.Button(
             self.frame_topo,
             text="Agendamento Automático: DESLIGADO",
-            command=self.alternar_agendamento
+            command=self.alternar_agendamento,
+            style="Schedule.TButton",
         )
         self.btn_agendamento.pack(side="left", padx=10)
 
-        self.lbl_total = tk.Label(
-            self.parent,
+        indicadores = ttk.Frame(self.main_frame, style="App.TFrame")
+        indicadores.pack(fill="x", pady=(0, 10))
+        for coluna in range(3):
+            indicadores.columnconfigure(coluna, weight=1)
+
+        self.lbl_total = ttk.Label(
+            indicadores,
             text="Encontrados: 0",
-            font=("Arial", 10, "bold")
+            style="Stat.TLabel",
+            anchor="center",
         )
-        self.lbl_total.pack(pady=5)
+        self.lbl_total.grid(row=0, column=0, sticky="ew", padx=(0, 6))
 
-        self.lbl_sucesso = tk.Label(
-            self.parent,
+        self.lbl_sucesso = ttk.Label(
+            indicadores,
             text="Sucesso: 0",
-            fg="green",
-            font=("Arial", 10, "bold")
+            style="Success.Stat.TLabel",
+            anchor="center",
         )
-        self.lbl_sucesso.pack()
+        self.lbl_sucesso.grid(row=0, column=1, sticky="ew", padx=3)
 
-        self.lbl_pendente = tk.Label(
-            self.parent,
+        self.lbl_pendente = ttk.Label(
+            indicadores,
             text="Pendentes: 0",
-            fg="orange",
-            font=("Arial", 10, "bold")
+            style="Warning.Stat.TLabel",
+            anchor="center",
         )
-        self.lbl_pendente.pack()
+        self.lbl_pendente.grid(row=0, column=2, sticky="ew", padx=(6, 0))
 
-        self.btn_executar = tk.Button(
-            self.parent,
+        frame_acao = ttk.Frame(self.main_frame, style="App.TFrame")
+        frame_acao.pack(fill="x", pady=(0, 10))
+
+        self.btn_executar = ttk.Button(
+            frame_acao,
             text="Executar Processo",
-            command=self.executar
+            command=self.executar,
+            style="Primary.TButton",
         )
-        self.btn_executar.pack(pady=10)
+        self.btn_executar.pack(side="left")
+
+        log_frame = ttk.LabelFrame(
+            self.main_frame,
+            text="Log do processamento",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        log_frame.pack(fill="both", expand=True, pady=(0, 10))
+        log_frame.columnconfigure(0, weight=1)
+        log_frame.rowconfigure(0, weight=1)
 
         self.log_text = tk.Text(
-            self.parent,
+            log_frame,
             width=150,
-            height=25
+            height=18,
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            insertbackground=COLORS["text"],
+            font=("Consolas", 9),
         )
-        self.log_text.pack(fill="both", expand=True)
+        self.log_text.grid(row=0, column=0, sticky="nsew")
+        log_scroll = ttk.Scrollbar(log_frame, orient="vertical", command=self.log_text.yview)
+        log_scroll.grid(row=0, column=1, sticky="ns")
+        self.log_text.configure(yscrollcommand=log_scroll.set)
 
-        self.log_text.tag_config("sucesso", foreground="green")
-        self.log_text.tag_config("erro", foreground="red")
-        self.log_text.tag_config("timeout", foreground="orange")
-        self.log_text.tag_config("normal", foreground="black")
+        self.log_text.tag_config("sucesso", foreground=COLORS["success_text"])
+        self.log_text.tag_config("erro", foreground="#b91c1c")
+        self.log_text.tag_config("timeout", foreground=COLORS["warning_text"])
+        self.log_text.tag_config("normal", foreground="#334155")
 
-        tk.Label(
-            self.parent,
-            text="SQL Pendentes"
-        ).pack()
+        sql_frame = ttk.LabelFrame(
+            self.main_frame,
+            text="SQL de pendentes",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        sql_frame.pack(fill="x")
+        sql_frame.columnconfigure(0, weight=1)
 
         self.sql_text = tk.Text(
-            self.parent,
+            sql_frame,
             width=150,
-            height=8
+            height=6,
+            relief="flat",
+            bd=0,
+            highlightthickness=1,
+            highlightbackground=COLORS["border"],
+            background="#fbfcfe",
+            foreground=COLORS["text"],
+            font=("Consolas", 9),
         )
-        self.sql_text.pack(fill="x")
+        self.sql_text.grid(row=0, column=0, sticky="ew")
+        sql_scroll = ttk.Scrollbar(sql_frame, orient="vertical", command=self.sql_text.yview)
+        sql_scroll.grid(row=0, column=1, sticky="ns")
+        self.sql_text.configure(yscrollcommand=sql_scroll.set)
 
         Thread(
             target=self.carregar_contagem_inicial,

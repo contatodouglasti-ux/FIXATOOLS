@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [20/08/2026 16:51:39] Agendamento automático ativado.
 [20/08/2026 16:51:39] Próxima execução automática agendada para daqui 30 minutos.
 [20/08/2026 16:51:44] Total atualizado: 0 registros encontrados.
@@ -5,3 +6,34 @@
 [20/08/2026 17:21:49] Iniciando processo
 [20/08/2026 17:21:49] Nenhum registro encontrado.
 [20/08/2026 17:21:49] Próxima execução automática agendada para daqui 30 minutos.
+=======
+[20/08/2026 16:45:29] Falha ao conectar ao banco para atualizar o total.
+[20/08/2026 16:45:52] Agendamento automático ativado.
+[20/08/2026 16:45:52] Próxima execução automática agendada para daqui 30 minutos.
+>>>>>>> 1b13426b1d88e6de8db774ed241171539d5e980b
+[20/08/2026 17:51:36] Total atualizado: 0 registros encontrados.
+[20/08/2026 17:51:40] Agendamento automático ativado.
+[20/08/2026 17:51:40] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 18:07:19] Falha ao conectar ao banco para atualizar o total.
+[20/08/2026 18:07:37] Total atualizado: 0 registros encontrados.
+[20/08/2026 18:21:40] Iniciando execução automática agendada.
+[20/08/2026 18:22:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 18:22:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 18:52:01] Iniciando execução automática agendada.
+[20/08/2026 18:52:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 18:52:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 19:22:01] Iniciando execução automática agendada.
+[20/08/2026 19:22:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 19:22:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 19:52:01] Iniciando execução automática agendada.
+[20/08/2026 19:52:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 19:52:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 20:22:01] Iniciando execução automática agendada.
+[20/08/2026 20:22:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 20:22:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 20:52:01] Iniciando execução automática agendada.
+[20/08/2026 20:52:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 20:52:01] Próxima execução automática agendada para daqui 30 minutos.
+[20/08/2026 21:22:01] Iniciando execução automática agendada.
+[20/08/2026 21:22:01] Falha ao conectar ao banco (sigsp).
+[20/08/2026 21:22:01] Próxima execução automática agendada para daqui 30 minutos.

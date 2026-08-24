@@ -151,7 +151,7 @@ SQL_MPSP_INTIMACAO_HORA = """
 SELECT
     fontes.hora_inicio,
     fontes.hora_inicio + interval '1 hour' AS hora_fim,
-    SUM(fontes.intimacao) AS intimacao
+    SUM(fontes.intimacao)::bigint AS intimacao
 FROM (
     SELECT
         date_trunc('hour', a.dtusuinclusao) AS hora_inicio,
@@ -186,6 +186,11 @@ def normalizar_valor(valor):
     if isinstance(valor, date):
         return valor.isoformat()
     if isinstance(valor, Decimal):
+        # SUM/COUNT do PostgreSQL podem voltar como Decimal. Contagens
+        # inteiras precisam ser serializadas como int para o tipo bigint do
+        # Supabase; enviar 8256.0 causa erro de conversão no PostgREST.
+        if valor == valor.to_integral_value():
+            return int(valor)
         return float(valor)
     return valor
 

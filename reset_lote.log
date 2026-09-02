@@ -266,3 +266,162 @@
 [17/08/2026 16:47:30] Falha ao conectar ao banco (sigsp).
 [17/08/2026 16:47:44] Gerando SQL para 1 idcard(s)...
 [17/08/2026 16:47:44] Falha ao conectar ao banco (sigsp).
+[31/08/2026 19:27:03] Gerando SQL para 21 idcard(s)...
+[31/08/2026 19:27:05] Bloco efmppeticionamento: 0.31s, 21 linha(s) encontrada(s).
+[31/08/2026 19:27:06] Bloco efmpintimacao: 0.91s, 21 linha(s) encontrada(s).
+[31/08/2026 19:27:07] Bloco efmpexpediente: 0.26s, 21 linha(s) encontrada(s).
+[31/08/2026 19:27:07] Bloco efmppeticaocard: 0.24s, 21 linha(s) encontrada(s).
+[31/08/2026 19:27:07] Bloco efmppeticaoblobdoc: 0.24s, 0 linha(s) encontrada(s).
+[31/08/2026 19:27:08] Bloco efmppetloteitem: 0.72s, 21 linha(s) encontrada(s).
+[31/08/2026 19:27:08] 105 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[31/08/2026 19:27:50] Executando 105 comando(s) no sigsp...
+[31/08/2026 19:27:50] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15876784';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15876997';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877015';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15876999';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877000';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877010';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877003';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877001';
+[31/08/2026 19:27:51] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877004';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877296';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877302';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877306';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877360';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877397';
+[31/08/2026 19:27:52] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877409';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877454';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877458';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877471';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15878277';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15877973';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15876782';
+[31/08/2026 19:27:53] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28772263;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28776296;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28780660;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28780684;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28784929;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28787211;
+[31/08/2026 19:27:54] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28787224;
+[31/08/2026 19:27:55] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28787232;
+[31/08/2026 19:27:55] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28787233;
+[31/08/2026 19:27:55] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28787410;
+[31/08/2026 19:27:55] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28788549;
+[31/08/2026 19:27:56] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28790117;
+[31/08/2026 19:27:56] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28791261;
+[31/08/2026 19:27:56] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28794104;
+[31/08/2026 19:27:56] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28795399;
+[31/08/2026 19:27:56] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28796952;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28797000;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28797074;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28817165;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28832781;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28832787;
+[31/08/2026 19:27:57] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16758751';
+[31/08/2026 19:27:58] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16727303';
+[31/08/2026 19:27:58] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16736898';
+[31/08/2026 19:27:58] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16729676';
+[31/08/2026 19:27:58] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16731701';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16726685';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16743242';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16726682';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16726688';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16728307';
+[31/08/2026 19:27:59] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16728347';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16731640';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16728809';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16726674';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16727307';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16722518';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16728545';
+[31/08/2026 19:28:00] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16732656';
+[31/08/2026 19:28:01] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16729176';
+[31/08/2026 19:28:01] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16755220';
+[31/08/2026 19:28:01] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16747611';
+[31/08/2026 19:28:01] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15876784 AND idcard='2R000000H8K60';
+[31/08/2026 19:28:01] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15876997 AND idcard='2R000000H8NAN';
+[31/08/2026 19:28:01] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877015 AND idcard='2R000000H8QPH';
+[31/08/2026 19:28:01] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15876999 AND idcard='2R000000H8QQ8';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877000 AND idcard='2R000000H8U11';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877010 AND idcard='2R000000H8VT0';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877003 AND idcard='2R000000H8VTA';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877001 AND idcard='2R000000H8VTL';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877004 AND idcard='2R000000H8VTO';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877296 AND idcard='2R000000H8VYM';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877302 AND idcard='2R000000H8WUA';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877306 AND idcard='2R000000H8Y2C';
+[31/08/2026 19:28:02] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877360 AND idcard='2R000000H8YY5';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877397 AND idcard='2R000000H915Z';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877409 AND idcard='2R000000H9264';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877454 AND idcard='2R000000H93DL';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877458 AND idcard='2R000000H93EM';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877471 AND idcard='2R000000H93GQ';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15878277 AND idcard='2R000000H9JG9';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15877973 AND idcard='2R000000H9VNC';
+[31/08/2026 19:28:03] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15876782 AND idcard='2R000000H9VNG';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764547';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764570';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764579';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764585';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764589';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764601';
+[31/08/2026 19:28:04] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764613';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764621';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764638';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765438';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765454';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765466';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765499';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765532';
+[31/08/2026 19:28:05] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765552';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765615';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765623';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11765647';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11766517';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11766184';
+[31/08/2026 19:28:06] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11764459';
+[31/08/2026 19:28:06] sigsp finalizado. 105 OK / 0 erro(s).
+[31/08/2026 19:28:08] Executando ajuste em sajptf.eptftarefa...
+[31/08/2026 19:28:09] sajptf.eptftarefa atualizado. Linhas afetadas: 21.
+[01/09/2026 16:00:15] Gerando SQL para 3 idcard(s)...
+[01/09/2026 16:00:17] Bloco efmppeticionamento: 0.23s, 3 linha(s) encontrada(s).
+[01/09/2026 16:00:18] Bloco efmpintimacao: 0.15s, 3 linha(s) encontrada(s).
+[01/09/2026 16:00:18] Bloco efmpexpediente: 0.10s, 3 linha(s) encontrada(s).
+[01/09/2026 16:00:18] Bloco efmppeticaocard: 0.12s, 3 linha(s) encontrada(s).
+[01/09/2026 16:00:18] Bloco efmppeticaoblobdoc: 0.19s, 0 linha(s) encontrada(s).
+[01/09/2026 16:00:18] Bloco efmppetloteitem: 0.11s, 3 linha(s) encontrada(s).
+[01/09/2026 16:00:18] 15 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[01/09/2026 16:00:25] Executando 15 comando(s) no sigsp...
+[01/09/2026 16:00:26] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15894223';
+[01/09/2026 16:00:26] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15894213';
+[01/09/2026 16:00:26] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15894294';
+[01/09/2026 16:00:26] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28874961;
+[01/09/2026 16:00:26] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28875646;
+[01/09/2026 16:00:26] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28878782;
+[01/09/2026 16:00:27] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16778766';
+[01/09/2026 16:00:27] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16779549';
+[01/09/2026 16:00:27] OK: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='16778697';
+[01/09/2026 16:00:27] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15894223 AND idcard='2R000000HASJS';
+[01/09/2026 16:00:27] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15894213 AND idcard='2R000000HAT2Y';
+[01/09/2026 16:00:27] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15894294 AND idcard='2R000000HAVIY';
+[01/09/2026 16:00:27] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11784131';
+[01/09/2026 16:00:28] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11784380';
+[01/09/2026 16:00:28] OK: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='11784465';
+[01/09/2026 16:00:28] sigsp finalizado. 15 OK / 0 erro(s).
+[01/09/2026 16:00:30] Executando ajuste em sajptf.eptftarefa...
+[01/09/2026 16:00:31] sajptf.eptftarefa atualizado. Linhas afetadas: 3.
+[02/09/2026 12:26:15] Gerando SQL para 1 idcard(s)...
+[02/09/2026 12:26:19] Bloco efmppeticionamento: 0.46s, 1 linha(s) encontrada(s).
+[02/09/2026 12:26:19] Bloco efmpintimacao: 0.27s, 1 linha(s) encontrada(s).
+[02/09/2026 12:26:20] Bloco efmpexpediente: 0.23s, 0 linha(s) encontrada(s).
+[02/09/2026 12:26:20] Bloco efmppeticaocard: 0.24s, 1 linha(s) encontrada(s).
+[02/09/2026 12:26:20] Bloco efmppeticaoblobdoc: 0.31s, 0 linha(s) encontrada(s).
+[02/09/2026 12:26:20] Bloco efmppetloteitem: 0.22s, 0 linha(s) encontrada(s).
+[02/09/2026 12:26:20] 3 comando(s) de reset + 1 ajuste sajptf gerado(s). Revise antes de executar.
+[02/09/2026 12:26:37] Executando 3 comando(s) no sigsp...
+[02/09/2026 12:26:38] OK: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='15815744';
+[02/09/2026 12:26:38] OK: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=28728945;
+[02/09/2026 12:26:38] OK: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=15815744 AND idcard='2R000000H7M2K';
+[02/09/2026 12:26:38] sigsp finalizado. 3 OK / 0 erro(s).
+[02/09/2026 12:26:41] Executando ajuste em sajptf.eptftarefa...
+[02/09/2026 12:26:42] sajptf.eptftarefa atualizado. Linhas afetadas: 1.

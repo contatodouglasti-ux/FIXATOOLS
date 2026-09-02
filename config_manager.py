@@ -31,6 +31,14 @@ DEFAULTS = {
         "db_unj": "unj01sp",
         "remote_host": "192.168.1.195",
         "remote_port": "5000"
+    },
+    "mprs": {
+        "host": "",
+        "port": "5432",
+        "db_rs": "sigrs",
+        "db_unj": "unj01rs",
+        "user": "",
+        "password": ""
     }
 }
 
@@ -71,13 +79,42 @@ def carregar_config():
     return config
 
 
-def salvar_credenciais(ssh_user, ssh_password, db_user, db_password):
+def salvar_credenciais(
+    ssh_user,
+    ssh_password,
+    db_user,
+    db_password,
+    mprs_host=None,
+    mprs_port=None,
+    mprs_db_rs=None,
+    mprs_db_unj=None,
+    mprs_user=None,
+    mprs_password=None,
+    mprs_dbname=None,
+):
     config = carregar_config()
 
     config["ssh"]["user"] = ssh_user
     config["ssh"]["password"] = ssh_password
     config["database"]["user"] = db_user
     config["database"]["password"] = db_password
+
+    # mprs_dbname é mantido como alias para instalações que usavam a
+    # configuração anterior com apenas um banco MPRS.
+    if mprs_db_rs is None:
+        mprs_db_rs = mprs_dbname
+
+    mprs_valores = {
+        "host": mprs_host,
+        "port": mprs_port,
+        "db_rs": mprs_db_rs,
+        "db_unj": mprs_db_unj,
+        "user": mprs_user,
+        "password": mprs_password,
+    }
+    for chave, valor in mprs_valores.items():
+        if valor is not None:
+            config["mprs"][chave] = str(valor)
 
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
         config.write(f)
@@ -97,4 +134,11 @@ def obter_credenciais():
         "db_unj": config["database"]["db_unj"],
         "remote_host": config["database"]["remote_host"],
         "remote_port": config.getint("database", "remote_port"),
+        "mprs_host": config["mprs"]["host"],
+        "mprs_port": config.getint("mprs", "port"),
+        "mprs_db_rs": config["mprs"]["db_rs"],
+        "mprs_db_unj": config["mprs"]["db_unj"],
+        "mprs_dbname": config["mprs"]["db_rs"],
+        "mprs_user": config["mprs"]["user"],
+        "mprs_password": config["mprs"]["password"],
     }

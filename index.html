@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAJ Indicadores — Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root{
+    --bg:#0b1120;
+    --panel:#111a2e;
+    --panel-2:#0e1526;
+    --border:#1e2a44;
+    --text:#e5ecf7;
+    --muted:#7c8aab;
+    --blue:#4f8ff7;
+    --red:#ef4b5f;
+    --amber:#f5a623;
+    --green:#22c58b;
+    --teal:#2dd4bf;
+    --purple:#8b7cf6;
+  }
+  *{box-sizing:border-box;}
+  html, body{height:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    display:flex;
+    min-height:100vh;
+    overflow:hidden;
+  }
+  .sidebar{
+    width:230px;
+    background:#0c1424;
+    border-right:1px solid var(--border);
+    padding:20px 14px;
+    flex-shrink:0;
+    position:fixed;
+    top:0;left:0;bottom:0;
+    overflow-y:auto;
+    z-index:20;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 6px 22px 6px;
+    font-weight:600;
+    font-size:15px;
+  }
+  .brand-icon{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;
+  }
+  .nav-item{
+    display:flex;align-items:center;gap:10px;
+    padding:10px 12px;border-radius:8px;
+    color:var(--muted);font-size:13.5px;font-weight:500;
+    cursor:pointer;margin-bottom:2px;
+  }
+  .nav-item.active{background:rgba(79,143,247,0.12);color:var(--blue);}
+  .nav-item:hover{background:rgba(255,255,255,0.03);}
+
+  .main{
+    flex:1;min-width:0;padding:0;
+    margin-left:230px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 26px;border-bottom:1px solid var(--border);
+    flex-shrink:0;
+    background:var(--bg);
+    z-index:10;
+  }
+  .topbar-left{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px;}
+  .topbar-right{display:flex;align-items:center;gap:14px;}
+  .updated-pill{
+    font-size:12px;color:var(--muted);
+    background:var(--panel);border:1px solid var(--border);
+    padding:6px 12px;border-radius:8px;
+  }
+  .client-switch{
+    display:flex;align-items:center;gap:4px;
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:10px;padding:3px;
+  }
+  .client-btn{
+    border:0;background:transparent;color:var(--muted);
+    padding:7px 11px;border-radius:7px;cursor:pointer;
+    font:600 12px 'Segoe UI',system-ui,sans-serif;
+    white-space:nowrap;
+  }
+  .client-btn span{display:block;font-size:10px;font-weight:500;opacity:.75;margin-top:2px;}
+  .client-btn:hover{color:var(--text);background:rgba(255,255,255,.04);}
+  .client-btn.active{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(79,143,247,.25);}
+  .client-scope{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-size:11px;font-weight:500;
+  }
+  .client-scope::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);}
+  .field select:disabled{opacity:.75;color:var(--muted);cursor:not-allowed;}
+  .btn-refresh{
+    background:var(--blue);color:#fff;border:none;
+    padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;
+    cursor:pointer;display:flex;align-items:center;gap:6px;
+  }
+  .btn-refresh:hover{filter:brightness(1.1);}
+  .btn-refresh:disabled{opacity:.6;cursor:default;}
+
+  .content{padding:22px 26px 60px 26px; overflow-y:auto; flex:1;}
+
+  .filters{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+    margin-bottom:22px;
+  }
+  .field label{
+    display:block;font-size:11px;letter-spacing:.06em;
+    color:var(--muted);margin-bottom:7px;font-weight:600;
+  }
+  .field select, .field input{
+    width:100%;background:var(--panel-2);
+    border:1px solid var(--border);color:var(--text);
+    padding:9px 10px;border-radius:8px;font-size:13.5px;
+  }
+  .field select:focus, .field input:focus{outline:1px solid var(--blue);}
+
+  .section-title{
+    font-size:12px;letter-spacing:.08em;color:var(--muted);
+    font-weight:700;margin:26px 0 12px 2px;
+  }
+  .cards{
+    display:grid;grid-template-columns:repeat(8,1fr);gap:14px;
+  }
+  .card{
+    background:var(--panel);border:1px solid var(--border);
+    border-left:3px solid var(--blue);
+    border-radius:10px;padding:16px 18px;
+  }
+  .card .label{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.04em;margin-bottom:8px;}
+  .card .value{font-size:26px;font-weight:700;}
+  .card .subvalues{display:flex;gap:14px;margin-top:6px;font-size:11.5px;color:var(--muted);}
+  .card .subvalues b{color:var(--text);}
+  .card.protocolados{border-left-color:var(--blue);}
+  .card.falhas{border-left-color:var(--red);}
+  .card.pendentes{border-left-color:var(--amber);}
+  .card.saj5{border-left-color:var(--purple);}
+  .card.saj6{border-left-color:var(--green);}
+  .card.total{border-left-color:var(--teal);}
+
+  .charts-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;
+  }
+  .chart-box{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:12px;padding:16px 18px;
+  }
+  .chart-box h3{margin:0 0 10px 0;font-size:13.5px;font-weight:600;}
+  .chart-box canvas{width:100%!important;}
+  .chart-tall{height:230px;}
+  .empty-note{color:var(--muted);font-size:12px;padding:8px 2px;}
+
+  .dev-page{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:100px 20px;
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:12px;
+  }
+  .dev-icon{font-size:40px;margin-bottom:16px;opacity:.6;}
+  .dev-page h2{margin:0 0 8px 0;font-size:18px;font-weight:600;}
+  .dev-page p{margin:0;color:var(--muted);font-size:13.5px;}
+
+  @media (max-width:1200px){
+    .cards{grid-template-columns:repeat(3,1fr);}
+    .charts-grid{grid-template-columns:repeat(2,1fr);}
+    .filters{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width:760px){
+    .sidebar{display:none;}
+    .main{margin-left:0;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+    .charts-grid{grid-template-columns:1fr;}
+    .filters{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="brand">
+    <div class="brand-icon">S</div>
+    SAJ Indicadores
+  </div>
+  <div class="nav-item active" data-page="dashboard">📊 Dashboard</div>
+  <div class="nav-item" data-page="locais">📁 Locais</div>
+  <div class="nav-item" data-page="intimacoes">✉️ Intimações</div>
+</div>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span id="topbarTitle">Dashboard - MPCE</span><span class="client-scope" id="clientScope">Por lotação</span></div>
+    <div class="topbar-right">
+      <div class="client-switch" aria-label="Selecionar cliente">
+        <button class="client-btn active" data-client="mpce">MPCE<span>por lotação</span></button>
+        <button class="client-btn" data-client="mpsp">MPSP<span>total geral</span></button>
+      </div>
+      <span class="updated-pill" id="updatedPill">Atualizado --:--:--</span>
+      <button class="btn-refresh" id="refreshBtn">↻ Atualizar</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="page-dashboard">
+    <div class="filters">
+      <div class="field">
+        <label id="localLabel">LOCAL / LOTAÇÃO</label>
+        <select id="fLocal">
+          <option value="">Todos os locais</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>DATA INICIAL</label>
+        <input type="date" id="fDataIni">
+      </div>
+      <div class="field">
+        <label>DATA FINAL</label>
+        <input type="date" id="fDataFim">
+      </div>
+      <div class="field">
+        <label>HORA INICIAL</label>
+        <input type="number" id="fHoraIni" min="0" max="23" placeholder="0">
+      </div>
+      <div class="field">
+        <label>HORA FINAL</label>
+        <input type="number" id="fHoraFim" min="0" max="23" placeholder="23">
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card protocolados">
+        <div class="label">PROTOCOLADOS</div>
+        <div class="value" id="cardProtocolados">0</div>
+        <div class="subvalues"><span>SAJ5: <b id="subProtSaj5">0</b></span><span>SAJ6: <b id="subProtSaj6">0</b></span></div>
+      </div>
+      <div class="card falhas">
+        <div class="label">FALHAS</div>
+        <div class="value" id="cardFalhas">0</div>
+        <div class="subvalues"><span>SAJ5: <b id="subFalhaSaj5">0</b></span><span>SAJ6: <b id="subFalhaSaj6">0</b></span></div>
+      </div>
+      <div class="card saj5">
+        <div class="label">SAJ5</div>
+        <div class="value" id="cardSaj5">0</div>
+      </div>
+      <div class="card saj6">
+        <div class="label">SAJ6</div>
+        <div class="value" id="cardSaj6">0</div>
+      </div>
+      <div class="card loteitem" style="border-left-color:var(--red);">
+        <div class="label">FALHAS NA LOTEITEM</div>
+        <div class="value" id="cardLoteitem">0</div>
+      </div>
+      <div class="card intimacoes" style="border-left-color:var(--amber);">
+        <div class="label">TOTAL DE INTIMAÇÕES</div>
+        <div class="value" id="cardIntimacoes">0</div>
+      </div>
+      <div class="card total">
+        <div class="label">TOTAL</div>
+        <div class="value" id="cardTotal">0</div>
+      </div>
+    </div>
+
+    <div class="section-title">ANÁLISE POR HORA</div>
+    <div class="charts-grid">
+      <div class="chart-box"><h3>Protocolados por Hora</h3><div class="chart-tall"><canvas id="chartProtHora"></canvas></div></div>
+      <div class="chart-box"><h3>Falhas por Hora (SAJ5 + SAJ6)</h3><div class="chart-tall"><canvas id="chartFalhaHora"></canvas></div></div>
+      <div class="chart-box"><h3>Total por Hora</h3><div class="chart-tall"><canvas id="chartTotalHora"></canvas></div></div>
+    </div>
+
+    <div class="section-title">DISTRIBUIÇÃO E EVOLUÇÃO</div>
+    <div class="charts-grid">
+      <div class="chart-box"><h3>SAJ5 x SAJ6</h3><div class="chart-tall"><canvas id="chartSaj"></canvas></div></div>
+      <div class="chart-box"><h3>Ranking dos Locais</h3><div class="chart-tall"><canvas id="chartRanking"></canvas></div></div>
+      <div class="chart-box"><h3>Ranking de Motivos de Falha</h3><div class="chart-tall"><canvas id="chartEvolucao"></canvas></div></div>
+    </div>
+
+    <div class="section-title">INTIMAÇÕES</div>
+    <div class="charts-grid" style="grid-template-columns:1fr;">
+      <div class="chart-box"><h3>Intimações por Hora</h3><div class="chart-tall"><canvas id="chartIntimacao"></canvas></div></div>
+    </div>
+    </div>
+
+    <div id="page-locais" style="display:none;">
+      <div class="dev-page">
+        <div class="dev-icon">📁</div>
+        <h2>Locais</h2>
+        <p>Esta página ainda está em desenvolvimento.</p>
+      </div>
+    </div>
+
+    <div id="page-intimacoes" style="display:none;">
+      <div class="dev-page">
+        <div class="dev-icon">✉️</div>
+        <h2>Intimações</h2>
+        <p>Esta página ainda está em desenvolvimento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://cbgndmgeoswjetfodqci.supabase.co";
+const SUPABASE_KEY = "sb_publishable_u-whGHIpKN3LbIdt93tQiA_RyHK8n_o";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const CLIENTS = {
+  mpce: {
+    label: 'MPCE',
+    escopo: 'Por lotação',
+    porLocal: true,
+    peticionamento: 'bi_peticionamento_hora',
+    intimacao: 'bi_intimacao_hora',
+    loteitem: 'bi_peticionamento_mensal_motivo'
+  },
+  mpsp: {
+    label: 'MPSP',
+    escopo: 'Total geral',
+    porLocal: false,
+    peticionamento: 'bi_peticionamento_hora_mpsp',
+    intimacao: 'bi_intimacao_hora_mpsp',
+    loteitem: 'bi_peticionamento_mensal_motivo_mpsp'
+  }
+};
+
+let activeClient = 'mpce';
+const clientConfig = () => CLIENTS[activeClient];
+
+const HOURS = Array.from({length:24}, (_,i)=>i);
+const hourLabel = h => String(h).padStart(2,'0')+'h';
+
+Chart.defaults.color = '#7c8aab';
+Chart.defaults.font.size = 11;
+Chart.defaults.borderColor = '#1e2a44';
+
+let charts = {};
+function upsertChart(id, config){
+  if(charts[id]) charts[id].destroy();
+  const ctx = document.getElementById(id).getContext('2d');
+  charts[id] = new Chart(ctx, config);
+}
+
+function lineDataset(label, data, color){
+  return {
+    label, data, borderColor:color, backgroundColor:color+'33',
+    pointRadius:2, pointBackgroundColor:color, borderWidth:2,
+    tension:0.25, fill:false
+  };
+}
+
+const baseScales = {
+  x:{ grid:{color:'#1e2a44'}, ticks:{maxRotation:0} },
+  y:{ grid:{color:'#1e2a44'}, beginAtZero:true, ticks:{precision:0} }
+};
+
+function fmt(n){ return (n||0).toLocaleString('pt-BR'); }
+
+// ---------- FILTER STATE ----------
+function getFilters(){
+  const local = document.getElementById('fLocal').value;
+  const dIni = document.getElementById('fDataIni').value;
+  const dFim = document.getElementById('fDataFim').value;
+  let hIni = document.getElementById('fHoraIni').value;
+  let hFim = document.getElementById('fHoraFim').value;
+  hIni = hIni === '' ? 0 : parseInt(hIni);
+  hFim = hFim === '' ? 23 : parseInt(hFim);
+  return {local, dIni, dFim, hIni, hFim};
+}
+
+function updateClientVisual(){
+  const cfg = clientConfig();
+  document.querySelectorAll('.client-btn[data-client]').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.client === activeClient);
+  });
+  document.getElementById('topbarTitle').textContent = `Dashboard - ${cfg.label}`;
+  document.getElementById('clientScope').textContent = cfg.escopo;
+  document.getElementById('localLabel').textContent = cfg.porLocal ? 'LOCAL / LOTAÇÃO' : 'ESCOPO';
+}
+
+function isoStart(dateStr, hour){
+  return `${dateStr}T${String(hour).padStart(2,'0')}:00:00`;
+}
+function isoEnd(dateStr, hour){
+  return `${dateStr}T${String(hour).padStart(2,'0')}:59:59`;
+}
+
+// ---------- LOAD LOCAL OPTIONS ----------
+async function loadLocalOptions(){
+  const sel = document.getElementById('fLocal');
+  sel.innerHTML = '';
+
+  if(!clientConfig().porLocal){
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = 'Total geral (sem lotação)';
+    sel.appendChild(opt);
+    sel.disabled = true;
+    return;
+  }
+
+  sel.disabled = false;
+  const defaultOpt = document.createElement('option');
+  defaultOpt.value = '';
+  defaultOpt.textContent = 'Todos os locais';
+  sel.appendChild(defaultOpt);
+
+  const { data, error } = await sb
+    .from('bi_peticionamento_hora')
+    .select('nomelocal')
+    .limit(5000);
+  if(error){ console.error(error); return; }
+  const uniq = [...new Set((data||[]).map(r=>r.nomelocal).filter(Boolean))].sort();
+  uniq.forEach(name=>{
+    const opt = document.createElement('option');
+    opt.value = name; opt.textContent = name;
+    sel.appendChild(opt);
+  });
+}
+
+// ---------- DEFAULT DATE RANGE (hoje, dia inteiro) ----------
+function setDefaultDates(){
+  const hojeStr = new Date().toISOString().slice(0,10);
+  document.getElementById('fDataIni').value = hojeStr;
+  document.getElementById('fDataFim').value = hojeStr;
+  document.getElementById('fHoraIni').value = 0;
+  document.getElementById('fHoraFim').value = 23;
+}
+
+// ---------- FETCH PETICIONAMENTO ----------
+async function fetchPeticionamento(f){
+  const cfg = clientConfig();
+  const campos = cfg.porLocal
+    ? 'cdlocal,nomelocal,hora_inicio,hora_fim,protocolado_saj5,protocolado_saj6,falha_saj6,falha_saj5'
+    : 'hora_inicio,hora_fim,protocolado_saj5,protocolado_saj6,falha_saj6,falha_saj5';
+  let query = sb.from(cfg.peticionamento)
+    .select(campos)
+    .gte('hora_inicio', isoStart(f.dIni, 0))
+    .lte('hora_inicio', isoEnd(f.dFim, 23))
+    .limit(20000);
+  if(cfg.porLocal && f.local) query = query.eq('nomelocal', f.local);
+  const { data, error } = await query;
+  console.log(`[${cfg.label} bi_peticionamento_hora] filtros:`, f, 'linhas brutas retornadas:', data ? data.length : 0, 'erro:', error);
+  if(error){ console.error(error); window._lastError = error; return []; }
+  const filtered = (data||[]).filter(r=>{
+    const h = new Date(r.hora_inicio).getHours();
+    return h >= f.hIni && h <= f.hFim;
+  });
+  console.log('[bi_peticionamento_hora] linhas apos filtro de hora:', filtered.length, filtered.slice(0,2));
+  return filtered;
+}
+
+// ---------- FETCH INTIMACAO ----------
+async function fetchIntimacao(f){
+  const cfg = clientConfig();
+  const campos = cfg.porLocal
+    ? 'cdlocal,nomelocal,hora_inicio,hora_fim,intimacao'
+    : 'hora_inicio,hora_fim,intimacao';
+  let query = sb.from(cfg.intimacao)
+    .select(campos)
+    .gte('hora_inicio', isoStart(f.dIni, 0))
+    .lte('hora_inicio', isoEnd(f.dFim, 23))
+    .limit(20000);
+  if(cfg.porLocal && f.local) query = query.eq('nomelocal', f.local);
+  const { data, error } = await query;
+  if(error){ console.error(error); return []; }
+  return (data||[]).filter(r=>{
+    const h = new Date(r.hora_inicio).getHours();
+    return h >= f.hIni && h <= f.hFim;
+  });
+}
+
+// ---------- FETCH LOTEITEM DIA (falhas) ----------
+async function fetchLoteitemDia(f){
+  const cfg = clientConfig();
+  const { data, error } = await sb
+    .from(cfg.loteitem)
+    .select('dia_referencia,flstatus,demotivofalha,total')
+    .gte('dia_referencia', f.dIni)
+    .lte('dia_referencia', f.dFim)
+    .limit(20000);
+  if(error){ console.error(error); return []; }
+  return data||[];
+}
+
+// ---------- RENDER ----------
+async function renderAll(){
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true; btn.textContent = 'Carregando...';
+  const cfg = clientConfig();
+  updateClientVisual();
+
+  const f = getFilters();
+  const [rows, intimRows, loteitemRows] = await Promise.all([fetchPeticionamento(f), fetchIntimacao(f), fetchLoteitemDia(f)]);
+
+  // ----- CARDS -----
+  let sumProtSaj5=0, sumProtSaj6=0, sumFalhaSaj5=0, sumFalhaSaj6=0;
+  rows.forEach(r=>{
+    sumProtSaj5 += r.protocolado_saj5||0;
+    sumProtSaj6 += r.protocolado_saj6||0;
+    sumFalhaSaj5 += r.falha_saj5||0;
+    sumFalhaSaj6 += r.falha_saj6||0;
+  });
+  const sumTotal = sumProtSaj5+sumProtSaj6+sumFalhaSaj5+sumFalhaSaj6;
+  document.getElementById('cardProtocolados').textContent = fmt(sumProtSaj5+sumProtSaj6);
+  document.getElementById('subProtSaj5').textContent = fmt(sumProtSaj5);
+  document.getElementById('subProtSaj6').textContent = fmt(sumProtSaj6);
+  document.getElementById('cardFalhas').textContent = fmt(sumFalhaSaj5+sumFalhaSaj6);
+  document.getElementById('subFalhaSaj5').textContent = fmt(sumFalhaSaj5);
+  document.getElementById('subFalhaSaj6').textContent = fmt(sumFalhaSaj6);
+  document.getElementById('cardSaj5').textContent = fmt(sumProtSaj5+sumFalhaSaj5);
+  document.getElementById('cardSaj6').textContent = fmt(sumProtSaj6+sumFalhaSaj6);
+  document.getElementById('cardTotal').textContent = fmt(sumTotal);
+  const sumIntimacoes = intimRows.reduce((acc,r)=> acc + (r.intimacao||0), 0);
+  document.getElementById('cardIntimacoes').textContent = fmt(sumIntimacoes);
+  const sumLoteitem = loteitemRows.reduce((acc,r)=> acc + (r.total||0), 0);
+  document.getElementById('cardLoteitem').textContent = fmt(sumLoteitem);
+
+  // ----- BY HOUR AGGREGATION -----
+  const byHour = {};
+  HOURS.forEach(h=> byHour[h] = {prot:0, falha:0, total:0});
+  rows.forEach(r=>{
+    const h = new Date(r.hora_inicio).getHours();
+    const prot = (r.protocolado_saj5||0)+(r.protocolado_saj6||0);
+    const falha = (r.falha_saj5||0)+(r.falha_saj6||0);
+    byHour[h].prot += prot;
+    byHour[h].falha += falha;
+    byHour[h].total += prot+falha;
+  });
+  const hourLabels = HOURS.map(hourLabel);
+
+  upsertChart('chartProtHora', {
+    type:'line',
+    data:{ labels:hourLabels, datasets:[ lineDataset('Protocolados', HOURS.map(h=>byHour[h].prot), '#4f8ff7') ] },
+    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+  });
+  upsertChart('chartFalhaHora', {
+    type:'line',
+    data:{ labels:hourLabels, datasets:[ lineDataset('Falhas', HOURS.map(h=>byHour[h].falha), '#ef4b5f') ] },
+    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+  });
+  upsertChart('chartTotalHora', {
+    type:'line',
+    data:{ labels:hourLabels, datasets:[ lineDataset('Total', HOURS.map(h=>byHour[h].total), '#2dd4bf') ] },
+    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+  });
+
+  // ----- SAJ5 x SAJ6 by hour -----
+  const saj5ByHour = HOURS.map(h=>0), saj6ByHour = HOURS.map(h=>0);
+  rows.forEach(r=>{
+    const h = new Date(r.hora_inicio).getHours();
+    saj5ByHour[h] += (r.protocolado_saj5||0)+(r.falha_saj5||0);
+    saj6ByHour[h] += (r.protocolado_saj6||0)+(r.falha_saj6||0);
+  });
+  upsertChart('chartSaj', {
+    type:'bar',
+    data:{ labels:hourLabels, datasets:[
+      { label:'SAJ5', data:saj5ByHour, backgroundColor:'#8b7cf6' },
+      { label:'SAJ6', data:saj6ByHour, backgroundColor:'#22c58b' }
+    ]},
+    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+  });
+
+  // ----- RANKING DOS LOCAIS (total by nomelocal) -----
+  const totalByLocal = {};
+  rows.forEach(r=>{
+    const name = cfg.porLocal ? (r.nomelocal || 'Sem nome') : 'Total geral';
+    const total = (r.protocolado_saj5||0)+(r.protocolado_saj6||0)+(r.falha_saj5||0)+(r.falha_saj6||0);
+    totalByLocal[name] = (totalByLocal[name]||0) + total;
+  });
+  const rankingEntries = Object.entries(totalByLocal).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  upsertChart('chartRanking', {
+    type:'bar',
+    data:{
+      labels: rankingEntries.map(e=>e[0]),
+      datasets:[{ label:'Total', data:rankingEntries.map(e=>e[1]), backgroundColor:'#4f8ff7' }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      scales:{ x:{grid:{color:'#1e2a44'}, beginAtZero:true, ticks:{precision:0}}, y:{grid:{display:false}} },
+      plugins:{legend:{display:false}}
+    }
+  });
+
+  // ----- RANKING DE MOTIVOS DE FALHA -----
+  const motivosTotal = {};
+  loteitemRows.forEach(r=>{
+    const motivo = r.demotivofalha || 'Sem motivo';
+    motivosTotal[motivo] = (motivosTotal[motivo] || 0) + (r.total || 0);
+  });
+  const motivosRanking = Object.entries(motivosTotal)
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0,10);
+  upsertChart('chartEvolucao', {
+    type:'bar',
+    data:{
+      labels: motivosRanking.map(e=>e[0]),
+      datasets:[{ label:'Total', data: motivosRanking.map(e=>e[1]), backgroundColor:'#ef4b5f' }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      scales:{ x:{grid:{color:'#1e2a44'}, beginAtZero:true, ticks:{precision:0}}, y:{grid:{display:false}} },
+      plugins:{legend:{display:false}}
+    }
+  });
+
+  // ----- INTIMAÇÕES POR HORA -----
+  const intimByHour = HOURS.map(h=>0);
+  intimRows.forEach(r=>{
+    const h = new Date(r.hora_inicio).getHours();
+    intimByHour[h] += r.intimacao||0;
+  });
+  upsertChart('chartIntimacao', {
+    type:'line',
+    data:{ labels:hourLabels, datasets:[ lineDataset('Intimações', intimByHour, '#f5a623') ] },
+    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+  });
+
+  const now = new Date();
+  document.getElementById('updatedPill').textContent = 'Atualizado ' + now.toLocaleTimeString('pt-BR');
+
+  btn.disabled = false;
+  btn.textContent = '↻ Atualizar';
+}
+
+document.getElementById('refreshBtn').addEventListener('click', renderAll);
+['fLocal','fDataIni','fDataFim','fHoraIni','fHoraFim'].forEach(id=>{
+  document.getElementById(id).addEventListener('change', renderAll);
+});
+
+document.querySelectorAll('.client-btn[data-client]').forEach(btn=>{
+  btn.addEventListener('click', async ()=>{
+    if(btn.dataset.client === activeClient) return;
+    activeClient = btn.dataset.client;
+    updateClientVisual();
+    await loadLocalOptions();
+    await renderAll();
+  });
+});
+
+// ---------- NAVEGAÇÃO ENTRE PÁGINAS ----------
+const pageTitles = { dashboard:'Dashboard', locais:'Locais', intimacoes:'Intimações' };
+document.querySelectorAll('.nav-item[data-page]').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    const page = item.dataset.page;
+    document.querySelectorAll('.nav-item[data-page]').forEach(n=>n.classList.remove('active'));
+    item.classList.add('active');
+    document.getElementById('topbarTitle').textContent =
+      `${pageTitles[page]} - ${clientConfig().label}`;
+    document.getElementById('page-dashboard').style.display = page === 'dashboard' ? '' : 'none';
+    document.getElementById('page-locais').style.display = page === 'locais' ? '' : 'none';
+    document.getElementById('page-intimacoes').style.display = page === 'intimacoes' ? '' : 'none';
+    document.getElementById('refreshBtn').style.display = page === 'dashboard' ? '' : 'none';
+  });
+});
+
+(async function init(){
+  updateClientVisual();
+  setDefaultDates();
+  await loadLocalOptions();
+  await renderAll();
+})();
+</script>
+</body>
+</html>

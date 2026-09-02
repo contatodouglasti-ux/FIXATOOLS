@@ -266,3 +266,18 @@
 [17/08/2026 16:47:30] Falha ao conectar ao banco (sigsp).
 [17/08/2026 16:47:44] Gerando SQL para 1 idcard(s)...
 [17/08/2026 16:47:44] Falha ao conectar ao banco (sigsp).
+[02/09/2026 15:36:46] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:36:51] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:41:35] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:41:37] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:41:38] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:41:42] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:41:44] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:41:47] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:41:53] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:42:34] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:43:09] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:47:09] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:47:17] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).
+[02/09/2026 15:47:18] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[02/09/2026 15:47:20] Cliente selecionado: SIGSP / UNJ01SP (conexão via túnel).

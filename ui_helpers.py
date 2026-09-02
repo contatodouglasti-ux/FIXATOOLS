@@ -97,6 +97,20 @@ def aplicar_tema(root):
             padding=(12, 10),
         )
     style.configure(
+        "ClientSP.TLabel",
+        background="#dbeafe",
+        foreground="#1d4ed8",
+        font=("Segoe UI", 11, "bold"),
+        padding=(14, 10),
+    )
+    style.configure(
+        "ClientMPRS.TLabel",
+        background="#ede9fe",
+        foreground="#6d28d9",
+        font=("Segoe UI", 11, "bold"),
+        padding=(14, 10),
+    )
+    style.configure(
         "Primary.TButton",
         padding=(14, 8),
         font=("Segoe UI", 10, "bold"),

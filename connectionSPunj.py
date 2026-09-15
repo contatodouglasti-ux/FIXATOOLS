@@ -1,4 +1,5 @@
 import psycopg
+import ssh_compat
 from sshtunnel import SSHTunnelForwarder
 
 from config_manager import obter_credenciais

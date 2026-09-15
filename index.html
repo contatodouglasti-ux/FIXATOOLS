@@ -287,13 +287,13 @@
     <div class="charts-grid">
       <div class="chart-box"><h3>Protocolados por Hora</h3><div class="chart-tall"><canvas id="chartProtHora"></canvas></div></div>
       <div class="chart-box"><h3>Falhas por Hora (SAJ5 + SAJ6)</h3><div class="chart-tall"><canvas id="chartFalhaHora"></canvas></div></div>
-      <div class="chart-box"><h3>Total por Hora</h3><div class="chart-tall"><canvas id="chartTotalHora"></canvas></div></div>
+      <div class="chart-box" id="chartTotalBox"><h3 id="chartTotalTitle">Total por Hora</h3><div class="chart-tall"><canvas id="chartTotalHora"></canvas></div></div>
     </div>
 
     <div class="section-title">DISTRIBUIÇÃO E EVOLUÇÃO</div>
     <div class="charts-grid">
       <div class="chart-box"><h3>SAJ5 x SAJ6</h3><div class="chart-tall"><canvas id="chartSaj"></canvas></div></div>
-      <div class="chart-box"><h3>Ranking dos Locais</h3><div class="chart-tall"><canvas id="chartRanking"></canvas></div></div>
+      <div class="chart-box" id="chartRankingBox"><h3 id="chartRankingTitle">Ranking dos Locais</h3><div class="chart-tall"><canvas id="chartRanking"></canvas></div></div>
       <div class="chart-box"><h3>Ranking de Motivos de Falha</h3><div class="chart-tall"><canvas id="chartEvolucao"></canvas></div></div>
     </div>
 
@@ -396,6 +396,13 @@ function updateClientVisual(){
   });
   document.getElementById('topbarTitle').textContent = `Dashboard - ${cfg.label}`;
   document.getElementById('clientScope').textContent = cfg.escopo;
+  document.getElementById('chartTotalTitle').textContent = cfg.porLocal
+    ? 'Ranking dos Locais - SAJ6'
+    : 'Total por Hora';
+  document.getElementById('chartRankingTitle').textContent = cfg.porLocal
+    ? 'Ranking dos Locais - SAJ6'
+    : 'Ranking dos Locais';
+  document.getElementById('chartRankingBox').style.display = cfg.porLocal ? 'none' : '';
   document.getElementById('localLabel').textContent = cfg.porLocal ? 'LOCAL / LOTAÇÃO' : 'ESCOPO';
 }
 
@@ -560,11 +567,35 @@ async function renderAll(){
     data:{ labels:hourLabels, datasets:[ lineDataset('Falhas', HOURS.map(h=>byHour[h].falha), '#ef4b5f') ] },
     options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
   });
-  upsertChart('chartTotalHora', {
-    type:'line',
-    data:{ labels:hourLabels, datasets:[ lineDataset('Total', HOURS.map(h=>byHour[h].total), '#2dd4bf') ] },
-    options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
-  });
+  if(cfg.porLocal){
+    const saj6ByLocal = {};
+    rows.forEach(r=>{
+      const name = r.nomelocal || 'Sem nome';
+      const totalSaj6 = (r.protocolado_saj6||0) + (r.falha_saj6||0);
+      saj6ByLocal[name] = (saj6ByLocal[name]||0) + totalSaj6;
+    });
+    const saj6Ranking = Object.entries(saj6ByLocal)
+      .sort((a,b)=>b[1]-a[1])
+      .slice(0,10);
+    upsertChart('chartTotalHora', {
+      type:'bar',
+      data:{
+        labels: saj6Ranking.map(e=>e[0]),
+        datasets:[{ label:'SAJ6', data:saj6Ranking.map(e=>e[1]), backgroundColor:'#22c58b' }]
+      },
+      options:{
+        indexAxis:'y', responsive:true, maintainAspectRatio:false,
+        scales:{ x:{grid:{color:'#1e2a44'}, beginAtZero:true, ticks:{precision:0}}, y:{grid:{display:false}} },
+        plugins:{legend:{display:false}}
+      }
+    });
+  } else {
+    upsertChart('chartTotalHora', {
+      type:'line',
+      data:{ labels:hourLabels, datasets:[ lineDataset('Total', HOURS.map(h=>byHour[h].total), '#2dd4bf') ] },
+      options:{ responsive:true, maintainAspectRatio:false, scales:baseScales, plugins:{legend:{display:true, labels:{boxWidth:10}}} }
+    });
+  }
 
   // ----- SAJ5 x SAJ6 by hour -----
   const saj5ByHour = HOURS.map(h=>0), saj6ByHour = HOURS.map(h=>0);

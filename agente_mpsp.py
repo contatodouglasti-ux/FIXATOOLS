@@ -101,7 +101,10 @@ def _gravar_log(mensagem, nivel="INFO"):
 
 def _buscar_dicts(conn, sql, parametros=None):
     with conn.cursor() as cur:
-        cur.execute(sql, parametros or {})
+        if parametros is None:
+            cur.execute(sql)
+        else:
+            cur.execute(sql, parametros)
         colunas = [desc[0] for desc in cur.description]
         return [dict(zip(colunas, linha)) for linha in cur.fetchall()]
 

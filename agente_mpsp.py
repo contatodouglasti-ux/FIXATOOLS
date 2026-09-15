@@ -20,7 +20,7 @@ LIMITE_ACOMPANHAMENTO_SEGUNDOS = 30 * 60
 
 
 SQL_REGISTROS_ALVO = """
-SELECT nuseqintimacao, cdforo, cdagente, deobservacao, flstatus
+SELECT nuseqintimacao, *
 FROM saj.efmptjlotecargait e
 WHERE e.deobservacao LIKE '%efmptjagente%'
   AND e.dtusuinclusao >= current_date

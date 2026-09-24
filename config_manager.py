@@ -39,6 +39,13 @@ DEFAULTS = {
         "db_unj": "unj01rs",
         "user": "",
         "password": ""
+    },
+    "mpce": {
+        "host": "",
+        "port": "5432",
+        "db_unj": "unj01ce",
+        "user": "",
+        "password": ""
     }
 }
 
@@ -120,6 +127,19 @@ def salvar_credenciais(
         config.write(f)
 
 
+def salvar_mpce_unj(host, port, db_unj, user, password):
+    """Salva somente a conexão direta do banco sajptf do MPCE."""
+    config = carregar_config()
+    config["mpce"]["host"] = str(host or "").strip()
+    config["mpce"]["port"] = str(port or "5432").strip()
+    config["mpce"]["db_unj"] = str(db_unj or "unj01ce").strip()
+    config["mpce"]["user"] = str(user or "").strip()
+    config["mpce"]["password"] = str(password or "")
+
+    with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+        config.write(f)
+
+
 def obter_credenciais():
     config = carregar_config()
 
@@ -141,4 +161,9 @@ def obter_credenciais():
         "mprs_dbname": config["mprs"]["db_rs"],
         "mprs_user": config["mprs"]["user"],
         "mprs_password": config["mprs"]["password"],
+        "mpce_host": config["mpce"]["host"],
+        "mpce_port": config.getint("mpce", "port"),
+        "mpce_db_unj": config["mpce"]["db_unj"],
+        "mpce_user": config["mpce"]["user"],
+        "mpce_password": config["mpce"]["password"],
     }

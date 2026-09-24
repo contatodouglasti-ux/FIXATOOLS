@@ -1,5 +1,6 @@
 """Painel isolado para ajustar tarefas SAJ6 do MPCE."""
 
+import json
 import queue
 import threading
 import traceback
@@ -65,7 +66,43 @@ def _base_dir():
 
 
 LOG_PATH = _base_dir() / "mpce_ajuste_tarefa.log"
+METRICAS_PATH = _base_dir() / "mpce_operacoes.json"
 _LOG_LOCK = threading.Lock()
+_METRICAS_LOCK = threading.Lock()
+
+
+def _metricas_padrao():
+    return {
+        "consultas": 0,
+        "inserts": 0,
+        "updates": 0,
+        "rodadas": 0,
+    }
+
+
+def _carregar_metricas():
+    try:
+        dados = json.loads(METRICAS_PATH.read_text(encoding="utf-8"))
+        metricas = _metricas_padrao()
+        for chave in metricas:
+            metricas[chave] = int(dados.get(chave, 0) or 0)
+        return metricas
+    except (OSError, ValueError, TypeError):
+        return _metricas_padrao()
+
+
+def _registrar_metricas(resumo):
+    with _METRICAS_LOCK:
+        metricas = _carregar_metricas()
+        metricas["consultas"] += int(resumo.get("consultas", 0) or 0)
+        metricas["inserts"] += int(resumo.get("inserts", 0) or 0)
+        metricas["updates"] += int(resumo.get("updates", 0) or 0)
+        metricas["rodadas"] += 1
+        METRICAS_PATH.write_text(
+            json.dumps(metricas, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        return metricas
 
 
 def inicio_fim_ultima_hora():
@@ -118,6 +155,9 @@ def verificar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
         "candidatos": 0,
         "idcards": 0,
         "tarefas": 0,
+        "consultas": 0,
+        "inserts": 0,
+        "updates": 0,
         "ajustados": 0,
         "ajustaveis": 0,
         "linhas": [],
@@ -132,6 +172,7 @@ def verificar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
             raise RuntimeError("Não foi possível conectar à base MPCE.")
         _emitir(log, "Conexão com a base MPCE estabelecida para consulta.")
 
+        resumo["consultas"] += 1
         candidatos = _buscar_dicts(conn_sigce, SQL_CANDIDATOS, {
             "inicio": data_inicio,
             "fim": data_fim,
@@ -162,6 +203,7 @@ def verificar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
             raise RuntimeError("Não foi possível conectar à base unj01ce do MPCE.")
         _emitir(log, "Conexão com a base de tarefas unj01ce estabelecida para consulta.")
 
+        resumo["consultas"] += 1
         tarefas = _buscar_dicts(conn_unj, SQL_TAREFAS_ATIVAS, (list(por_idcard),))
         resumo["tarefas"] = len(tarefas)
         tarefas_por_idcard = {}
@@ -200,6 +242,10 @@ def verificar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
         raise
     finally:
         resumo["duracao"] = str(datetime.now() - inicio_execucao).split(".")[0]
+        try:
+            resumo["metricas"] = _registrar_metricas(resumo)
+        except Exception as exc:
+            _emitir(log, f"Não foi possível salvar as métricas da rodada: {exc}", "AVISO")
         if conn_unj:
             conn_unj.close()
         if conn_sigce:
@@ -223,6 +269,9 @@ def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
         "candidatos": 0,
         "idcards": 0,
         "tarefas": 0,
+        "consultas": 0,
+        "inserts": 0,
+        "updates": 0,
         "ajustados": 0,
         "cancelado": False,
         "duracao": None,
@@ -235,6 +284,7 @@ def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
             raise RuntimeError("Não foi possível conectar à base MPCE.")
         _emitir(log, "Conexão com a base MPCE estabelecida.")
 
+        resumo["consultas"] += 1
         candidatos = _buscar_dicts(conn_sigce, SQL_CANDIDATOS, {
             "inicio": data_inicio,
             "fim": data_fim,
@@ -270,6 +320,7 @@ def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
         _emitir(log, "ConexÃ£o com a base de tarefas unj01ce estabelecida.")
 
         idcards = list(por_idcard)
+        resumo["consultas"] += 1
         tarefas = _buscar_dicts(conn_unj, SQL_TAREFAS_ATIVAS, (idcards,))
         resumo["tarefas"] = len(tarefas)
         _emitir(log, f"Tarefas ativas encontradas: {len(tarefas)}.")
@@ -290,12 +341,14 @@ def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
                     resumo["cancelado"] = True
                     break
                 candidato = por_idcard[card]
+                resumo["consultas"] += 1
                 cur.execute(SQL_AJUSTAR_TAREFAS, (
                     candidato.get("dtprotocolizado"),
                     tarefa.get("idcard"),
                 ))
                 ajustados = cur.rowcount if cur.rowcount and cur.rowcount > 0 else 0
                 resumo["ajustados"] += ajustados
+                resumo["updates"] += ajustados
                 _emitir(
                     log,
                     f"Processo {candidato.get('cdprocesso')} | idcard {card} | "
@@ -317,6 +370,10 @@ def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
         raise
     finally:
         resumo["duracao"] = str(datetime.now() - inicio_execucao).split(".")[0]
+        try:
+            resumo["metricas"] = _registrar_metricas(resumo)
+        except Exception as exc:
+            _emitir(log, f"Não foi possível salvar as métricas da rodada: {exc}", "AVISO")
         if conn_unj:
             conn_unj.close()
         if conn_sigce:
@@ -358,6 +415,9 @@ class AjusteMPCE(ttk.Frame):
 
         frame_acoes = ttk.LabelFrame(container, text="Execução", style="Card.TLabelframe", padding=10)
         frame_acoes.pack(fill="x", pady=(0, 10))
+        padrao_inicio, padrao_fim = inicio_fim_ultima_hora()
+        self.hora_inicio_var = tk.StringVar(value=padrao_inicio.strftime("%H:%M"))
+        self.hora_fim_var = tk.StringVar(value=padrao_fim.strftime("%H:%M"))
         self.manual_btn = ttk.Button(
             frame_acoes,
             text="Executar agora",
@@ -385,8 +445,20 @@ class AjusteMPCE(ttk.Frame):
         ).grid(row=0, column=3, padx=(18, 0), sticky="w")
         self.status_var = tk.StringVar(value="Aguardando execução manual.")
         self.proxima_var = tk.StringVar(value="Próxima execução automática: -")
-        ttk.Label(frame_acoes, textvariable=self.status_var).grid(row=1, column=0, columnspan=4, sticky="w", pady=(10, 0))
-        ttk.Label(frame_acoes, textvariable=self.proxima_var, style="Hint.TLabel").grid(row=2, column=0, columnspan=4, sticky="w")
+        frame_periodo = ttk.Frame(frame_acoes)
+        frame_periodo.grid(row=1, column=0, columnspan=4, sticky="w", pady=(10, 0))
+        ttk.Label(frame_periodo, text="Periodo manual de hoje:").pack(side="left")
+        ttk.Label(frame_periodo, text="De").pack(side="left", padx=(12, 4))
+        ttk.Entry(frame_periodo, textvariable=self.hora_inicio_var, width=7, justify="center").pack(side="left")
+        ttk.Label(frame_periodo, text="Ate").pack(side="left", padx=(8, 4))
+        ttk.Entry(frame_periodo, textvariable=self.hora_fim_var, width=7, justify="center").pack(side="left")
+        ttk.Label(
+            frame_periodo,
+            text="(formato HH:MM; usado no manual e na verificacao)",
+            style="Hint.TLabel",
+        ).pack(side="left", padx=(10, 0))
+        ttk.Label(frame_acoes, textvariable=self.status_var).grid(row=2, column=0, columnspan=4, sticky="w", pady=(8, 0))
+        ttk.Label(frame_acoes, textvariable=self.proxima_var, style="Hint.TLabel").grid(row=3, column=0, columnspan=4, sticky="w")
 
         frame_totais = ttk.LabelFrame(container, text="Resumo da última rodada", style="Card.TLabelframe", padding=8)
         frame_totais.pack(fill="x", pady=(0, 10))
@@ -399,6 +471,27 @@ class AjusteMPCE(ttk.Frame):
             ttk.Label(bloco, text=rotulo, style="Hint.TLabel").pack(anchor="w")
             variavel = tk.StringVar(value="0")
             self.total_vars.append(variavel)
+            ttk.Label(bloco, textvariable=variavel, style="Stat.TLabel").pack(fill="x", pady=(3, 0))
+
+        frame_operacoes = ttk.LabelFrame(
+            container,
+            text="Operacoes acumuladas",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        frame_operacoes.pack(fill="x", pady=(0, 10))
+        for coluna in range(4):
+            frame_operacoes.columnconfigure(coluna, weight=1)
+        metricas = _carregar_metricas()
+        self.operacao_vars = []
+        for coluna, (rotulo, chave) in enumerate(
+            (("Consultas", "consultas"), ("INSERT", "inserts"), ("UPDATE", "updates"), ("Rodadas", "rodadas"))
+        ):
+            bloco = ttk.Frame(frame_operacoes, style="Card.TFrame")
+            bloco.grid(row=0, column=coluna, sticky="ew", padx=4)
+            ttk.Label(bloco, text=rotulo, style="Hint.TLabel").pack(anchor="w")
+            variavel = tk.StringVar(value=str(metricas[chave]))
+            self.operacao_vars.append((chave, variavel))
             ttk.Label(bloco, textvariable=variavel, style="Stat.TLabel").pack(fill="x", pady=(3, 0))
 
         frame_preview = ttk.LabelFrame(
@@ -530,6 +623,12 @@ class AjusteMPCE(ttk.Frame):
                 ),
             )
 
+    def _mostrar_metricas(self, metricas):
+        if not metricas:
+            return
+        for chave, variavel in self.operacao_vars:
+            variavel.set(str(metricas.get(chave, 0)))
+
     def _alternar_automatico(self):
         self.auto_ativo = self.auto_var.get()
         if self.auto_ativo:
@@ -557,7 +656,30 @@ class AjusteMPCE(ttk.Frame):
             self._iniciar_worker("automatico")
             self._agendar_proxima_execucao()
 
+    def _obter_periodo_manual(self):
+        try:
+            inicio_hora = datetime.strptime(self.hora_inicio_var.get().strip(), "%H:%M").time()
+            fim_hora = datetime.strptime(self.hora_fim_var.get().strip(), "%H:%M").time()
+        except ValueError as exc:
+            raise ValueError("Informe os horarios no formato HH:MM, por exemplo 10:00 e 15:00.") from exc
+
+        hoje = datetime.now().date()
+        data_inicio = datetime.combine(hoje, inicio_hora)
+        data_fim = datetime.combine(hoje, fim_hora)
+        if data_fim <= data_inicio:
+            raise ValueError("O horario final precisa ser maior que o horario inicial.")
+        return data_inicio, data_fim
+
     def _iniciar_worker(self, origem):
+        data_inicio = None
+        data_fim = None
+        if origem in ("manual", "verificacao"):
+            try:
+                data_inicio, data_fim = self._obter_periodo_manual()
+            except ValueError as exc:
+                messagebox.showwarning("Periodo invalido", str(exc), parent=self.winfo_toplevel())
+                return
+
         with self.worker_lock:
             if self.worker_running:
                 self._adicionar_tela(_gravar_log("Execução ignorada: já existe uma rodada em andamento.", "AVISO"))
@@ -566,13 +688,27 @@ class AjusteMPCE(ttk.Frame):
         self.stop_event.clear()
         self.manual_btn.configure(state="disabled")
         self.verificar_btn.configure(state="disabled")
-        self.status_var.set(f"Executando rodada {origem}...")
-        threading.Thread(target=self._rodar_worker, args=(origem,), daemon=True).start()
+        if data_inicio and data_fim:
+            self.status_var.set(
+                f"Executando {origem} de {data_inicio:%H:%M} até {data_fim:%H:%M}..."
+            )
+        else:
+            self.status_var.set(f"Executando rodada {origem}...")
+        threading.Thread(
+            target=self._rodar_worker,
+            args=(origem, data_inicio, data_fim),
+            daemon=True,
+        ).start()
 
-    def _rodar_worker(self, origem):
+    def _rodar_worker(self, origem, data_inicio=None, data_fim=None):
         try:
             funcao = verificar_fluxo if origem == "verificacao" else executar_fluxo
-            resumo = funcao(log=lambda linha: self.queue.put(("log", linha)), stop_event=self.stop_event)
+            resumo = funcao(
+                data_inicio=data_inicio,
+                data_fim=data_fim,
+                log=lambda linha: self.queue.put(("log", linha)),
+                stop_event=self.stop_event,
+            )
             self.queue.put(("resultado", origem, resumo, None))
         except Exception as exc:
             self.queue.put(("resultado", origem, None, exc))
@@ -599,6 +735,7 @@ class AjusteMPCE(ttk.Frame):
             self.status_var.set(f"Erro na execução {origem}: {erro}")
             messagebox.showerror("Ajuste MPCE", str(erro), parent=self.winfo_toplevel())
             return
+        self._mostrar_metricas(resumo.get("metricas"))
         if origem == "verificacao":
             self._mostrar_preview(resumo)
             self.total_vars[0].set(str(resumo["processos"]))

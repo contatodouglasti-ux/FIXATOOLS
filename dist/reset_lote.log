@@ -1,0 +1,23 @@
+[24/09/2026 13:42:46] Cliente selecionado: MPRS (conexão direta, sem túnel).
+[24/09/2026 13:42:51] Gerando SQL para 1 idcard(s)...
+[24/09/2026 13:42:51] Cliente MPRS selecionado: conexão direta, sem túnel.
+[24/09/2026 13:42:55] Bloco efmppeticionamento: 0.97s, 1 linha(s) encontrada(s).
+[24/09/2026 13:42:55] Bloco efmpintimacao: 0.09s, 1 linha(s) encontrada(s).
+[24/09/2026 13:42:55] Bloco efmpexpediente: 0.09s, 1 linha(s) encontrada(s).
+[24/09/2026 13:42:56] Bloco efmppeticaocard: 0.10s, 1 linha(s) encontrada(s).
+[24/09/2026 13:42:56] Bloco efmppeticaoblobdoc: 0.13s, 0 linha(s) encontrada(s).
+[24/09/2026 13:42:56] Bloco efmppetloteitem: 0.17s, 1 linha(s) encontrada(s).
+[24/09/2026 13:42:56] Validando numerotj na sajptf antes de montar os ajustes...
+[24/09/2026 13:42:57] Classificação sajptf: fila 3=0, fila 11=1, fila 1=0.
+[24/09/2026 13:42:57] 5 comando(s) de reset + 1 ajuste(s) sajptf classificado(s). Revise antes de executar.
+[24/09/2026 13:43:06] Nenhum comando de sigsp para executar.
+[24/09/2026 13:43:06] Executando 5 comando(s) no MPRS...
+[24/09/2026 13:43:07] OK MPRS: UPDATE saj.efmppeticionamento SET flstatus=5 WHERE cdpeticionamento='4578472';
+[24/09/2026 13:43:07] OK MPRS: UPDATE saj.efmpintimacao SET cdpeticionamento=NULL WHERE nuseqintimacao=4909831;
+[24/09/2026 13:43:07] OK MPRS: UPDATE saj.efmpexpediente SET dtfinalizacao=NULL, idusuariofinalizacao=NULL, status='Elaboracao' WHERE id='3356718';
+[24/09/2026 13:43:07] OK MPRS: DELETE FROM saj.efmppeticaocard WHERE cdpeticionamento=4578472 AND idcard='2R0000002XABI';
+[24/09/2026 13:43:07] OK MPRS: UPDATE saj.efmppetloteitem SET flstatus='F' WHERE cdpetloteitem='2027212';
+[24/09/2026 13:43:07] MPRS finalizado. 5 OK / 0 erro(s).
+[24/09/2026 13:43:08] Executando ajuste em sajptf.eptftarefa do MPRS...
+[24/09/2026 13:43:09] sajptf.eptftarefa do MPRS atualizado. Linhas afetadas: 1.
+[24/09/2026 13:43:09] Nenhum comando de sajptf para executar.

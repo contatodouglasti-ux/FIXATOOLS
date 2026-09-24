@@ -1,0 +1,435 @@
+[03/09/2026 00:25:12] Iniciando execução automática agendada.
+[03/09/2026 00:25:18] Iniciando processo
+[03/09/2026 00:25:19] Nenhum registro encontrado.
+[03/09/2026 00:25:19] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 00:55:19] Iniciando execução automática agendada.
+[03/09/2026 00:55:26] Iniciando processo
+[03/09/2026 00:55:27] 1 registros encontrados
+[03/09/2026 00:55:27] Registros que serão alterados:
+[03/09/2026 00:55:27] NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502
+[03/09/2026 00:55:27] Executando inserts iniciais...
+[03/09/2026 00:55:27] INSERT OK - NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502
+[03/09/2026 00:55:27] Todos os inserts iniciais executados.
+[03/09/2026 00:55:27] Reprocessando NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502
+[03/09/2026 00:55:28] Reprocessamento inicial iniciado.
+[03/09/2026 00:55:28] NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502 STATUS 177
+[03/09/2026 00:55:39] NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502 STATUS 161
+[03/09/2026 00:55:39] SUCESSO: NUSEQ 28949168 | NUPROCESSOEXTERNO 0005011-90.2022.8.26.0502 -> ID 2R000000HD0GO atualizado para grupo 39
+[03/09/2026 00:55:39] ============================================================
+[03/09/2026 00:55:39] PROCESSAMENTO FINALIZADO
+[03/09/2026 00:55:39] Total: 1
+[03/09/2026 00:55:39] Sucesso: 1
+[03/09/2026 00:55:39] Pendentes: 0
+[03/09/2026 00:55:39] Nenhum pendente encontrado.
+[03/09/2026 00:55:40] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 01:25:40] Iniciando execução automática agendada.
+[03/09/2026 01:25:47] Iniciando processo
+[03/09/2026 01:25:47] Nenhum registro encontrado.
+[03/09/2026 01:25:47] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 01:55:47] Iniciando execução automática agendada.
+[03/09/2026 01:55:55] Iniciando processo
+[03/09/2026 01:55:55] Nenhum registro encontrado.
+[03/09/2026 01:55:55] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 02:25:55] Iniciando execução automática agendada.
+[03/09/2026 02:26:02] Iniciando processo
+[03/09/2026 02:26:03] Nenhum registro encontrado.
+[03/09/2026 02:26:03] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 02:56:03] Iniciando execução automática agendada.
+[03/09/2026 02:56:10] Iniciando processo
+[03/09/2026 02:56:10] Nenhum registro encontrado.
+[03/09/2026 02:56:11] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 03:26:11] Iniciando execução automática agendada.
+[03/09/2026 03:26:19] Iniciando processo
+[03/09/2026 03:26:19] Nenhum registro encontrado.
+[03/09/2026 03:26:20] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 03:56:20] Iniciando execução automática agendada.
+[03/09/2026 03:56:27] Iniciando processo
+[03/09/2026 03:56:28] Nenhum registro encontrado.
+[03/09/2026 03:56:28] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 04:26:28] Iniciando execução automática agendada.
+[03/09/2026 04:26:35] Iniciando processo
+[03/09/2026 04:26:36] Nenhum registro encontrado.
+[03/09/2026 04:26:36] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 04:56:36] Iniciando execução automática agendada.
+[03/09/2026 04:56:43] Iniciando processo
+[03/09/2026 04:56:43] Nenhum registro encontrado.
+[03/09/2026 04:56:44] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 05:26:44] Iniciando execução automática agendada.
+[03/09/2026 05:26:50] Iniciando processo
+[03/09/2026 05:26:51] Nenhum registro encontrado.
+[03/09/2026 05:26:51] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 05:56:51] Iniciando execução automática agendada.
+[03/09/2026 05:56:58] Iniciando processo
+[03/09/2026 05:56:59] Nenhum registro encontrado.
+[03/09/2026 05:56:59] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 06:26:59] Iniciando execução automática agendada.
+[03/09/2026 06:27:06] Iniciando processo
+[03/09/2026 06:27:06] Nenhum registro encontrado.
+[03/09/2026 06:27:07] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 06:57:07] Iniciando execução automática agendada.
+[03/09/2026 06:57:14] Iniciando processo
+[03/09/2026 06:57:14] Nenhum registro encontrado.
+[03/09/2026 06:57:14] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 07:27:14] Iniciando execução automática agendada.
+[03/09/2026 07:27:21] Iniciando processo
+[03/09/2026 07:27:22] Nenhum registro encontrado.
+[03/09/2026 07:27:22] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 07:57:22] Iniciando execução automática agendada.
+[03/09/2026 07:57:29] Iniciando processo
+[03/09/2026 07:57:30] Nenhum registro encontrado.
+[03/09/2026 07:57:30] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 08:27:30] Iniciando execução automática agendada.
+[03/09/2026 08:28:02] Iniciando processo
+[03/09/2026 08:28:05] Nenhum registro encontrado.
+[03/09/2026 08:28:05] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 08:58:05] Iniciando execução automática agendada.
+[03/09/2026 08:58:45] Iniciando processo
+[03/09/2026 08:58:50] Nenhum registro encontrado.
+[03/09/2026 08:58:50] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 09:28:50] Iniciando execução automática agendada.
+[03/09/2026 09:29:18] Iniciando processo
+[03/09/2026 09:29:22] Nenhum registro encontrado.
+[03/09/2026 09:29:22] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 09:59:22] Iniciando execução automática agendada.
+[03/09/2026 09:59:32] Iniciando processo
+[03/09/2026 09:59:33] Nenhum registro encontrado.
+[03/09/2026 09:59:33] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 10:29:33] Iniciando execução automática agendada.
+[03/09/2026 10:30:18] Iniciando processo
+[03/09/2026 10:30:22] 2 registros encontrados
+[03/09/2026 10:30:22] Registros que serão alterados:
+[03/09/2026 10:30:22] NUSEQ 28959531 | NUPROCESSOEXTERNO 1506684-52.2026.8.26.0454
+[03/09/2026 10:30:22] NUSEQ 28959533 | NUPROCESSOEXTERNO 1543952-43.2026.8.26.0454
+[03/09/2026 10:30:22] Executando inserts iniciais...
+[03/09/2026 10:30:26] INSERT OK - NUSEQ 28959531 | NUPROCESSOEXTERNO 1506684-52.2026.8.26.0454
+[03/09/2026 10:30:26] INSERT DUPLICADO IGNORADO - NUSEQ 28959533 | NUPROCESSOEXTERNO 1543952-43.2026.8.26.0454
+[03/09/2026 10:30:26] Todos os inserts iniciais executados.
+[03/09/2026 10:30:26] Reprocessando NUSEQ 28959531 | NUPROCESSOEXTERNO 1506684-52.2026.8.26.0454
+[03/09/2026 10:30:32] Reprocessando NUSEQ 28959533 | NUPROCESSOEXTERNO 1543952-43.2026.8.26.0454
+[03/09/2026 10:30:38] Reprocessamento inicial iniciado.
+[03/09/2026 10:30:42] NUSEQ 28959531 | NUPROCESSOEXTERNO 1506684-52.2026.8.26.0454 STATUS 161
+[03/09/2026 10:30:47] SUCESSO: NUSEQ 28959531 | NUPROCESSOEXTERNO 1506684-52.2026.8.26.0454 -> ID 2R000000HD8OS atualizado para grupo 39
+[03/09/2026 10:30:47] NUSEQ 28959533 | NUPROCESSOEXTERNO 1543952-43.2026.8.26.0454 STATUS 161
+[03/09/2026 10:30:51] SUCESSO: NUSEQ 28959533 | NUPROCESSOEXTERNO 1543952-43.2026.8.26.0454 -> ID 2R000000HD8OU atualizado para grupo 39
+[03/09/2026 10:30:51] ============================================================
+[03/09/2026 10:30:51] PROCESSAMENTO FINALIZADO
+[03/09/2026 10:30:51] Total: 2
+[03/09/2026 10:30:51] Sucesso: 2
+[03/09/2026 10:30:51] Pendentes: 0
+[03/09/2026 10:30:51] Nenhum pendente encontrado.
+[03/09/2026 10:30:52] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 11:00:52] Iniciando execução automática agendada.
+[03/09/2026 11:01:20] Iniciando processo
+[03/09/2026 11:01:24] Nenhum registro encontrado.
+[03/09/2026 11:01:24] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 11:31:24] Iniciando execução automática agendada.
+[03/09/2026 11:31:44] Iniciando processo
+[03/09/2026 11:31:45] Nenhum registro encontrado.
+[03/09/2026 11:31:46] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 12:01:46] Iniciando execução automática agendada.
+[03/09/2026 12:02:31] Iniciando processo
+[03/09/2026 12:02:36] 1 registros encontrados
+[03/09/2026 12:02:36] Registros que serão alterados:
+[03/09/2026 12:02:36] NUSEQ 28966359 | NUPROCESSOEXTERNO 0000211-23.2025.8.26.0596
+[03/09/2026 12:02:36] Executando inserts iniciais...
+[03/09/2026 12:02:47] INSERT OK - NUSEQ 28966359 | NUPROCESSOEXTERNO 0000211-23.2025.8.26.0596
+[03/09/2026 12:02:47] Todos os inserts iniciais executados.
+[03/09/2026 12:02:47] Reprocessando NUSEQ 28966359 | NUPROCESSOEXTERNO 0000211-23.2025.8.26.0596
+[03/09/2026 12:02:55] Reprocessamento inicial iniciado.
+[03/09/2026 12:03:00] NUSEQ 28966359 | NUPROCESSOEXTERNO 0000211-23.2025.8.26.0596 STATUS 161
+[03/09/2026 12:03:07] SUCESSO: NUSEQ 28966359 | NUPROCESSOEXTERNO 0000211-23.2025.8.26.0596 -> ID 2R000000HDE6K atualizado para grupo 39
+[03/09/2026 12:03:07] ============================================================
+[03/09/2026 12:03:07] PROCESSAMENTO FINALIZADO
+[03/09/2026 12:03:07] Total: 1
+[03/09/2026 12:03:07] Sucesso: 1
+[03/09/2026 12:03:07] Pendentes: 0
+[03/09/2026 12:03:07] Nenhum pendente encontrado.
+[03/09/2026 12:03:07] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 12:33:07] Iniciando execução automática agendada.
+[03/09/2026 12:33:12] Iniciando processo
+[03/09/2026 12:33:12] 1 registros encontrados
+[03/09/2026 12:33:12] Registros que serão alterados:
+[03/09/2026 12:33:12] NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041
+[03/09/2026 12:33:12] Executando inserts iniciais...
+[03/09/2026 12:33:12] INSERT OK - NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041
+[03/09/2026 12:33:12] Todos os inserts iniciais executados.
+[03/09/2026 12:33:12] Reprocessando NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041
+[03/09/2026 12:33:13] Reprocessamento inicial iniciado.
+[03/09/2026 12:33:13] NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041 STATUS 177
+[03/09/2026 12:33:23] NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041 STATUS 161
+[03/09/2026 12:33:24] SUCESSO: NUSEQ 28970013 | NUPROCESSOEXTERNO 0002190-75.2021.8.26.0041 -> ID 2R000000HDH36 atualizado para grupo 39
+[03/09/2026 12:33:24] ============================================================
+[03/09/2026 12:33:24] PROCESSAMENTO FINALIZADO
+[03/09/2026 12:33:24] Total: 1
+[03/09/2026 12:33:24] Sucesso: 1
+[03/09/2026 12:33:24] Pendentes: 0
+[03/09/2026 12:33:24] Nenhum pendente encontrado.
+[03/09/2026 12:33:24] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 13:03:24] Iniciando execução automática agendada.
+[03/09/2026 13:03:50] Iniciando processo
+[03/09/2026 13:03:53] Nenhum registro encontrado.
+[03/09/2026 13:03:53] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 13:33:53] Iniciando execução automática agendada.
+[03/09/2026 13:34:02] Iniciando processo
+[03/09/2026 13:34:03] 1 registros encontrados
+[03/09/2026 13:34:03] Registros que serão alterados:
+[03/09/2026 13:34:03] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041
+[03/09/2026 13:34:03] Executando inserts iniciais...
+[03/09/2026 13:34:04] INSERT OK - NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041
+[03/09/2026 13:34:04] Todos os inserts iniciais executados.
+[03/09/2026 13:34:04] Reprocessando NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041
+[03/09/2026 13:34:05] Reprocessamento inicial iniciado.
+[03/09/2026 13:34:05] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 177
+[03/09/2026 13:34:16] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 177
+[03/09/2026 13:34:26] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 177
+[03/09/2026 13:34:37] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 177
+[03/09/2026 13:34:47] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 177
+[03/09/2026 13:34:58] NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 STATUS 161
+[03/09/2026 13:34:59] SUCESSO: NUSEQ 28973647 | NUPROCESSOEXTERNO 0015288-59.2023.8.26.0041 -> ID 2R000000HDK0W atualizado para grupo 39
+[03/09/2026 13:34:59] ============================================================
+[03/09/2026 13:34:59] PROCESSAMENTO FINALIZADO
+[03/09/2026 13:34:59] Total: 1
+[03/09/2026 13:34:59] Sucesso: 1
+[03/09/2026 13:34:59] Pendentes: 0
+[03/09/2026 13:34:59] Nenhum pendente encontrado.
+[03/09/2026 13:34:59] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 14:04:59] Iniciando execução automática agendada.
+[03/09/2026 14:05:05] Iniciando processo
+[03/09/2026 14:05:05] Nenhum registro encontrado.
+[03/09/2026 14:05:05] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 14:35:05] Iniciando execução automática agendada.
+[03/09/2026 14:35:11] Iniciando processo
+[03/09/2026 14:35:11] Nenhum registro encontrado.
+[03/09/2026 14:35:11] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 15:05:11] Iniciando execução automática agendada.
+[03/09/2026 15:05:16] Iniciando processo
+[03/09/2026 15:05:16] Nenhum registro encontrado.
+[03/09/2026 15:05:16] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 15:35:16] Iniciando execução automática agendada.
+[03/09/2026 15:35:21] Iniciando processo
+[03/09/2026 15:35:21] 2 registros encontrados
+[03/09/2026 15:35:21] Registros que serão alterados:
+[03/09/2026 15:35:21] NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:21] NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:21] Executando inserts iniciais...
+[03/09/2026 15:35:21] INSERT OK - NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:21] INSERT DUPLICADO IGNORADO - NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:21] Todos os inserts iniciais executados.
+[03/09/2026 15:35:21] Reprocessando NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:22] Reprocessando NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355
+[03/09/2026 15:35:22] Reprocessamento inicial iniciado.
+[03/09/2026 15:35:22] NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 177
+[03/09/2026 15:35:22] NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 177
+[03/09/2026 15:35:33] NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 177
+[03/09/2026 15:35:33] NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 177
+[03/09/2026 15:35:43] NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 161
+[03/09/2026 15:35:43] SUCESSO: NUSEQ 28982684 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 -> ID 2R000000HDRB8 atualizado para grupo 39
+[03/09/2026 15:35:43] NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 177
+[03/09/2026 15:35:53] NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 STATUS 161
+[03/09/2026 15:35:54] SUCESSO: NUSEQ 28984012 | NUPROCESSOEXTERNO 1500069-52.2026.8.26.0355 -> ID 2R000000HDSC4 atualizado para grupo 39
+[03/09/2026 15:35:54] ============================================================
+[03/09/2026 15:35:54] PROCESSAMENTO FINALIZADO
+[03/09/2026 15:35:54] Total: 2
+[03/09/2026 15:35:54] Sucesso: 2
+[03/09/2026 15:35:54] Pendentes: 0
+[03/09/2026 15:35:54] Nenhum pendente encontrado.
+[03/09/2026 15:35:54] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 16:05:54] Iniciando execução automática agendada.
+[03/09/2026 16:06:25] Iniciando processo
+[03/09/2026 16:06:28] 4 registros encontrados
+[03/09/2026 16:06:28] Registros que serão alterados:
+[03/09/2026 16:06:28] NUSEQ 28987046 | NUPROCESSOEXTERNO 1502028-18.2023.8.26.0079
+[03/09/2026 16:06:28] NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050
+[03/09/2026 16:06:28] NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309
+[03/09/2026 16:06:28] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272
+[03/09/2026 16:06:28] Executando inserts iniciais...
+[03/09/2026 16:06:30] INSERT OK - NUSEQ 28987046 | NUPROCESSOEXTERNO 1502028-18.2023.8.26.0079
+[03/09/2026 16:06:33] INSERT OK - NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050
+[03/09/2026 16:06:37] INSERT OK - NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309
+[03/09/2026 16:06:41] INSERT OK - NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272
+[03/09/2026 16:06:41] Todos os inserts iniciais executados.
+[03/09/2026 16:06:41] Reprocessando NUSEQ 28987046 | NUPROCESSOEXTERNO 1502028-18.2023.8.26.0079
+[03/09/2026 16:06:44] Reprocessando NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050
+[03/09/2026 16:06:47] Reprocessando NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309
+[03/09/2026 16:06:49] Reprocessando NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272
+[03/09/2026 16:06:52] Reprocessamento inicial iniciado.
+[03/09/2026 16:06:54] NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050 STATUS 177
+[03/09/2026 16:06:54] NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309 STATUS 177
+[03/09/2026 16:06:54] NUSEQ 28987046 | NUPROCESSOEXTERNO 1502028-18.2023.8.26.0079 STATUS 161
+[03/09/2026 16:06:59] SUCESSO: NUSEQ 28987046 | NUPROCESSOEXTERNO 1502028-18.2023.8.26.0079 -> ID 2R000000HDUU8 atualizado para grupo 39
+[03/09/2026 16:06:59] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 177
+[03/09/2026 16:07:10] NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050 STATUS 177
+[03/09/2026 16:07:10] NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309 STATUS 177
+[03/09/2026 16:07:10] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 177
+[03/09/2026 16:07:22] NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050 STATUS 161
+[03/09/2026 16:07:27] SUCESSO: NUSEQ 28984897 | NUPROCESSOEXTERNO 1536921-54.2025.8.26.0050 -> ID 2R000000HDT40 atualizado para grupo 39
+[03/09/2026 16:07:27] NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309 STATUS 161
+[03/09/2026 16:07:31] SUCESSO: NUSEQ 28986312 | NUPROCESSOEXTERNO 7001261-07.2012.8.26.0309 -> ID 2R000000HDU9U atualizado para grupo 39
+[03/09/2026 16:07:32] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 177
+[03/09/2026 16:07:43] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 177
+[03/09/2026 16:07:54] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 177
+[03/09/2026 16:08:06] NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 STATUS 161
+[03/09/2026 16:08:09] SUCESSO: NUSEQ 28987328 | NUPROCESSOEXTERNO 0000827-05.2022.8.26.0272 -> ID 2R000000HDV22 atualizado para grupo 39
+[03/09/2026 16:08:09] ============================================================
+[03/09/2026 16:08:09] PROCESSAMENTO FINALIZADO
+[03/09/2026 16:08:09] Total: 4
+[03/09/2026 16:08:09] Sucesso: 4
+[03/09/2026 16:08:09] Pendentes: 0
+[03/09/2026 16:08:09] Nenhum pendente encontrado.
+[03/09/2026 16:08:10] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 16:38:10] Iniciando execução automática agendada.
+[03/09/2026 16:38:14] Iniciando processo
+[03/09/2026 16:38:14] 1 registros encontrados
+[03/09/2026 16:38:14] Registros que serão alterados:
+[03/09/2026 16:38:14] NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642
+[03/09/2026 16:38:14] Executando inserts iniciais...
+[03/09/2026 16:38:14] INSERT OK - NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642
+[03/09/2026 16:38:14] Todos os inserts iniciais executados.
+[03/09/2026 16:38:14] Reprocessando NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642
+[03/09/2026 16:38:15] Reprocessamento inicial iniciado.
+[03/09/2026 16:38:15] NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642 STATUS 177
+[03/09/2026 16:38:25] NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642 STATUS 161
+[03/09/2026 16:38:26] SUCESSO: NUSEQ 28989277 | NUPROCESSOEXTERNO 1000092-67.2026.8.26.0642 -> ID 2R000000HDWMV atualizado para grupo 39
+[03/09/2026 16:38:26] ============================================================
+[03/09/2026 16:38:26] PROCESSAMENTO FINALIZADO
+[03/09/2026 16:38:26] Total: 1
+[03/09/2026 16:38:26] Sucesso: 1
+[03/09/2026 16:38:26] Pendentes: 0
+[03/09/2026 16:38:26] Nenhum pendente encontrado.
+[03/09/2026 16:38:26] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 17:08:26] Iniciando execução automática agendada.
+[03/09/2026 17:08:30] Iniciando processo
+[03/09/2026 17:08:31] 7 registros encontrados
+[03/09/2026 17:08:31] Registros que serão alterados:
+[03/09/2026 17:08:31] NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506
+[03/09/2026 17:08:31] NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482
+[03/09/2026 17:08:31] NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355
+[03/09/2026 17:08:31] NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482
+[03/09/2026 17:08:31] NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477
+[03/09/2026 17:08:31] NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477
+[03/09/2026 17:08:31] NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385
+[03/09/2026 17:08:31] Executando inserts iniciais...
+[03/09/2026 17:08:31] INSERT OK - NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506
+[03/09/2026 17:08:31] INSERT OK - NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482
+[03/09/2026 17:08:31] INSERT DUPLICADO IGNORADO - NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355
+[03/09/2026 17:08:31] INSERT DUPLICADO IGNORADO - NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482
+[03/09/2026 17:08:31] INSERT DUPLICADO IGNORADO - NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477
+[03/09/2026 17:08:31] INSERT DUPLICADO IGNORADO - NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477
+[03/09/2026 17:08:31] INSERT OK - NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385
+[03/09/2026 17:08:31] Todos os inserts iniciais executados.
+[03/09/2026 17:08:31] Reprocessando NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506
+[03/09/2026 17:08:32] Reprocessando NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482
+[03/09/2026 17:08:32] Reprocessando NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355
+[03/09/2026 17:08:32] Reprocessando NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482
+[03/09/2026 17:08:33] Reprocessando NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477
+[03/09/2026 17:08:33] Reprocessando NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477
+[03/09/2026 17:08:33] Reprocessando NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385
+[03/09/2026 17:08:34] Reprocessamento inicial iniciado.
+[03/09/2026 17:08:34] NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477 STATUS 177
+[03/09/2026 17:08:34] NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385 STATUS 177
+[03/09/2026 17:08:44] NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506 STATUS 161
+[03/09/2026 17:08:45] SUCESSO: NUSEQ 28991171 | NUPROCESSOEXTERNO 1003401-19.2026.8.26.0506 -> ID 2R000000HDY77 atualizado para grupo 39
+[03/09/2026 17:08:45] NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355 STATUS 161
+[03/09/2026 17:08:45] SUCESSO: NUSEQ 28991445 | NUPROCESSOEXTERNO 7000095-06.2006.8.26.0355 -> ID 2R000000HDYET atualizado para grupo 39
+[03/09/2026 17:08:45] NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482 STATUS 161
+[03/09/2026 17:08:46] SUCESSO: NUSEQ 28991456 | NUPROCESSOEXTERNO 7009639-44.2014.8.26.0482 -> ID 2R000000HDYF5 atualizado para grupo 39
+[03/09/2026 17:08:46] NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482 STATUS 161
+[03/09/2026 17:08:46] SUCESSO: NUSEQ 28991459 | NUPROCESSOEXTERNO 7000481-62.2014.8.26.0482 -> ID 2R000000HDYF7 atualizado para grupo 39
+[03/09/2026 17:08:46] NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477 STATUS 161
+[03/09/2026 17:08:46] SUCESSO: NUSEQ 28991752 | NUPROCESSOEXTERNO 7000408-42.2013.8.26.0477 -> ID 2R000000HDYNC atualizado para grupo 39
+[03/09/2026 17:08:46] NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477 STATUS 161
+[03/09/2026 17:08:47] SUCESSO: NUSEQ 28991756 | NUPROCESSOEXTERNO 7000407-57.2013.8.26.0477 -> ID 2R000000HDYNG atualizado para grupo 39
+[03/09/2026 17:08:47] NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385 STATUS 161
+[03/09/2026 17:08:47] SUCESSO: NUSEQ 28992583 | NUPROCESSOEXTERNO 1508375-51.2025.8.26.0385 -> ID 2R000000HDZDG atualizado para grupo 39
+[03/09/2026 17:08:47] ============================================================
+[03/09/2026 17:08:47] PROCESSAMENTO FINALIZADO
+[03/09/2026 17:08:47] Total: 7
+[03/09/2026 17:08:47] Sucesso: 7
+[03/09/2026 17:08:47] Pendentes: 0
+[03/09/2026 17:08:47] Nenhum pendente encontrado.
+[03/09/2026 17:08:47] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 17:38:47] Iniciando execução automática agendada.
+[03/09/2026 17:39:10] Iniciando processo
+[03/09/2026 17:39:10] Nenhum registro encontrado.
+[03/09/2026 17:39:10] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 18:09:10] Iniciando execução automática agendada.
+[03/09/2026 18:09:17] Iniciando processo
+[03/09/2026 18:09:17] Nenhum registro encontrado.
+[03/09/2026 18:09:17] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 18:39:17] Iniciando execução automática agendada.
+[03/09/2026 18:39:22] Iniciando processo
+[03/09/2026 18:39:22] Nenhum registro encontrado.
+[03/09/2026 18:39:22] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 19:09:22] Iniciando execução automática agendada.
+[03/09/2026 19:09:32] Iniciando processo
+[03/09/2026 19:09:32] 1 registros encontrados
+[03/09/2026 19:09:32] Registros que serão alterados:
+[03/09/2026 19:09:32] NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224
+[03/09/2026 19:09:32] Executando inserts iniciais...
+[03/09/2026 19:09:33] INSERT OK - NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224
+[03/09/2026 19:09:33] Todos os inserts iniciais executados.
+[03/09/2026 19:09:33] Reprocessando NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224
+[03/09/2026 19:09:33] Reprocessamento inicial iniciado.
+[03/09/2026 19:09:34] NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224 STATUS 177
+[03/09/2026 19:09:44] NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224 STATUS 161
+[03/09/2026 19:09:44] SUCESSO: NUSEQ 28996818 | NUPROCESSOEXTERNO 7000499-23.2010.8.26.0224 -> ID 2R000000HE2V1 atualizado para grupo 39
+[03/09/2026 19:09:44] ============================================================
+[03/09/2026 19:09:44] PROCESSAMENTO FINALIZADO
+[03/09/2026 19:09:44] Total: 1
+[03/09/2026 19:09:44] Sucesso: 1
+[03/09/2026 19:09:44] Pendentes: 0
+[03/09/2026 19:09:44] Nenhum pendente encontrado.
+[03/09/2026 19:09:44] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 19:39:44] Iniciando execução automática agendada.
+[03/09/2026 19:39:49] Iniciando processo
+[03/09/2026 19:39:49] Nenhum registro encontrado.
+[03/09/2026 19:39:49] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 20:09:49] Iniciando execução automática agendada.
+[03/09/2026 20:09:57] Iniciando processo
+[03/09/2026 20:09:58] Nenhum registro encontrado.
+[03/09/2026 20:09:58] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 20:39:58] Iniciando execução automática agendada.
+[03/09/2026 20:40:02] Iniciando processo
+[03/09/2026 20:40:03] Nenhum registro encontrado.
+[03/09/2026 20:40:03] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 21:10:03] Iniciando execução automática agendada.
+[03/09/2026 21:10:07] Iniciando processo
+[03/09/2026 21:10:07] Nenhum registro encontrado.
+[03/09/2026 21:10:07] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 21:40:07] Iniciando execução automática agendada.
+[03/09/2026 21:40:08] Falha ao conectar ao banco (sigsp).
+[03/09/2026 21:40:08] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 22:10:08] Iniciando execução automática agendada.
+[03/09/2026 22:10:08] Falha ao conectar ao banco (sigsp).
+[03/09/2026 22:10:08] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 22:40:08] Iniciando execução automática agendada.
+[03/09/2026 22:40:08] Falha ao conectar ao banco (sigsp).
+[03/09/2026 22:40:08] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 23:10:08] Iniciando execução automática agendada.
+[03/09/2026 23:10:08] Falha ao conectar ao banco (sigsp).
+[03/09/2026 23:10:08] Próxima execução automática agendada para daqui 30 minutos.
+[03/09/2026 23:40:08] Iniciando execução automática agendada.
+[03/09/2026 23:40:23] Iniciando processo
+[03/09/2026 23:40:24] 1 registros encontrados
+[03/09/2026 23:40:24] Registros que serão alterados:
+[03/09/2026 23:40:24] NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602
+[03/09/2026 23:40:24] Executando inserts iniciais...
+[03/09/2026 23:40:25] INSERT OK - NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602
+[03/09/2026 23:40:25] Todos os inserts iniciais executados.
+[03/09/2026 23:40:25] Reprocessando NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602
+[03/09/2026 23:40:26] Reprocessamento inicial iniciado.
+[03/09/2026 23:40:27] NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602 STATUS 177
+[03/09/2026 23:40:37] NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602 STATUS 161
+[03/09/2026 23:40:38] SUCESSO: NUSEQ 28997791 | NUPROCESSOEXTERNO 7000854-34.2008.8.26.0602 -> ID 2R000000HE3OY atualizado para grupo 39
+[03/09/2026 23:40:38] ============================================================
+[03/09/2026 23:40:38] PROCESSAMENTO FINALIZADO
+[03/09/2026 23:40:38] Total: 1
+[03/09/2026 23:40:38] Sucesso: 1
+[03/09/2026 23:40:38] Pendentes: 0
+[03/09/2026 23:40:38] Nenhum pendente encontrado.
+[03/09/2026 23:40:38] Próxima execução automática agendada para daqui 30 minutos.

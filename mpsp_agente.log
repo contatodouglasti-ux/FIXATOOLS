@@ -1,0 +1,1001 @@
+2026-09-15 18:29:34 [INFO] Iniciando rodada do bot MPSP.
+2026-09-15 18:29:35 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-15 18:29:36 [ERRO] Erro na rodada: only '%s', '%b', '%t' are allowed as placeholders, got '%e'
+2026-09-15 18:29:36 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 140, in executar_fluxo
+    registros = _buscar_dicts(conn, SQL_REGISTROS_ALVO)
+  File "c:\Pythonsaj\agente_mpsp.py", line 104, in _buscar_dicts
+    cur.execute(sql, parametros or {})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\douglas.s\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.ProgrammingError: only '%s', '%b', '%t' are allowed as placeholders, got '%e'
+2026-09-15 18:29:36 [INFO] Conexão MPSP encerrada.
+2026-09-15 18:53:12 [INFO] Iniciando rodada do bot MPSP.
+2026-09-15 18:53:13 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-15 18:53:14 [ERRO] Erro na rodada: column "cdforo" does not exist
+LINE 2: SELECT nuseqintimacao, cdforo, cdagente, deobservacao, flsta...
+                               ^
+2026-09-15 18:53:14 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 143, in executar_fluxo
+    registros = _buscar_dicts(conn, SQL_REGISTROS_ALVO)
+  File "c:\Pythonsaj\agente_mpsp.py", line 105, in _buscar_dicts
+    cur.execute(sql)
+    ~~~~~~~~~~~^^^^^
+  File "C:\Users\douglas.s\AppData\Local\Programs\Python\Python313\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column "cdforo" does not exist
+LINE 2: SELECT nuseqintimacao, cdforo, cdagente, deobservacao, flsta...
+                               ^
+2026-09-15 18:53:14 [INFO] Conexão MPSP encerrada.
+2026-09-15 18:59:27 [INFO] Iniciando rodada do bot MPSP.
+2026-09-15 18:59:28 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-15 18:59:29 [INFO] Registros encontrados na consulta: 11.
+2026-09-15 18:59:31 [INFO] Agentes inseridos: 22.
+2026-09-15 18:59:31 [INFO] Intimações reprocessadas: 11.
+2026-09-15 18:59:32 [INFO] Acompanhamento: 0/11 com flstatus 161.
+2026-09-15 18:59:47 [INFO] Acompanhamento: 0/11 com flstatus 161.
+2026-09-15 19:00:02 [INFO] Acompanhamento: 5/11 com flstatus 161.
+2026-09-15 19:00:17 [INFO] Acompanhamento: 11/11 com flstatus 161.
+2026-09-15 19:00:17 [INFO] Rodada concluída com sucesso. Total ajustado: 11.
+2026-09-15 19:00:17 [INFO] Conexão MPSP encerrada.
+2026-09-15 19:02:05 [INFO] Iniciando rodada do bot MPSP.
+2026-09-15 19:02:07 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-15 19:02:07 [INFO] Registros encontrados na consulta: 0.
+2026-09-15 19:02:07 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-15 19:02:08 [INFO] Conexão MPSP encerrada.
+2026-09-16 09:15:02 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 09:15:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 09:15:04 [INFO] Registros encontrados na consulta: 1.
+2026-09-16 09:15:05 [INFO] Agentes inseridos: 1.
+2026-09-16 09:15:05 [INFO] Intimações reprocessadas: 1.
+2026-09-16 09:15:05 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-16 09:15:20 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-16 09:15:36 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-16 09:15:36 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-16 09:15:36 [INFO] Conexão MPSP encerrada.
+2026-09-16 09:16:35 [INFO] Bot automático ativado.
+2026-09-16 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 10:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 10:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 10:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 10:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-16 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 11:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 11:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 11:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 11:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-16 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 12:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 12:00:03 [INFO] Registros encontrados na consulta: 2.
+2026-09-16 12:00:04 [INFO] Agentes inseridos: 5.
+2026-09-16 12:00:04 [INFO] Intimações reprocessadas: 2.
+2026-09-16 12:00:04 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-16 12:00:20 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-16 12:00:35 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-16 12:00:50 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-16 12:01:05 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-16 12:01:21 [INFO] Acompanhamento: 2/2 com flstatus 161.
+2026-09-16 12:01:21 [INFO] Rodada concluída com sucesso. Total ajustado: 2.
+2026-09-16 12:01:21 [INFO] Conexão MPSP encerrada.
+2026-09-16 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 13:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 13:00:05 [INFO] Registros encontrados na consulta: 1.
+2026-09-16 13:00:06 [INFO] Agentes inseridos: 3.
+2026-09-16 13:00:06 [INFO] Intimações reprocessadas: 1.
+2026-09-16 13:00:07 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-16 13:00:22 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-16 13:00:37 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-16 13:00:37 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-16 13:00:37 [INFO] Conexão MPSP encerrada.
+2026-09-16 14:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 14:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 14:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 14:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 14:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-16 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 15:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 15:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 15:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 15:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-16 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 16:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 16:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 16:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 16:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-16 17:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 17:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 17:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 17:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 17:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-16 18:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 18:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 18:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 18:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 18:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-16 19:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 19:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 19:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 19:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 19:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-16 20:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 20:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 20:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 20:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 20:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-16 21:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 21:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 21:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 21:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 21:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-16 22:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 22:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 22:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 22:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 22:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-16 23:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-16 23:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-16 23:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-16 23:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-16 23:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 00:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 00:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 00:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 00:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 00:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-17 01:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 01:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 01:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 01:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 01:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 02:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 02:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 02:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 02:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 02:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 03:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 03:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 03:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 03:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 03:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-17 04:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 04:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 04:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 04:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 04:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-17 05:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 05:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 05:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 05:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 05:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-17 06:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 06:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 06:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 06:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 06:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 07:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 07:00:01 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 07:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 07:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 07:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 08:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 08:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 08:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 08:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 08:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-17 09:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 09:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 09:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 09:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 09:00:06 [INFO] Conexão MPSP encerrada.
+2026-09-17 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 10:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 10:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 10:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 10:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-17 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 11:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 11:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 11:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 11:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-17 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 12:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 12:00:03 [INFO] Registros encontrados na consulta: 8.
+2026-09-17 12:00:05 [INFO] Agentes inseridos: 20.
+2026-09-17 12:00:06 [INFO] Intimações reprocessadas: 8.
+2026-09-17 12:00:06 [INFO] Acompanhamento: 0/8 com flstatus 161.
+2026-09-17 12:00:21 [INFO] Acompanhamento: 0/8 com flstatus 161.
+2026-09-17 12:00:37 [INFO] Acompanhamento: 0/8 com flstatus 161.
+2026-09-17 12:00:52 [INFO] Acompanhamento: 0/8 com flstatus 161.
+2026-09-17 12:01:07 [INFO] Acompanhamento: 1/8 com flstatus 161.
+2026-09-17 12:01:23 [INFO] Acompanhamento: 3/8 com flstatus 161.
+2026-09-17 12:01:40 [INFO] Acompanhamento: 5/8 com flstatus 161.
+2026-09-17 12:01:56 [INFO] Acompanhamento: 7/8 com flstatus 161.
+2026-09-17 12:02:12 [INFO] Acompanhamento: 8/8 com flstatus 161.
+2026-09-17 12:02:12 [INFO] Rodada concluída com sucesso. Total ajustado: 8.
+2026-09-17 12:02:13 [INFO] Conexão MPSP encerrada.
+2026-09-17 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 13:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 13:00:04 [INFO] Registros encontrados na consulta: 16.
+2026-09-17 13:00:07 [INFO] Agentes inseridos: 29.
+2026-09-17 13:00:07 [INFO] Intimações reprocessadas: 16.
+2026-09-17 13:00:08 [INFO] Acompanhamento: 0/16 com flstatus 161.
+2026-09-17 13:00:23 [INFO] Acompanhamento: 0/16 com flstatus 161.
+2026-09-17 13:00:38 [INFO] Acompanhamento: 0/16 com flstatus 161.
+2026-09-17 13:00:53 [INFO] Acompanhamento: 2/16 com flstatus 161.
+2026-09-17 13:01:08 [INFO] Acompanhamento: 4/16 com flstatus 161.
+2026-09-17 13:01:25 [INFO] Acompanhamento: 5/16 com flstatus 161.
+2026-09-17 13:01:40 [INFO] Acompanhamento: 6/16 com flstatus 161.
+2026-09-17 13:01:55 [INFO] Acompanhamento: 7/16 com flstatus 161.
+2026-09-17 13:02:11 [INFO] Acompanhamento: 9/16 com flstatus 161.
+2026-09-17 13:02:26 [INFO] Acompanhamento: 12/16 com flstatus 161.
+2026-09-17 13:02:41 [INFO] Acompanhamento: 14/16 com flstatus 161.
+2026-09-17 13:02:56 [INFO] Acompanhamento: 16/16 com flstatus 161.
+2026-09-17 13:02:56 [INFO] Rodada concluída com sucesso. Total ajustado: 16.
+2026-09-17 13:02:56 [INFO] Conexão MPSP encerrada.
+2026-09-17 14:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 14:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 14:00:03 [INFO] Registros encontrados na consulta: 14.
+2026-09-17 14:00:06 [INFO] Agentes inseridos: 21.
+2026-09-17 14:00:07 [INFO] Intimações reprocessadas: 14.
+2026-09-17 14:00:07 [INFO] Acompanhamento: 0/14 com flstatus 161.
+2026-09-17 14:00:23 [INFO] Acompanhamento: 0/14 com flstatus 161.
+2026-09-17 14:00:38 [INFO] Acompanhamento: 0/14 com flstatus 161.
+2026-09-17 14:00:53 [INFO] Acompanhamento: 1/14 com flstatus 161.
+2026-09-17 14:01:09 [INFO] Acompanhamento: 4/14 com flstatus 161.
+2026-09-17 14:01:25 [INFO] Acompanhamento: 6/14 com flstatus 161.
+2026-09-17 14:01:40 [INFO] Acompanhamento: 7/14 com flstatus 161.
+2026-09-17 14:01:55 [INFO] Acompanhamento: 8/14 com flstatus 161.
+2026-09-17 14:02:11 [INFO] Acompanhamento: 9/14 com flstatus 161.
+2026-09-17 14:02:26 [INFO] Acompanhamento: 11/14 com flstatus 161.
+2026-09-17 14:02:41 [INFO] Acompanhamento: 12/14 com flstatus 161.
+2026-09-17 14:02:56 [INFO] Acompanhamento: 13/14 com flstatus 161.
+2026-09-17 14:03:11 [INFO] Acompanhamento: 14/14 com flstatus 161.
+2026-09-17 14:03:11 [INFO] Rodada concluída com sucesso. Total ajustado: 14.
+2026-09-17 14:03:12 [INFO] Conexão MPSP encerrada.
+2026-09-17 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 15:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 15:00:04 [INFO] Registros encontrados na consulta: 3.
+2026-09-17 15:00:05 [INFO] Agentes inseridos: 6.
+2026-09-17 15:00:06 [INFO] Intimações reprocessadas: 3.
+2026-09-17 15:00:06 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:00:21 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:00:37 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:00:52 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:01:07 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:01:22 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:01:38 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:01:53 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:02:08 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:02:23 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:02:39 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:02:54 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:03:09 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:03:24 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:03:39 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:03:54 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:04:10 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:04:25 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:04:40 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:04:55 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:05:10 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:05:26 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:05:41 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:05:56 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:06:11 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:06:26 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:06:41 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:06:57 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:07:12 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:07:28 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:07:43 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:07:59 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:08:15 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:08:31 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:08:46 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:09:01 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:09:16 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:09:31 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:09:46 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:10:02 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:10:17 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:10:32 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:10:47 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:11:02 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:11:17 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:11:33 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:11:48 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:12:03 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:12:18 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:12:33 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:12:49 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:13:04 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:13:19 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:13:34 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:13:49 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:14:04 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:14:20 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:14:35 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 15:14:50 [INFO] Acompanhamento: 1/3 com flstatus 161.
+2026-09-17 15:15:05 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-17 15:15:05 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-17 15:15:05 [INFO] Conexão MPSP encerrada.
+2026-09-17 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 16:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 16:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 16:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 16:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-17 17:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 17:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 17:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 17:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 17:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-17 18:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 18:00:11 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 18:00:14 [INFO] Registros encontrados na consulta: 3.
+2026-09-17 18:00:21 [INFO] Agentes inseridos: 6.
+2026-09-17 18:00:28 [INFO] Intimações reprocessadas: 3.
+2026-09-17 18:00:38 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 18:00:53 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 18:01:09 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 18:01:24 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-17 18:01:40 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-17 18:01:40 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-17 18:01:40 [INFO] Conexão MPSP encerrada.
+2026-09-17 19:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 19:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 19:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 19:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 19:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-17 20:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 20:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 20:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 20:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 20:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 21:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 21:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 21:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 21:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 21:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-17 22:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 22:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 22:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 22:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 22:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-17 23:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-17 23:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-17 23:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-17 23:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-17 23:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-18 00:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 00:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 00:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 00:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 00:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 01:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 01:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 01:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 01:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 01:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 02:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 02:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 02:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 02:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 02:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 03:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 03:00:01 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 03:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 03:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 03:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 04:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 04:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 04:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 04:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 04:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 05:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 05:00:01 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 05:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 05:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 05:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 06:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 06:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 06:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 06:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 06:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 07:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 07:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 07:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 07:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 07:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 08:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 08:00:01 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 08:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 08:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 08:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 09:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 09:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 09:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 09:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 09:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 10:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 10:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-18 10:00:04 [INFO] Agentes inseridos: 2.
+2026-09-18 10:00:04 [INFO] Intimações reprocessadas: 1.
+2026-09-18 10:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 10:00:20 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 10:00:35 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 10:00:50 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 10:01:05 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-18 10:01:05 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-18 10:01:05 [INFO] Conexão MPSP encerrada.
+2026-09-18 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 11:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 11:00:02 [INFO] Registros encontrados na consulta: 1.
+2026-09-18 11:00:03 [INFO] Agentes inseridos: 6.
+2026-09-18 11:00:04 [INFO] Intimações reprocessadas: 1.
+2026-09-18 11:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 11:00:20 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 11:00:35 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 11:00:50 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-18 11:00:50 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-18 11:00:50 [INFO] Conexão MPSP encerrada.
+2026-09-18 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 12:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 12:00:03 [INFO] Registros encontrados na consulta: 2.
+2026-09-18 12:00:04 [INFO] Agentes inseridos: 7.
+2026-09-18 12:00:05 [INFO] Intimações reprocessadas: 2.
+2026-09-18 12:00:05 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-18 12:00:20 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-18 12:00:35 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-18 12:00:51 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-18 12:01:06 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-18 12:01:23 [INFO] Acompanhamento: 2/2 com flstatus 161.
+2026-09-18 12:01:23 [INFO] Rodada concluída com sucesso. Total ajustado: 2.
+2026-09-18 12:01:23 [INFO] Conexão MPSP encerrada.
+2026-09-18 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 13:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 13:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 13:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 13:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-18 14:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 14:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 14:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 14:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 14:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-18 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 15:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 15:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 15:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 15:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-18 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 16:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 16:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 16:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 16:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-18 17:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 17:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 17:00:03 [INFO] Registros encontrados na consulta: 3.
+2026-09-18 17:00:05 [INFO] Agentes inseridos: 12.
+2026-09-18 17:00:05 [INFO] Intimações reprocessadas: 3.
+2026-09-18 17:00:06 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-18 17:00:21 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-18 17:00:37 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-18 17:00:52 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-18 17:01:07 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-18 17:01:07 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-18 17:01:07 [INFO] Conexão MPSP encerrada.
+2026-09-18 18:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 18:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 18:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-18 18:00:03 [INFO] Agentes inseridos: 2.
+2026-09-18 18:00:03 [INFO] Intimações reprocessadas: 1.
+2026-09-18 18:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 18:00:19 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-18 18:00:35 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-18 18:00:35 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-18 18:00:35 [INFO] Conexão MPSP encerrada.
+2026-09-18 19:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 19:00:10 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 19:00:12 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 19:00:12 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 19:00:12 [INFO] Conexão MPSP encerrada.
+2026-09-18 20:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 20:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 20:00:06 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 20:00:06 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 20:00:06 [INFO] Conexão MPSP encerrada.
+2026-09-18 21:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 21:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 21:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 21:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 21:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-18 22:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 22:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 22:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 22:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 22:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-18 23:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-18 23:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-18 23:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-18 23:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-18 23:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-19 00:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 00:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 00:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 00:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 00:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 01:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 01:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 01:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 01:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 01:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 02:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 02:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 02:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 02:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 02:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-19 03:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 03:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 03:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 03:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 03:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 04:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 04:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 04:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 04:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 04:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 05:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 05:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 05:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 05:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 05:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 06:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 06:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 06:00:06 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 06:00:06 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 06:00:06 [INFO] Conexão MPSP encerrada.
+2026-09-19 07:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 07:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 07:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 07:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 07:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 08:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 08:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 08:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 08:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 08:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 09:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 09:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 09:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 09:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 09:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-19 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 10:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 10:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 10:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 10:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-19 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 11:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 11:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 11:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 11:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-19 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 12:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 12:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 12:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 12:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-19 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 13:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 13:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 13:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 13:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-19 14:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 14:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 14:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 14:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 14:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-19 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 15:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-19 15:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-19 15:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-19 15:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-19 16:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-19 16:00:47 [ERRO] Erro na rodada: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-19 16:00:50 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 138, in executar_fluxo
+    raise RuntimeError("Não foi possível conectar à base MPSP via túnel SSH.")
+RuntimeError: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-19 16:00:51 [INFO] Conexão MPSP encerrada.
+2026-09-21 08:33:42 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 08:33:48 [ERRO] Erro na rodada: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-21 08:33:48 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 138, in executar_fluxo
+    raise RuntimeError("Não foi possível conectar à base MPSP via túnel SSH.")
+RuntimeError: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-21 08:33:48 [INFO] Conexão MPSP encerrada.
+2026-09-21 09:00:00 [AVISO] Execução ignorada: já existe uma rodada em andamento.
+2026-09-21 09:21:40 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 09:21:44 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 09:21:45 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 09:21:45 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 09:21:45 [INFO] Conexão MPSP encerrada.
+2026-09-21 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 10:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 10:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 10:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 10:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-21 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 11:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 11:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-21 11:00:04 [INFO] Agentes inseridos: 5.
+2026-09-21 11:00:05 [INFO] Intimações reprocessadas: 1.
+2026-09-21 11:00:05 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 11:00:20 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-21 11:00:20 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-21 11:00:20 [INFO] Conexão MPSP encerrada.
+2026-09-21 11:34:31 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 11:34:35 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 11:34:36 [INFO] Registros encontrados na consulta: 3.
+2026-09-21 11:34:38 [INFO] Agentes inseridos: 5.
+2026-09-21 11:34:38 [INFO] Intimações reprocessadas: 3.
+2026-09-21 11:34:39 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-21 11:34:54 [INFO] Acompanhamento: 1/3 com flstatus 161.
+2026-09-21 11:35:09 [INFO] Acompanhamento: 2/3 com flstatus 161.
+2026-09-21 11:35:24 [INFO] Acompanhamento: 2/3 com flstatus 161.
+2026-09-21 11:35:39 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-21 11:35:39 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-21 11:35:39 [INFO] Conexão MPSP encerrada.
+2026-09-21 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 12:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 12:00:05 [INFO] Registros encontrados na consulta: 1.
+2026-09-21 12:00:05 [INFO] Agentes inseridos: 1.
+2026-09-21 12:00:06 [INFO] Intimações reprocessadas: 1.
+2026-09-21 12:00:07 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 12:00:22 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 12:00:37 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 12:00:53 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-21 12:00:53 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-21 12:00:53 [INFO] Conexão MPSP encerrada.
+2026-09-21 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 13:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 13:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-21 13:00:03 [INFO] Agentes inseridos: 2.
+2026-09-21 13:00:04 [INFO] Intimações reprocessadas: 1.
+2026-09-21 13:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 13:00:19 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 13:00:35 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 13:00:50 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 13:01:05 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-21 13:01:05 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-21 13:01:05 [INFO] Conexão MPSP encerrada.
+2026-09-21 14:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 14:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 14:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 14:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 14:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-21 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 15:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 15:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 15:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 15:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-21 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 16:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 16:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-21 16:00:03 [INFO] Agentes inseridos: 1.
+2026-09-21 16:00:04 [INFO] Intimações reprocessadas: 1.
+2026-09-21 16:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 16:00:19 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 16:00:34 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 16:00:49 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-21 16:01:05 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-21 16:01:05 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-21 16:01:05 [INFO] Conexão MPSP encerrada.
+2026-09-21 17:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 17:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 17:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 17:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 17:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-21 18:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 18:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 18:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 18:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 18:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-21 19:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 19:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 19:00:06 [INFO] Registros encontrados na consulta: 3.
+2026-09-21 19:00:07 [INFO] Agentes inseridos: 11.
+2026-09-21 19:00:08 [INFO] Intimações reprocessadas: 3.
+2026-09-21 19:00:08 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-21 19:00:23 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-21 19:00:38 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-21 19:00:38 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-21 19:00:38 [INFO] Conexão MPSP encerrada.
+2026-09-21 20:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 20:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 20:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 20:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 20:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-21 21:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 21:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 21:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 21:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 21:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-21 22:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 22:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 22:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 22:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 22:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-21 23:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-21 23:00:05 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-21 23:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-21 23:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-21 23:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-22 00:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 00:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 00:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 00:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 00:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 01:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 01:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 01:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 01:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 01:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-22 02:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 02:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 02:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 02:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 02:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-22 03:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 03:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 03:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 03:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 03:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 04:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 04:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 04:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 04:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 04:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 05:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 05:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 05:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 05:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 05:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-22 06:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 06:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 06:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 06:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 06:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 07:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 07:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 07:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 07:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 07:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-22 08:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 08:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 08:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 08:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 08:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-22 09:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 09:00:06 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 09:00:06 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 09:00:06 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 09:00:06 [INFO] Conexão MPSP encerrada.
+2026-09-22 10:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 10:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 10:00:02 [INFO] Registros encontrados na consulta: 2.
+2026-09-22 10:00:03 [INFO] Agentes inseridos: 4.
+2026-09-22 10:00:04 [INFO] Intimações reprocessadas: 2.
+2026-09-22 10:00:04 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-22 10:00:19 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-22 10:00:34 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-22 10:00:50 [INFO] Acompanhamento: 0/2 com flstatus 161.
+2026-09-22 10:01:05 [INFO] Acompanhamento: 1/2 com flstatus 161.
+2026-09-22 10:01:20 [INFO] Acompanhamento: 2/2 com flstatus 161.
+2026-09-22 10:01:20 [INFO] Rodada concluída com sucesso. Total ajustado: 2.
+2026-09-22 10:01:20 [INFO] Conexão MPSP encerrada.
+2026-09-22 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 11:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 11:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 11:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 11:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 12:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 12:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-22 12:00:04 [INFO] Agentes inseridos: 10.
+2026-09-22 12:00:05 [INFO] Intimações reprocessadas: 1.
+2026-09-22 12:00:05 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 12:00:20 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 12:00:35 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 12:00:51 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 12:01:07 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 12:01:24 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-22 12:01:24 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-22 12:01:24 [INFO] Conexão MPSP encerrada.
+2026-09-22 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 13:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 13:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 13:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 13:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 14:00:01 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 14:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 14:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 14:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 14:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 15:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 15:00:03 [INFO] Registros encontrados na consulta: 1.
+2026-09-22 15:00:03 [INFO] Agentes inseridos: 5.
+2026-09-22 15:00:04 [INFO] Intimações reprocessadas: 1.
+2026-09-22 15:00:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 15:00:19 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 15:00:34 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 15:00:49 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 15:01:04 [INFO] Acompanhamento: 0/1 com flstatus 161.
+2026-09-22 15:01:20 [INFO] Acompanhamento: 1/1 com flstatus 161.
+2026-09-22 15:01:20 [INFO] Rodada concluída com sucesso. Total ajustado: 1.
+2026-09-22 15:01:20 [INFO] Conexão MPSP encerrada.
+2026-09-22 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 16:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 16:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 16:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 16:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-22 16:41:38 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 16:41:40 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 16:41:40 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 16:41:40 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 16:41:40 [INFO] Conexão MPSP encerrada.
+2026-09-22 17:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 17:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 17:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 17:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 17:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 18:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 18:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 18:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 18:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 18:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-22 19:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 19:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 19:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 19:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 19:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 20:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 20:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 20:00:04 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 20:00:04 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 20:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 21:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 21:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 21:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 21:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 21:00:04 [INFO] Conexão MPSP encerrada.
+2026-09-22 22:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 22:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 22:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 22:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 22:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-22 23:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-22 23:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-22 23:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-22 23:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-22 23:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 00:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 00:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 00:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 00:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 00:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 01:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 01:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 01:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 01:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 01:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-23 02:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 02:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 02:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 02:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 02:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 03:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 03:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 03:00:03 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 03:00:03 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 03:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-23 04:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 04:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 04:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 04:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 04:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 05:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 05:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 05:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 05:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 05:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 06:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 06:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 06:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 06:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 06:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 07:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 07:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 07:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 07:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 07:00:03 [INFO] Conexão MPSP encerrada.
+2026-09-23 08:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 08:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 08:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 08:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 08:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 09:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 09:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 09:00:05 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 09:00:05 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 09:00:05 [INFO] Conexão MPSP encerrada.
+2026-09-23 10:00:06 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 10:00:10 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 10:00:11 [INFO] Registros encontrados na consulta: 5.
+2026-09-23 10:00:12 [INFO] Agentes inseridos: 8.
+2026-09-23 10:00:12 [INFO] Intimações reprocessadas: 5.
+2026-09-23 10:00:12 [INFO] Acompanhamento: 0/5 com flstatus 161.
+2026-09-23 10:00:29 [INFO] Acompanhamento: 0/5 com flstatus 161.
+2026-09-23 10:00:45 [INFO] Acompanhamento: 0/5 com flstatus 161.
+2026-09-23 10:01:00 [INFO] Acompanhamento: 4/5 com flstatus 161.
+2026-09-23 10:01:15 [INFO] Acompanhamento: 5/5 com flstatus 161.
+2026-09-23 10:01:15 [INFO] Rodada concluída com sucesso. Total ajustado: 5.
+2026-09-23 10:01:16 [INFO] Conexão MPSP encerrada.
+2026-09-23 11:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 11:00:03 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 11:00:04 [INFO] Registros encontrados na consulta: 3.
+2026-09-23 11:00:04 [INFO] Agentes inseridos: 5.
+2026-09-23 11:00:05 [INFO] Intimações reprocessadas: 3.
+2026-09-23 11:00:05 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 11:00:20 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 11:00:36 [INFO] Acompanhamento: 1/3 com flstatus 161.
+2026-09-23 11:00:51 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-23 11:00:51 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-23 11:00:51 [INFO] Conexão MPSP encerrada.
+2026-09-23 12:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 12:00:04 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 12:00:04 [INFO] Registros encontrados na consulta: 3.
+2026-09-23 12:00:05 [INFO] Agentes inseridos: 5.
+2026-09-23 12:00:06 [INFO] Intimações reprocessadas: 3.
+2026-09-23 12:00:06 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 12:00:21 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 12:00:37 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 12:00:52 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 12:01:08 [INFO] Acompanhamento: 0/3 com flstatus 161.
+2026-09-23 12:01:25 [INFO] Acompanhamento: 1/3 com flstatus 161.
+2026-09-23 12:01:41 [INFO] Acompanhamento: 3/3 com flstatus 161.
+2026-09-23 12:01:41 [INFO] Rodada concluída com sucesso. Total ajustado: 3.
+2026-09-23 12:01:41 [INFO] Conexão MPSP encerrada.
+2026-09-23 13:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 13:00:02 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 13:00:02 [INFO] Registros encontrados na consulta: 0.
+2026-09-23 13:00:02 [INFO] Nenhum registro para ajustar nesta rodada.
+2026-09-23 13:00:02 [INFO] Conexão MPSP encerrada.
+2026-09-23 14:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 14:00:00 [ERRO] Erro na rodada: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-23 14:00:00 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 138, in executar_fluxo
+    raise RuntimeError("Não foi possível conectar à base MPSP via túnel SSH.")
+RuntimeError: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-23 14:00:00 [INFO] Conexão MPSP encerrada.
+2026-09-23 15:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 15:00:00 [ERRO] Erro na rodada: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-23 15:00:00 [ERRO] Traceback (most recent call last):
+  File "c:\Pythonsaj\agente_mpsp.py", line 138, in executar_fluxo
+    raise RuntimeError("Não foi possível conectar à base MPSP via túnel SSH.")
+RuntimeError: Não foi possível conectar à base MPSP via túnel SSH.
+2026-09-23 15:00:00 [INFO] Conexão MPSP encerrada.
+2026-09-23 16:00:00 [INFO] Iniciando rodada do bot MPSP.
+2026-09-23 16:00:12 [INFO] Conexão com a base MPSP estabelecida.
+2026-09-23 16:00:15 [INFO] Registros encontrados na consulta: 6.
+2026-09-23 16:00:33 [INFO] Agentes inseridos: 14.
+2026-09-23 16:00:35 [INFO] Intimações reprocessadas: 6.
+2026-09-23 16:00:36 [INFO] Acompanhamento: 0/6 com flstatus 161.
+2026-09-23 16:00:52 [INFO] Acompanhamento: 0/6 com flstatus 161.
+2026-09-23 16:01:08 [INFO] Acompanhamento: 0/6 com flstatus 161.
+2026-09-23 16:01:23 [INFO] Acompanhamento: 1/6 com flstatus 161.
+2026-09-23 16:01:40 [INFO] Acompanhamento: 5/6 com flstatus 161.
+2026-09-23 16:01:56 [INFO] Acompanhamento: 6/6 com flstatus 161.
+2026-09-23 16:01:56 [INFO] Rodada concluída com sucesso. Total ajustado: 6.
+2026-09-23 16:01:56 [INFO] Conexão MPSP encerrada.

@@ -39,19 +39,12 @@ DEFAULTS = {
         "db_unj": "unj01rs",
         "user": "",
         "password": ""
-    },
-    "mpce": {
-        "host": "",
-        "port": "5432",
-        "db_unj": "unj01ce",
-        "user": "",
-        "password": ""
     }
 }
 
 
 def _criar_config_padrao():
-    config = configparser.ConfigParser()
+    config = configparser.ConfigParser(strict=False)
     for secao, valores in DEFAULTS.items():
         config[secao] = valores
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
@@ -60,7 +53,10 @@ def _criar_config_padrao():
 
 
 def carregar_config():
-    config = configparser.ConfigParser()
+    # strict=False permite recuperar configurações antigas que acabaram
+    # recebendo a mesma chave duas vezes na mesma seção. O último valor
+    # informado no arquivo é mantido e, ao salvar, o arquivo é normalizado.
+    config = configparser.ConfigParser(strict=False)
 
     if not os.path.exists(CONFIG_PATH):
         return _criar_config_padrao()

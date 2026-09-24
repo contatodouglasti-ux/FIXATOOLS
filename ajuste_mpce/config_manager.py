@@ -14,6 +14,13 @@ def get_base_dir():
 CONFIG_PATH = os.path.join(get_base_dir(), "config.ini")
 
 DEFAULTS = {
+    "sigce": {
+        "host": "",
+        "port": "5432",
+        "dbname": "sigce",
+        "user": "",
+        "password": "",
+    },
     "mpce": {
         "host": "",
         "port": "5432",
@@ -71,6 +78,11 @@ def salvar_mpce_unj(host, port, db_unj, user, password):
 def obter_credenciais():
     config = carregar_config()
     return {
+        "sigce_host": config["sigce"]["host"],
+        "sigce_port": config.getint("sigce", "port"),
+        "sigce_dbname": config["sigce"]["dbname"],
+        "sigce_user": config["sigce"]["user"],
+        "sigce_password": config["sigce"]["password"],
         "mpce_host": config["mpce"]["host"],
         "mpce_port": config.getint("mpce", "port"),
         "mpce_db_unj": config["mpce"]["db_unj"],

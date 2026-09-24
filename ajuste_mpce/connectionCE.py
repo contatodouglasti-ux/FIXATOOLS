@@ -1,25 +1,34 @@
+"""Conexão da base principal sigce do projeto Ajuste MPCE."""
+
 import psycopg
 
-DB_CONFIG = {
-    "host": "prd-mpce-bd.cydamz8vzchm.sa-east-1.rds.amazonaws.com",
-    "dbname": "sigce",
-    "user": "douglas_s_leitura",
-    "password": "zCCoeuT9O6fLiuNH",
-    "port": 5432
-}
+from config_manager import obter_credenciais
+
 
 def conectar():
     try:
-        conn = psycopg.connect(**DB_CONFIG)
-        print("✅ Conectado ao PostgreSQL")
+        cred = obter_credenciais()
+        campos = {
+            "host": cred["sigce_host"],
+            "dbname": cred["sigce_dbname"],
+            "user": cred["sigce_user"],
+            "password": cred["sigce_password"],
+        }
+        ausentes = [nome for nome, valor in campos.items() if not valor]
+        if ausentes:
+            raise ValueError(
+                "Configure o banco sigce no config.ini: " + ", ".join(ausentes)
+            )
+
+        conn = psycopg.connect(
+            host=cred["sigce_host"],
+            dbname=cred["sigce_dbname"],
+            user=cred["sigce_user"],
+            password=cred["sigce_password"],
+            port=cred["sigce_port"],
+        )
+        print("Conectado ao PostgreSQL sigce")
         return conn
-    except Exception as e:
-        print(f"❌ Erro: {e}")
+    except Exception as exc:
+        print(f"Erro ao conectar ao PostgreSQL sigce: {exc}")
         return None
-
-if __name__ == "__main__":
-    conexao = conectar()
-
-    if conexao:
-        conexao.close()
-        print("Conexão encerrada.")

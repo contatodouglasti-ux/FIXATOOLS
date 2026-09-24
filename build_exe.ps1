@@ -13,6 +13,13 @@ if (-not (Test-Path -LiteralPath .\config.ini)) {
     throw "config.ini não encontrado. Configure os acessos antes de distribuir o executável."
 }
 
-Copy-Item -LiteralPath .\config.ini -Destination .\dist\config.ini -Force
-Write-Host "Executável gerado em .\dist\FIXATOOLS.exe"
-Write-Host "Configuração copiada para .\dist\config.ini"
+$appDir = Join-Path $projectDir "dist\FIXATOOLS"
+if (-not (Test-Path -LiteralPath $appDir)) {
+    throw "A pasta do executável não foi gerada: $appDir"
+}
+Copy-Item -LiteralPath .\config.ini -Destination (Join-Path $appDir "config.ini") -Force
+$zipPath = Join-Path $projectDir "dist\FIXATOOLS_MPCE.zip"
+Compress-Archive -Path (Join-Path $appDir "*") -DestinationPath $zipPath -Force
+Write-Host "Executável gerado em .\dist\FIXATOOLS\FIXATOOLS.exe"
+Write-Host "Configuração copiada para .\dist\FIXATOOLS\config.ini"
+Write-Host "Pacote gerado em .\dist\FIXATOOLS_MPCE.zip"

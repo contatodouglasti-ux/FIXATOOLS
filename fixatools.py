@@ -16,6 +16,13 @@ def main():
     root.title("FIXATOOLS")
     root.geometry("1280x820")
     root.minsize(1000, 650)
+    root.update_idletasks()
+    root.deiconify()
+    root.lift()
+    root.focus_force()
+    # Garante que a janela apareça mesmo quando o programa é iniciado pelo terminal.
+    root.attributes("-topmost", True)
+    root.after(700, lambda: root.attributes("-topmost", False))
 
     aplicar_tema(root)
 

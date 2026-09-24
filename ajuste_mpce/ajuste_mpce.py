@@ -102,6 +102,111 @@ def _chave(valor):
     return str(valor).strip() if valor is not None else ""
 
 
+def verificar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
+    """Consulta os candidatos sem alterar dados e lista o que seria ajustado."""
+    padrao_inicio, padrao_fim = inicio_fim_ultima_hora()
+    data_inicio = data_inicio or padrao_inicio
+    data_fim = data_fim or padrao_fim
+    stop_event = stop_event or threading.Event()
+    conn_sigce = None
+    conn_unj = None
+    inicio_execucao = datetime.now()
+    resumo = {
+        "inicio": data_inicio,
+        "fim": data_fim,
+        "processos": 0,
+        "candidatos": 0,
+        "idcards": 0,
+        "tarefas": 0,
+        "ajustados": 0,
+        "ajustaveis": 0,
+        "linhas": [],
+        "cancelado": False,
+        "duracao": None,
+    }
+
+    try:
+        _emitir(log, f"Iniciando verificação MPCE: {data_inicio:%Y-%m-%d %H:%M} até {data_fim:%Y-%m-%d %H:%M}.")
+        conn_sigce = conectar_mpce()
+        if conn_sigce is None:
+            raise RuntimeError("Não foi possível conectar à base MPCE.")
+        _emitir(log, "Conexão com a base MPCE estabelecida para consulta.")
+
+        candidatos = _buscar_dicts(conn_sigce, SQL_CANDIDATOS, {
+            "inicio": data_inicio,
+            "fim": data_fim,
+        })
+        resumo["candidatos"] = len(candidatos)
+        resumo["processos"] = len({row.get("cdprocesso") for row in candidatos if row.get("cdprocesso") is not None})
+
+        por_idcard = {}
+        for row in candidatos:
+            card = _chave(row.get("cdobjeto"))
+            if card:
+                por_idcard.setdefault(card, row)
+
+        resumo["idcards"] = len(por_idcard)
+        _emitir(
+            log,
+            f"Candidatos encontrados: {resumo['candidatos']}; "
+            f"processos: {resumo['processos']}; idcards: {resumo['idcards']}."
+        )
+
+        if stop_event.is_set() or not por_idcard:
+            resumo["cancelado"] = stop_event.is_set()
+            _emitir(log, "Nenhum idcard disponível para verificação.")
+            return resumo
+
+        conn_unj = conectar_mpce_unj()
+        if conn_unj is None:
+            raise RuntimeError("Não foi possível conectar à base unj01ce do MPCE.")
+        _emitir(log, "Conexão com a base de tarefas unj01ce estabelecida para consulta.")
+
+        tarefas = _buscar_dicts(conn_unj, SQL_TAREFAS_ATIVAS, (list(por_idcard),))
+        resumo["tarefas"] = len(tarefas)
+        tarefas_por_idcard = {}
+        for tarefa in tarefas:
+            card = _chave(tarefa.get("idcard"))
+            if card:
+                tarefas_por_idcard[card] = tarefas_por_idcard.get(card, 0) + 1
+
+        for card, quantidade in tarefas_por_idcard.items():
+            candidato = por_idcard.get(card)
+            if not candidato:
+                continue
+            linha = {
+                "cdprocesso": candidato.get("cdprocesso"),
+                "idcard": card,
+                "dtprotocolizado": candidato.get("dtprotocolizado"),
+                "tarefas": quantidade,
+            }
+            resumo["linhas"].append(linha)
+            _emitir(
+                log,
+                f"Prévia | Processo {linha['cdprocesso']} | idcard {card} | "
+                f"dtconclusao {linha['dtprotocolizado']} | tarefas ativas: {quantidade}."
+            )
+
+        resumo["ajustaveis"] = len(resumo["linhas"])
+        _emitir(
+            log,
+            f"Verificação concluída: {resumo['ajustaveis']} idcard(s) com "
+            f"{resumo['tarefas']} tarefa(s) ativa(s)."
+        )
+        return resumo
+    except Exception as exc:
+        _emitir(log, f"Erro na verificação: {exc}", "ERRO")
+        _emitir(log, traceback.format_exc().rstrip(), "ERRO")
+        raise
+    finally:
+        resumo["duracao"] = str(datetime.now() - inicio_execucao).split(".")[0]
+        if conn_unj:
+            conn_unj.close()
+        if conn_sigce:
+            conn_sigce.close()
+        _emitir(log, "Conexões MPCE encerradas após a verificação.")
+
+
 def executar_fluxo(data_inicio=None, data_fim=None, log=None, stop_event=None):
     """Busca intimações SAJ6 e conclui as tarefas correspondentes."""
     padrao_inicio, padrao_fim = inicio_fim_ultima_hora()
@@ -260,6 +365,12 @@ class AjusteMPCE(ttk.Frame):
             command=lambda: self._iniciar_worker("manual"),
         )
         self.manual_btn.grid(row=0, column=0, padx=(0, 12), sticky="w")
+        self.verificar_btn = ttk.Button(
+            frame_acoes,
+            text="Verificar idcards",
+            command=lambda: self._iniciar_worker("verificacao"),
+        )
+        self.verificar_btn.grid(row=0, column=1, padx=(0, 12), sticky="w")
         self.auto_var = tk.BooleanVar(value=False)
         ttk.Checkbutton(
             frame_acoes,
@@ -289,6 +400,32 @@ class AjusteMPCE(ttk.Frame):
             variavel = tk.StringVar(value="0")
             self.total_vars.append(variavel)
             ttk.Label(bloco, textvariable=variavel, style="Stat.TLabel").pack(fill="x", pady=(3, 0))
+
+        frame_preview = ttk.LabelFrame(
+            container,
+            text="Idcards encontrados - confira antes de executar o ajuste",
+            style="Card.TLabelframe",
+            padding=8,
+        )
+        frame_preview.pack(fill="x", pady=(0, 10))
+        self.preview_tree = ttk.Treeview(
+            frame_preview,
+            columns=("processo", "idcard", "data", "tarefas"),
+            show="headings",
+            height=6,
+        )
+        self.preview_tree.heading("processo", text="Processo")
+        self.preview_tree.heading("idcard", text="IDCard")
+        self.preview_tree.heading("data", text="dtprotocolizado")
+        self.preview_tree.heading("tarefas", text="Tarefas ativas")
+        self.preview_tree.column("processo", width=150, anchor="w")
+        self.preview_tree.column("idcard", width=260, anchor="w")
+        self.preview_tree.column("data", width=170, anchor="center")
+        self.preview_tree.column("tarefas", width=110, anchor="center")
+        self.preview_tree.pack(side="left", fill="x", expand=True)
+        preview_scroll = ttk.Scrollbar(frame_preview, orient="vertical", command=self.preview_tree.yview)
+        preview_scroll.pack(side="right", fill="y")
+        self.preview_tree.configure(yscrollcommand=preview_scroll.set)
 
         frame_log = ttk.LabelFrame(container, text="Log da execução", style="Card.TLabelframe", padding=8)
         frame_log.pack(fill="both", expand=True)
@@ -375,6 +512,24 @@ class AjusteMPCE(ttk.Frame):
         self.log_text.see(tk.END)
         self.log_text.configure(state="disabled")
 
+    def _mostrar_preview(self, resumo):
+        for item in self.preview_tree.get_children():
+            self.preview_tree.delete(item)
+        for linha in resumo.get("linhas", []):
+            data = linha.get("dtprotocolizado")
+            if hasattr(data, "strftime"):
+                data = data.strftime("%d/%m/%Y %H:%M:%S")
+            self.preview_tree.insert(
+                "",
+                tk.END,
+                values=(
+                    linha.get("cdprocesso") or "-",
+                    linha.get("idcard") or "-",
+                    data or "-",
+                    linha.get("tarefas", 0),
+                ),
+            )
+
     def _alternar_automatico(self):
         self.auto_ativo = self.auto_var.get()
         if self.auto_ativo:
@@ -410,12 +565,14 @@ class AjusteMPCE(ttk.Frame):
             self.worker_running = True
         self.stop_event.clear()
         self.manual_btn.configure(state="disabled")
+        self.verificar_btn.configure(state="disabled")
         self.status_var.set(f"Executando rodada {origem}...")
         threading.Thread(target=self._rodar_worker, args=(origem,), daemon=True).start()
 
     def _rodar_worker(self, origem):
         try:
-            resumo = executar_fluxo(log=lambda linha: self.queue.put(("log", linha)), stop_event=self.stop_event)
+            funcao = verificar_fluxo if origem == "verificacao" else executar_fluxo
+            resumo = funcao(log=lambda linha: self.queue.put(("log", linha)), stop_event=self.stop_event)
             self.queue.put(("resultado", origem, resumo, None))
         except Exception as exc:
             self.queue.put(("resultado", origem, None, exc))
@@ -437,9 +594,20 @@ class AjusteMPCE(ttk.Frame):
         with self.worker_lock:
             self.worker_running = False
         self.manual_btn.configure(state="normal")
+        self.verificar_btn.configure(state="normal")
         if erro:
             self.status_var.set(f"Erro na execução {origem}: {erro}")
             messagebox.showerror("Ajuste MPCE", str(erro), parent=self.winfo_toplevel())
+            return
+        if origem == "verificacao":
+            self._mostrar_preview(resumo)
+            self.total_vars[0].set(str(resumo["processos"]))
+            self.total_vars[1].set(str(resumo["candidatos"]))
+            self.total_vars[2].set(str(resumo["idcards"]))
+            self.total_vars[3].set("0")
+            self.status_var.set(
+                f"Verificação concluída: {resumo['ajustaveis']} idcard(s) prontos para ajuste."
+            )
             return
         self.total_vars[0].set(str(resumo["processos"]))
         self.total_vars[1].set(str(resumo["candidatos"]))

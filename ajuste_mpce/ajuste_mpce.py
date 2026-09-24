@@ -377,16 +377,16 @@ class AjusteMPCE(ttk.Frame):
             text="Ativar bot automático (a cada 1h)",
             variable=self.auto_var,
             command=self._alternar_automatico,
-        ).grid(row=0, column=1, sticky="w")
+        ).grid(row=0, column=2, sticky="w")
         ttk.Button(
             frame_acoes,
             text="Configurar banco UNJ01CE",
             command=self._configurar_banco_unj,
-        ).grid(row=0, column=2, padx=(18, 0), sticky="w")
+        ).grid(row=0, column=3, padx=(18, 0), sticky="w")
         self.status_var = tk.StringVar(value="Aguardando execução manual.")
         self.proxima_var = tk.StringVar(value="Próxima execução automática: -")
-        ttk.Label(frame_acoes, textvariable=self.status_var).grid(row=1, column=0, columnspan=2, sticky="w", pady=(10, 0))
-        ttk.Label(frame_acoes, textvariable=self.proxima_var, style="Hint.TLabel").grid(row=2, column=0, columnspan=2, sticky="w")
+        ttk.Label(frame_acoes, textvariable=self.status_var).grid(row=1, column=0, columnspan=4, sticky="w", pady=(10, 0))
+        ttk.Label(frame_acoes, textvariable=self.proxima_var, style="Hint.TLabel").grid(row=2, column=0, columnspan=4, sticky="w")
 
         frame_totais = ttk.LabelFrame(container, text="Resumo da última rodada", style="Card.TLabelframe", padding=8)
         frame_totais.pack(fill="x", pady=(0, 10))

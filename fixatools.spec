@@ -19,10 +19,13 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.datas,
     [],
+<<<<<<< HEAD
     name='fixatools',
+=======
+    exclude_binaries=True,
+    name='FIXATOOLS',
+>>>>>>> f9595a97d154c6c769b9c5f10e126d5e8c1ea69f
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -35,4 +38,14 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+)
+
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name='FIXATOOLS',
 )

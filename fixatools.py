@@ -7,6 +7,7 @@ from erroForo import BotReprocessamento
 from resettools import ResetTool
 from app import AppBI
 from agente_mpsp import AgenteMPSP
+from ajuste_mpce import AjusteMPCE
 from ui_helpers import aplicar_tema
 
 
@@ -15,6 +16,13 @@ def main():
     root.title("FIXATOOLS")
     root.geometry("1280x820")
     root.minsize(1000, 650)
+    root.update_idletasks()
+    root.deiconify()
+    root.lift()
+    root.focus_force()
+    # Garante que a janela apareça mesmo quando o programa é iniciado pelo terminal.
+    root.attributes("-topmost", True)
+    root.after(700, lambda: root.attributes("-topmost", False))
 
     aplicar_tema(root)
 
@@ -43,10 +51,12 @@ def main():
     aba_reset = ttk.Frame(notebook)
     aba_bi = ttk.Frame(notebook)
     aba_agente_mpsp = ttk.Frame(notebook)
+    aba_ajuste_mpce = ttk.Frame(notebook)
     notebook.add(aba_erro_foro, text="Erro Foro")
     notebook.add(aba_reset, text="Reset em Lote")
     notebook.add(aba_bi, text="Coletor BI")
     notebook.add(aba_agente_mpsp, text="Agente MPSP")
+    notebook.add(aba_ajuste_mpce, text="Ajuste MPCE")
 
     # Cada classe continua responsável pelo próprio fluxo, mas compartilha
     # a mesma janela, o mesmo arquivo de configuração e o mesmo processo.
@@ -56,12 +66,15 @@ def main():
     app_bi.pack(fill="both", expand=True)
     agente_mpsp = AgenteMPSP(aba_agente_mpsp)
     agente_mpsp.pack(fill="both", expand=True)
+    ajuste_mpce = AjusteMPCE(aba_ajuste_mpce)
+    ajuste_mpce.pack(fill="both", expand=True)
 
     # O Coletor BI possui seu próprio ciclo automático e SQLite local.
     # Ao fechar a janela principal, apenas sinalizamos a parada desse ciclo.
     def fechar_aplicacao():
         app_bi.auto_stop.set()
         agente_mpsp.parar()
+        ajuste_mpce.parar()
         root.destroy()
 
     root.protocol("WM_DELETE_WINDOW", fechar_aplicacao)

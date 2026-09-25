@@ -416,6 +416,7 @@ class AjusteMPCE(ttk.Frame):
         frame_acoes = ttk.LabelFrame(container, text="Execução", style="Card.TLabelframe", padding=10)
         frame_acoes.pack(fill="x", pady=(0, 10))
         padrao_inicio, padrao_fim = inicio_fim_ultima_hora()
+        self.data_manual_var = tk.StringVar(value=padrao_inicio.strftime("%d/%m/%Y"))
         self.hora_inicio_var = tk.StringVar(value=padrao_inicio.strftime("%H:%M"))
         self.hora_fim_var = tk.StringVar(value=padrao_fim.strftime("%H:%M"))
         self.manual_btn = ttk.Button(
@@ -447,14 +448,15 @@ class AjusteMPCE(ttk.Frame):
         self.proxima_var = tk.StringVar(value="Próxima execução automática: -")
         frame_periodo = ttk.Frame(frame_acoes)
         frame_periodo.grid(row=1, column=0, columnspan=4, sticky="w", pady=(10, 0))
-        ttk.Label(frame_periodo, text="Periodo manual de hoje:").pack(side="left")
+        ttk.Label(frame_periodo, text="Data manual:").pack(side="left")
+        ttk.Entry(frame_periodo, textvariable=self.data_manual_var, width=11, justify="center").pack(side="left", padx=(5, 0))
         ttk.Label(frame_periodo, text="De").pack(side="left", padx=(12, 4))
         ttk.Entry(frame_periodo, textvariable=self.hora_inicio_var, width=7, justify="center").pack(side="left")
         ttk.Label(frame_periodo, text="Ate").pack(side="left", padx=(8, 4))
         ttk.Entry(frame_periodo, textvariable=self.hora_fim_var, width=7, justify="center").pack(side="left")
         ttk.Label(
             frame_periodo,
-            text="(formato HH:MM; usado no manual e na verificacao)",
+            text="(DD/MM/AAAA e HH:MM; usado no manual e na verificacao)",
             style="Hint.TLabel",
         ).pack(side="left", padx=(10, 0))
         ttk.Label(frame_acoes, textvariable=self.status_var).grid(row=2, column=0, columnspan=4, sticky="w", pady=(8, 0))
@@ -658,14 +660,16 @@ class AjusteMPCE(ttk.Frame):
 
     def _obter_periodo_manual(self):
         try:
+            data = datetime.strptime(self.data_manual_var.get().strip(), "%d/%m/%Y").date()
             inicio_hora = datetime.strptime(self.hora_inicio_var.get().strip(), "%H:%M").time()
             fim_hora = datetime.strptime(self.hora_fim_var.get().strip(), "%H:%M").time()
         except ValueError as exc:
-            raise ValueError("Informe os horarios no formato HH:MM, por exemplo 10:00 e 15:00.") from exc
+            raise ValueError(
+                "Informe a data no formato DD/MM/AAAA e os horarios no formato HH:MM."
+            ) from exc
 
-        hoje = datetime.now().date()
-        data_inicio = datetime.combine(hoje, inicio_hora)
-        data_fim = datetime.combine(hoje, fim_hora)
+        data_inicio = datetime.combine(data, inicio_hora)
+        data_fim = datetime.combine(data, fim_hora)
         if data_fim <= data_inicio:
             raise ValueError("O horario final precisa ser maior que o horario inicial.")
         return data_inicio, data_fim
@@ -690,7 +694,7 @@ class AjusteMPCE(ttk.Frame):
         self.verificar_btn.configure(state="disabled")
         if data_inicio and data_fim:
             self.status_var.set(
-                f"Executando {origem} de {data_inicio:%H:%M} até {data_fim:%H:%M}..."
+                f"Executando {origem} de {data_inicio:%d/%m/%Y %H:%M} até {data_fim:%H:%M}..."
             )
         else:
             self.status_var.set(f"Executando rodada {origem}...")
